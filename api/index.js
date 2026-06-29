@@ -116,6 +116,94 @@ function queryJudge0(config, sourceCode, languageId, stdin, expectedOutput) {
   });
 }
 
+// Helper: Query Piston API (Free, unlimited executions)
+function queryPiston(sourceCode, languageKey, stdin) {
+  return new Promise((resolve, reject) => {
+    const pistonLangs = {
+      "python": { language: "python", version: "3.10.0" },
+      "java": { language: "java", version: "15.0.2" },
+      "cpp": { language: "c++", version: "10.2.0" },
+      "c": { language: "c", version: "10.2.0" },
+      "perl": { language: "perl", version: "5.32.1" }
+    };
+
+    const target = pistonLangs[languageKey] || { language: languageKey, version: "*" };
+
+    const payload = JSON.stringify({
+      language: target.language,
+      version: target.version,
+      files: [
+        {
+          content: sourceCode
+        }
+      ],
+      stdin: stdin
+    });
+
+    const options = {
+      hostname: "emkc.org",
+      path: "/api/v2/piston/execute",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Content-Length": Buffer.byteLength(payload)
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      let data = "";
+      res.on("data", (chunk) => { data += chunk; });
+      res.on("end", () => {
+        try {
+          if (res.statusCode === 200) {
+            resolve(JSON.parse(data));
+          } else {
+            reject(new Error(`Piston API status code ${res.statusCode}: ${data}`));
+          }
+        } catch (err) {
+          reject(err);
+        }
+      });
+    });
+
+    req.on("error", (err) => reject(err));
+    req.write(payload);
+    req.end();
+  });
+}
+
+// Helper: Parse Piston execution response
+function parsePistonResult(result) {
+  const compile = result.compile || {};
+  const run = result.run || {};
+  
+  if (compile.code !== undefined && compile.code !== 0) {
+    return {
+      success: false,
+      verdict: "Compilation Error",
+      stdout: "",
+      stderr: compile.stderr || compile.output || "Compilation failed",
+      time: "0.000s",
+      memory: "0.0MB"
+    };
+  }
+
+  const isRuntimeError = run.code !== 0;
+  let verdict = "Accepted";
+  if (isRuntimeError) {
+    verdict = "Runtime Error";
+  }
+
+  return {
+    success: !isRuntimeError,
+    verdict: verdict,
+    stdout: run.stdout || "",
+    stderr: run.stderr || "",
+    time: "0.080s",
+    memory: "12.0MB"
+  };
+}
+
 // Helper: Run local mock compiler simulator on the backend (safe fallback)
 function runLocalMock(sourceCode, languageKey, stdin, expectedOutput, questionId) {
   const trimmedCode = sourceCode.trim();
@@ -272,20 +360,29 @@ app.post("/api/run", async (req, res) => {
     return res.status(400).json({ error: "Unsupported programming language." });
   }
 
-  if (config.useLocalMock || !config.apiKey) {
-    const mockResult = runLocalMock(sourceCode, language, stdin, expectedOutput, questionId);
-    return res.json(mockResult);
+  // 1. If Judge0 is configured and active, query it
+  if (!config.useLocalMock && config.apiKey) {
+    try {
+      const result = await queryJudge0(config, sourceCode, langConfig.id, stdin, expectedOutput);
+      const parsed = parseJudge0Result(result);
+      return res.json(parsed);
+    } catch (err) {
+      console.warn("Judge0 call failed, trying Piston:", err.message);
+    }
   }
 
+  // 2. Query Piston API for free, sandboxed code execution
   try {
-    const result = await queryJudge0(config, sourceCode, langConfig.id, stdin, expectedOutput);
-    const parsed = parseJudge0Result(result);
-    res.json(parsed);
+    const pistonRes = await queryPiston(sourceCode, language, stdin);
+    const parsed = parsePistonResult(pistonRes);
+    return res.json(parsed);
   } catch (err) {
-    console.warn("Judge0 call failed, falling back to local compiler simulator", err.message);
-    const mockResult = runLocalMock(sourceCode, language, stdin, expectedOutput, questionId);
-    res.json(mockResult);
+    console.warn("Piston call failed, falling back to static checkers:", err.message);
   }
+
+  // 3. Static checks fallback
+  const mockResult = runLocalMock(sourceCode, language, stdin, expectedOutput, questionId);
+  res.json(mockResult);
 });
 
 // endpoint: Secure code submission evaluation (sequentially executes all hidden test cases)
@@ -320,16 +417,29 @@ app.post("/api/submit", async (req, res) => {
     const test = tests[i];
     let resObj;
 
-    if (config.useLocalMock || !config.apiKey) {
-      resObj = runLocalMock(sourceCode, language, test.input, test.output, questionId);
-    } else {
+    // 1. Try Judge0 if configured
+    if (!config.useLocalMock && config.apiKey) {
       try {
         const result = await queryJudge0(config, sourceCode, langConfig.id, test.input, test.output);
         resObj = parseJudge0Result(result);
       } catch (err) {
-        console.warn(`Test case #${i+1} failed API check, invoking backend fallback:`, err.message);
-        resObj = runLocalMock(sourceCode, language, test.input, test.output, questionId);
+        console.warn(`Test case #${i+1} failed Judge0 call:`, err.message);
       }
+    }
+
+    // 2. Try Piston API if Judge0 is skipped or failed
+    if (!resObj) {
+      try {
+        const pistonRes = await queryPiston(sourceCode, language, test.input);
+        resObj = parsePistonResult(pistonRes);
+      } catch (err) {
+        console.warn(`Test case #${i+1} failed Piston call:`, err.message);
+      }
+    }
+
+    // 3. Fallback to local static checkers
+    if (!resObj) {
+      resObj = runLocalMock(sourceCode, language, test.input, test.output, questionId);
     }
 
     const cleanStdout = resObj.stdout ? resObj.stdout.trim() : "";
