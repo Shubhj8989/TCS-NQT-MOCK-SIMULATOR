@@ -16,6 +16,15 @@ export default defineConfig({
   // Ensure correct build root directory
   build: {
     outDir: "dist",
-    emptyOutDir: true
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: "index.html",
+        login: "login.html",
+        instructions: "instructions.html",
+        exam: "exam.html",
+        result: "result.html"
+      }
+    }
   }
 });
