@@ -30,6 +30,7 @@ app.use("/data/hidden_tests.json", (req, res) => {
 
 // Serve static simulator frontend files
 app.use(express.static(path.join(__dirname)));
+app.use(express.static(path.join(__dirname, "public")));
 
 // Supported languages configurations
 const languages = {
