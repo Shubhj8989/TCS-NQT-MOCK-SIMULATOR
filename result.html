@@ -358,7 +358,7 @@
               } else if (q.type === "fitb") {
                 isCorrect = String(ans.value).trim().toLowerCase() === String(q.correctOption).trim().toLowerCase();
               } else if (q.type === "coding") {
-                isCorrect = true; // coding marked as read/viewed
+                isCorrect = ans.value === "yes";
               }
 
               if (isCorrect) {
@@ -385,8 +385,8 @@
                 selectedStr = `Value: <strong>${ans.value}</strong>`;
               }
             } else if (q.type === "coding") {
-              correctStr = `Concept read/viewed`;
-              selectedStr = `Viewed`;
+              correctStr = `Solved (Self-Evaluation)`;
+              selectedStr = ans.value === "yes" ? `Yes, I solved it` : `No, I did not solve it`;
             }
 
             // Build question card element

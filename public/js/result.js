@@ -76,14 +76,16 @@ const Result = {
             }
           }
         } else if (q.type === "coding") {
-          totalCoding += 0; // Coding weight disabled
+          totalCoding += 15; // 15 marks per coding question
           sectionCounts[sec.id].total++; // Increment Q count
 
           if (ans) {
             sectionCounts[sec.id].attempted++;
-            // Marking as viewed/read
-            topicTracker[topic].correct++;
-            sectionCounts[sec.id].correct++;
+            if (ans.value === "yes") {
+              scoreCoding += 15;
+              topicTracker[topic].correct++;
+              sectionCounts[sec.id].correct++;
+            }
           }
         }
       }
@@ -148,14 +150,18 @@ const Result = {
     // Rank out of 350,000 students
     this.stats.prediction.rank = Math.max(1, Math.round(((100 - percentile) / 100) * 350000));
 
-    // Profile Predictions (Aptitude-based as coding is disabled)
+    // Profile Predictions (Standard NQT Cutoffs including Solved Coding self-assessment)
+    // Prime: >= 80% Foundation, >= 70% Advanced, and solved BOTH coding questions (30 marks)
+    // Digital: >= 65% Foundation, >= 55% Advanced, and solved at least ONE coding question (15 marks)
+    // Ninja: >= 45% Foundation
     const foundationPct = (this.stats.scores.foundation / totalFoundation) * 100;
     const advancedPct = (this.stats.scores.advanced / totalAdvanced) * 100;
+    const codingScore = this.stats.scores.coding;
 
     let profile = "Not Eligible";
-    if (foundationPct >= 80 && advancedPct >= 70) {
+    if (foundationPct >= 80 && advancedPct >= 70 && codingScore === 30) {
       profile = "Prime";
-    } else if (foundationPct >= 65 && advancedPct >= 55) {
+    } else if (foundationPct >= 65 && advancedPct >= 55 && codingScore >= 15) {
       profile = "Digital";
     } else if (foundationPct >= 45) {
       profile = "Ninja";

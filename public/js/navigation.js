@@ -142,13 +142,18 @@ const Navigation = {
     container.appendChild(fitbDiv);
   },
 
-  // Coding Terminal IDE (Simplified: static problem statement viewing)
+  // Coding Terminal IDE (Simplified: static problem statement viewing + Solved Checklist)
   renderCoding: function(question, container) {
     container.innerHTML = "";
 
     const codingWorkspace = document.createElement("div");
     codingWorkspace.className = "coding-workspace";
     codingWorkspace.style.display = "block";
+
+    // Recover existing answer
+    const savedAns = Questions.getAnswer(question.id);
+    const isYes = savedAns && savedAns.value === "yes";
+    const isNo = savedAns && savedAns.value === "no";
 
     const problemPane = document.createElement("div");
     problemPane.className = "coding-problem-pane";
@@ -162,16 +167,46 @@ const Navigation = {
         <div class="question-number-title">${question.title} [${question.difficulty}]</div>
         <div class="question-score-meta">Category: ${question.topic}</div>
       </div>
-      <div class="question-content" style="font-size:0.95rem; padding: 2.2rem; overflow-y: auto; max-height: calc(100vh - 220px); border-radius: var(--radius-md); background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); margin-top: 1rem;">
+      <div class="question-content" style="font-size:0.95rem; padding: 2.2rem; overflow-y: auto; max-height: calc(100vh - 350px); border-radius: var(--radius-md); background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); margin-top: 1rem;">
         ${question.problemStatement}
+      </div>
+      
+      <!-- Self Evaluation Box -->
+      <div style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.15); border-radius: var(--radius-md); text-align: left; box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);">
+        <h4 style="color: white; margin-bottom: 0.8rem; font-size: 0.95rem; font-family: var(--font-heading); display:flex; align-items:center; gap:0.5rem;">
+          <span>🎯 Self-Evaluation:</span>
+          <span style="font-weight:normal; font-size:0.85rem; color:#a5c3f6;">Did you solve this coding problem?</span>
+        </h4>
+        <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+          <label style="display: flex; align-items: center; gap: 0.6rem; color: #e2e8f0; cursor: pointer; font-size: 0.9rem; font-weight: 500; padding: 0.4rem 0.8rem; border-radius: var(--radius-sm); transition: background 0.2s;">
+            <input type="radio" name="coding-solved-${question.id}" value="yes" ${isYes ? "checked" : ""} style="accent-color: #4ec9b0; width: 18px; height: 18px; cursor:pointer;">
+            Yes, I solved it (Award 15 Marks)
+          </label>
+          <label style="display: flex; align-items: center; gap: 0.6rem; color: #e2e8f0; cursor: pointer; font-size: 0.9rem; font-weight: 500; padding: 0.4rem 0.8rem; border-radius: var(--radius-sm); transition: background 0.2s;">
+            <input type="radio" name="coding-solved-${question.id}" value="no" ${isNo ? "checked" : ""} style="accent-color: #ff6b6b; width: 18px; height: 18px; cursor:pointer;">
+            No, I did not solve it (Award 0 Marks)
+          </label>
+        </div>
       </div>
     `;
 
     codingWorkspace.appendChild(problemPane);
     container.appendChild(codingWorkspace);
-    
-    // Save standard answered status so the palette marks it as complete/visited
-    Questions.saveAnswer(question.id, "read", "coding");
+
+    // Bind selection changes
+    const radioYes = problemPane.querySelector('input[value="yes"]');
+    const radioNo = problemPane.querySelector('input[value="no"]');
+
+    const saveChoice = (val) => {
+      Questions.saveAnswer(question.id, val, "coding");
+      // Refresh palette to update status markers (green)
+      Palette.render(Questions.session.currentSectionId, Questions.session.currentQuestionIndex, (targetIdx) => {
+        this.loadQuestion(targetIdx);
+      });
+    };
+
+    radioYes.addEventListener("change", () => saveChoice("yes"));
+    radioNo.addEventListener("change", () => saveChoice("no"));
   },
 
   // Dummy bind for compatibility
