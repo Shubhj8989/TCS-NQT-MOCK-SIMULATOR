@@ -26,6 +26,28 @@
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
+    .filter-btn {
+      transition: all 0.2s ease;
+      background: rgba(255,255,255,0.8);
+      color: var(--primary-color) !important;
+      border: 1px solid rgba(0,0,0,0.1) !important;
+    }
+    .filter-btn:hover {
+      background: var(--tcs-light-blue);
+      border-color: var(--accent-color) !important;
+    }
+    .filter-btn.active {
+      background: var(--accent-color) !important;
+      color: white !important;
+      border-color: var(--accent-color) !important;
+    }
+    .solution-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .solution-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05) !important;
+    }
   </style>
 </head>
 <body style="background-color: #f1f3f8; min-height: 100vh;">
@@ -164,8 +186,26 @@
         </div>
       </div>
 
+      <!-- Detailed Solutions Panel -->
+      <div class="dash-card" style="margin-top: 2rem;">
+        <div class="dash-card-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap:1rem;">
+          <span>Detailed Question Review & Solutions</span>
+          <div style="display:flex; gap: 0.5rem; flex-wrap:wrap;">
+            <button class="btn btn-secondary filter-btn active" data-filter="all" style="padding: 0.3rem 0.8rem; font-size: 0.8rem;">All Sections</button>
+            <button class="btn btn-secondary filter-btn" data-filter="numerical" style="padding: 0.3rem 0.8rem; font-size: 0.8rem;">Numerical</button>
+            <button class="btn btn-secondary filter-btn" data-filter="verbal" style="padding: 0.3rem 0.8rem; font-size: 0.8rem;">Verbal</button>
+            <button class="btn btn-secondary filter-btn" data-filter="reasoning" style="padding: 0.3rem 0.8rem; font-size: 0.8rem;">Reasoning</button>
+            <button class="btn btn-secondary filter-btn" data-filter="advanced" style="padding: 0.3rem 0.8rem; font-size: 0.8rem;">Advanced</button>
+            <button class="btn btn-secondary filter-btn" data-filter="coding" style="padding: 0.3rem 0.8rem; font-size: 0.8rem;">Coding</button>
+          </div>
+        </div>
+        <div class="dash-card-body" id="solutions-list-container" style="padding: 1.5rem; max-height: 600px; overflow-y: auto;">
+          <!-- Solutions render dynamically -->
+        </div>
+      </div>
+
       <!-- Bottom actions -->
-      <div style="display:flex; justify-content:center; gap:1.5rem; margin-top:2rem; margin-bottom:4rem;">
+      <div style="display:flex; justify-content:center; gap:1.5rem; margin-top:2.5rem; margin-bottom:4rem;">
         <button id="btn-retake" class="btn" style="background-color:var(--primary-color); color:white;">Retake Assessment</button>
         <button id="btn-home" class="btn btn-secondary">Simulator Portal Home</button>
       </div>
@@ -284,7 +324,160 @@
 
         // Recommendation
         document.getElementById("recommendation-text-val").innerText = reportData.topics.recommendation;
+
+        // Render detailed solution cards
+        renderDetailedSolutions("all");
       }
+
+      function renderDetailedSolutions(activeFilter = "all") {
+        const container = document.getElementById("solutions-list-container");
+        if (!container || !Questions.activeMock) return;
+
+        container.innerHTML = "";
+        const mockData = Questions.activeMock;
+        const answers = Questions.session.answers || {};
+
+        mockData.sections.forEach(sec => {
+          sec.questions.forEach((q, qIdx) => {
+            const displayNum = qIdx + 1;
+            const ans = answers[q.id];
+
+            // If we are filtering and it doesn't match this section, skip rendering
+            if (activeFilter !== "all" && sec.id !== activeFilter) {
+              return;
+            }
+
+            // Determine status
+            let isCorrect = false;
+            let statusText = "Unattempted";
+            let statusStyle = "background-color: #718096; color: white;"; // gray for unattempted
+
+            if (ans) {
+              if (q.type === "mcq") {
+                isCorrect = parseInt(ans.value) === q.correctOption;
+              } else if (q.type === "fitb") {
+                isCorrect = String(ans.value).trim().toLowerCase() === String(q.correctOption).trim().toLowerCase();
+              } else if (q.type === "coding") {
+                isCorrect = true; // coding marked as read/viewed
+              }
+
+              if (isCorrect) {
+                statusText = "Correct";
+                statusStyle = "background-color: var(--success-color); color: white;";
+              } else {
+                statusText = "Incorrect";
+                statusStyle = "background-color: var(--danger-color); color: white;";
+              }
+            }
+
+            // Format selected and correct answer strings
+            let selectedStr = "None (Unattempted)";
+            let correctStr = "";
+
+            if (q.type === "mcq") {
+              correctStr = `Option: <strong>${q.options[q.correctOption]}</strong>`;
+              if (ans) {
+                selectedStr = `Option: <strong>${q.options[parseInt(ans.value)] || "Invalid Option"}</strong>`;
+              }
+            } else if (q.type === "fitb") {
+              correctStr = `Value: <strong>${q.correctOption}</strong>`;
+              if (ans) {
+                selectedStr = `Value: <strong>${ans.value}</strong>`;
+              }
+            } else if (q.type === "coding") {
+              correctStr = `Concept read/viewed`;
+              selectedStr = `Viewed`;
+            }
+
+            // Build question card element
+            const card = document.createElement("div");
+            card.className = "solution-card";
+            card.style.border = "1px solid rgba(0,0,0,0.08)";
+            card.style.borderRadius = "8px";
+            card.style.padding = "1.2rem";
+            card.style.marginBottom = "1rem";
+            card.style.backgroundColor = "rgba(255,255,255,0.7)";
+            card.style.boxShadow = "0 1px 3px rgba(0,0,0,0.02)";
+
+            // Highlight border depending on status
+            if (statusText === "Correct") {
+              card.style.borderLeft = "4px solid var(--success-color)";
+            } else if (statusText === "Incorrect") {
+              card.style.borderLeft = "4px solid var(--danger-color)";
+            } else {
+              card.style.borderLeft = "4px solid #718096";
+            }
+
+            // Format options list if MCQ
+            let optionsHtml = "";
+            if (q.type === "mcq") {
+              optionsHtml += `<div style="margin: 0.8rem 0; padding-left: 1rem; display: flex; flex-direction: column; gap: 0.4rem;">`;
+              q.options.forEach((opt, oIdx) => {
+                let optStyle = "color: var(--text-color); font-size: 0.85rem;";
+                let prefix = "• ";
+                
+                if (oIdx === q.correctOption) {
+                  optStyle = "color: var(--success-color); font-weight: 600; font-size: 0.85rem;";
+                  prefix = "✔️ ";
+                } else if (ans && parseInt(ans.value) === oIdx) {
+                  optStyle = "color: var(--danger-color); font-weight: 600; font-size: 0.85rem;";
+                  prefix = "❌ ";
+                }
+                
+                optionsHtml += `<span style="${optStyle}">${prefix}${opt}</span>`;
+              });
+              optionsHtml += `</div>`;
+            }
+
+            card.innerHTML = `
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.8rem; border-bottom:1px solid rgba(0,0,0,0.04); padding-bottom:0.5rem; flex-wrap:wrap; gap:0.5rem;">
+                <span style="font-size:0.85rem; font-weight:600; color:var(--primary-color); text-transform:uppercase;">${sec.name} - Question ${displayNum}</span>
+                <span style="padding:0.25rem 0.6rem; border-radius:12px; font-size:0.75rem; font-weight:600; text-transform:uppercase; ${statusStyle}">${statusText}</span>
+              </div>
+              <div style="font-size:0.9rem; font-weight:500; margin-bottom:0.5rem; color:#2d3748; line-height:1.5;">
+                ${q.questionText || q.problemStatement}
+              </div>
+              ${optionsHtml}
+              <div style="margin-top:0.8rem; font-size:0.85rem; display:flex; flex-direction:column; gap:0.3rem; background:rgba(0,0,0,0.02); padding:0.8rem; border-radius:6px;">
+                <div>Your Response: <span style="color:${statusText === "Correct" ? "var(--success-color)" : (statusText === "Incorrect" ? "var(--danger-color)" : "#718096")}">${selectedStr}</span></div>
+                <div>Correct Answer: <span style="color:var(--success-color); font-weight:600;">${correctStr}</span></div>
+              </div>
+              
+              <!-- Collapsible Solution Toggle -->
+              <div style="margin-top:0.8rem;">
+                <button class="btn-toggle-solution" style="background:transparent; border:none; color:var(--accent-color); font-size:0.8rem; font-weight:600; cursor:pointer; padding:0; display:flex; align-items:center; gap:0.3rem; outline:none;">
+                  <span>➕ View Step-by-Step Solution</span>
+                </button>
+                <div class="solution-explanation-pane" style="display:none; margin-top:0.5rem; font-size:0.85rem; color:#4a5568; border-top:1px dashed rgba(0,0,0,0.1); padding-top:0.5rem; line-height:1.5;">
+                  ${q.explanation || "No step-by-step solution provided."}
+                </div>
+              </div>
+            `;
+
+            // Bind toggle button interaction
+            const toggleBtn = card.querySelector(".btn-toggle-solution");
+            const solutionPane = card.querySelector(".solution-explanation-pane");
+            toggleBtn.addEventListener("click", () => {
+              const isCollapsed = solutionPane.style.display === "none";
+              solutionPane.style.display = isCollapsed ? "block" : "none";
+              toggleBtn.querySelector("span").innerText = isCollapsed ? "➖ Hide Step-by-Step Solution" : "➕ View Step-by-Step Solution";
+            });
+
+            container.appendChild(card);
+          });
+        });
+      }
+
+      // Bind Filter buttons
+      const filterButtons = document.querySelectorAll(".filter-btn");
+      filterButtons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          filterButtons.forEach(b => b.classList.remove("active"));
+          btn.classList.add("active");
+          const filterValue = btn.getAttribute("data-filter");
+          renderDetailedSolutions(filterValue);
+        });
+      });
 
       // Actions bindings
       document.getElementById("btn-retake").addEventListener("click", () => {
