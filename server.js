@@ -350,6 +350,9 @@ app.post("/api/submit", async (req, res) => {
   });
 });
 
-app.listen(PORT, () => {
-  console.log(`Coding Judge Backend listening at http://localhost:${PORT}`);
-});
+if (require.main === module || !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Coding Judge Backend listening at http://localhost:${PORT}`);
+  });
+}
+module.exports = app;
