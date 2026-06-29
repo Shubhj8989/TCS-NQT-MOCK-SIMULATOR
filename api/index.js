@@ -13,7 +13,7 @@ app.use(express.json());
 // Load hidden tests securely in memory on start
 let hiddenTests = {};
 try {
-  const fileContent = fs.readFileSync(path.join(__dirname, "secure_data", "hidden_tests.json"), "utf8");
+  const fileContent = fs.readFileSync(path.join(__dirname, "..", "secure_data", "hidden_tests.json"), "utf8");
   hiddenTests = JSON.parse(fileContent);
   console.log("Loaded hidden tests successfully.");
 } catch (e) {
@@ -29,8 +29,8 @@ app.use("/data/hidden_tests.json", (req, res) => {
 });
 
 // Serve static simulator frontend files
-app.use(express.static(path.join(__dirname)));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "..")));
+app.use(express.static(path.join(__dirname, "..", "public")));
 
 // Supported languages configurations
 const languages = {
@@ -44,7 +44,7 @@ const languages = {
 // Helper: Get Judge0 config
 function getJudge0Config() {
   try {
-    const configPath = path.join(__dirname, "secure_data", "config.json");
+    const configPath = path.join(__dirname, "..", "secure_data", "config.json");
     if (fs.existsSync(configPath)) {
       return JSON.parse(fs.readFileSync(configPath, "utf8"));
     }
