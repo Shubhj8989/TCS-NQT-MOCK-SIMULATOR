@@ -107,7 +107,7 @@
 
   <!-- Settings overlay for Judge0 (Optional for advanced users) -->
   <!-- We put a tiny link in candidates profile to configure RapidAPI Key if they want real compile. -->
-  <div style="position:fixed; bottom: 5px; left: 5px; font-size: 0.65rem; color:#888; z-index: 100; cursor:pointer;" id="link-compiler-settings">⚙️ Compiler Settings</div>
+  <div style="position:fixed; bottom: 5px; left: 5px; font-size: 0.65rem; color:#888; z-index: 100; cursor:pointer; display:none;" id="link-compiler-settings">⚙️ Compiler Settings</div>
 
   <!-- Core Javascript Engines -->
   <script src="./js/utils.js"></script>
@@ -162,16 +162,15 @@
         const saveBtn = document.getElementById("btn-save-next");
         const reviewBtn = document.getElementById("btn-mark-review");
 
+        runBtn.style.display = "none";
+        reviewBtn.style.display = "inline-block";
+
         if (q && q.type === "coding") {
-          runBtn.style.display = "inline-block";
-          saveBtn.innerText = "Submit Code";
-          saveBtn.title = "Evaluates against hidden test cases";
-          reviewBtn.style.display = "none";
+          saveBtn.innerText = "Next Question";
+          saveBtn.title = "Go to next question";
         } else {
-          runBtn.style.display = "none";
           saveBtn.innerText = "Save & Next";
           saveBtn.title = "";
-          reviewBtn.style.display = "inline-block";
         }
       };
       

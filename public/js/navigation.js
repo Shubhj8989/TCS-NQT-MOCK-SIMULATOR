@@ -142,179 +142,40 @@ const Navigation = {
     container.appendChild(fitbDiv);
   },
 
-  // Coding Terminal IDE
+  // Coding Terminal IDE (Simplified: static problem statement viewing)
   renderCoding: function(question, container) {
     container.innerHTML = "";
 
     const codingWorkspace = document.createElement("div");
     codingWorkspace.className = "coding-workspace";
+    codingWorkspace.style.display = "block";
 
-    // Left pane: Description
-    const leftPane = document.createElement("div");
-    leftPane.className = "coding-problem-pane";
-    leftPane.innerHTML = `
+    const problemPane = document.createElement("div");
+    problemPane.className = "coding-problem-pane";
+    problemPane.style.width = "100%";
+    problemPane.style.height = "auto";
+    problemPane.style.maxHeight = "none";
+    problemPane.style.borderRight = "none";
+
+    problemPane.innerHTML = `
       <div class="question-panel-header">
         <div class="question-number-title">${question.title} [${question.difficulty}]</div>
         <div class="question-score-meta">Category: ${question.topic}</div>
       </div>
-      <div class="question-content" style="font-size:0.95rem;">
+      <div class="question-content" style="font-size:0.95rem; padding: 2.2rem; overflow-y: auto; max-height: calc(100vh - 220px); border-radius: var(--radius-md); background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); margin-top: 1rem;">
         ${question.problemStatement}
       </div>
     `;
 
-    // Right pane: Editor and console
-    const rightPane = document.createElement("div");
-    rightPane.className = "coding-editor-pane";
-    
-    // Recover code state or set defaults
-    const savedAns = Questions.getAnswer(question.id);
-    let activeLang = savedAns ? savedAns.lang : "python";
-    let activeCode = savedAns ? savedAns.value : Judge0.languages[activeLang].defaultCode;
-
-    rightPane.innerHTML = `
-      <div class="editor-header">
-        <div class="editor-controls">
-          <select id="lang-selector" class="editor-select">
-            <option value="python" ${activeLang === "python" ? "selected" : ""}>Python 3</option>
-            <option value="java" ${activeLang === "java" ? "selected" : ""}>Java (OpenJDK)</option>
-            <option value="cpp" ${activeLang === "cpp" ? "selected" : ""}>C++ (GCC)</option>
-            <option value="c" ${activeLang === "c" ? "selected" : ""}>C (GCC)</option>
-            <option value="perl" ${activeLang === "perl" ? "selected" : ""}>Perl (5.28.1)</option>
-          </select>
-          <button id="btn-reset-code" class="editor-select" style="background:#444;">Reset Code</button>
-        </div>
-        <span style="font-size:0.8rem;color:#858585;">Language Selector</span>
-      </div>
-      <div class="editor-textarea-container">
-        <div class="line-numbers" id="line-numbers-container">1</div>
-        <textarea id="code-editor" class="code-textarea" spellcheck="false" autocomplete="off">${activeCode}</textarea>
-      </div>
-      
-      <!-- Console Pane -->
-      <div class="coding-console-pane">
-        <div class="console-tabs">
-          <div class="console-tab active" id="tab-console-input">Custom Input</div>
-          <div class="console-tab" id="tab-console-output">Compiler Log</div>
-          <div class="console-tab" id="tab-console-results">Test Results</div>
-        </div>
-        <div class="console-body">
-          <div id="pane-console-input" class="console-pane-item">
-            <textarea id="custom-stdin" class="custom-input-area" placeholder="Provide program inputs here..."></textarea>
-          </div>
-          <div id="pane-console-output" class="console-pane-item" style="display:none;">
-            <div id="console-output-text" class="console-log" style="color:#ddd;">No program executed yet. Click 'Compile & Run'.</div>
-          </div>
-          <div id="pane-console-results" class="console-pane-item" style="display:none;">
-            <div id="console-results-verdict" class="console-verdict">Submit your code to view results.</div>
-            <div id="testcase-rows-container"></div>
-          </div>
-        </div>
-      </div>
-    `;
-
-    codingWorkspace.appendChild(leftPane);
-    codingWorkspace.appendChild(rightPane);
+    codingWorkspace.appendChild(problemPane);
     container.appendChild(codingWorkspace);
-
-    // Bind coding UI interactions
-    this.bindCodingInteractions(question.id);
+    
+    // Save standard answered status so the palette marks it as complete/visited
+    Questions.saveAnswer(question.id, "read", "coding");
   },
 
-  // Bind code editor scroll sync, tabs and triggers
-  bindCodingInteractions: function(questionId) {
-    const editor = document.getElementById("code-editor");
-    const lineContainer = document.getElementById("line-numbers-container");
-    const langSelect = document.getElementById("lang-selector");
-    const btnReset = document.getElementById("btn-reset-code");
-
-    // Sync line numbers
-    const updateLineNumbers = () => {
-      const lines = editor.value.split("\n").length;
-      let lineHtml = "";
-      for (let i = 1; i <= lines; i++) {
-        lineHtml += `${i}<br>`;
-      }
-      lineContainer.innerHTML = lineHtml;
-    };
-
-    editor.addEventListener("input", () => {
-      updateLineNumbers();
-      // Auto save code dynamically
-      Questions.saveAnswer(questionId, editor.value, "coding", langSelect.value);
-    });
-
-    editor.addEventListener("scroll", () => {
-      lineContainer.scrollTop = editor.scrollTop;
-    });
-
-    updateLineNumbers();
-
-    // Tab key support in textarea
-    editor.addEventListener("keydown", (e) => {
-      if (e.key === "Tab") {
-        e.preventDefault();
-        const start = editor.selectionStart;
-        const end = editor.selectionEnd;
-        editor.value = editor.value.substring(0, start) + "    " + editor.value.substring(end);
-        editor.selectionStart = editor.selectionEnd = start + 4;
-        updateLineNumbers();
-        Questions.saveAnswer(questionId, editor.value, "coding", langSelect.value);
-      }
-    });
-
-    // Language Change
-    langSelect.addEventListener("change", () => {
-      const lang = langSelect.value;
-      const confirmChange = () => {
-        editor.value = Judge0.languages[lang].defaultCode;
-        updateLineNumbers();
-        Questions.saveAnswer(questionId, editor.value, "coding", lang);
-      };
-      
-      const saved = Questions.getAnswer(questionId);
-      if (saved && saved.lang !== lang) {
-        Utils.showConfirm(
-          "Switch Language?",
-          "Switching language will replace your current code with the default starter template. Do you want to proceed?",
-          confirmChange,
-          () => {
-            // Revert dropdown select value
-            langSelect.value = saved.lang;
-          }
-        );
-      } else {
-        confirmChange();
-      }
-    });
-
-    // Reset code
-    btnReset.addEventListener("click", () => {
-      Utils.showConfirm(
-        "Reset Code?",
-        "Are you sure you want to discard your changes and reset to the default template?",
-        () => {
-          editor.value = Judge0.languages[langSelect.value].defaultCode;
-          updateLineNumbers();
-          Questions.saveAnswer(questionId, editor.value, "coding", langSelect.value);
-        }
-      );
-    });
-
-    // Console tabs trigger
-    const bindTab = (tabId, paneId) => {
-      document.getElementById(tabId).addEventListener("click", () => {
-        document.querySelectorAll(".console-tab").forEach(t => t.classList.remove("active"));
-        document.querySelectorAll(".console-pane-item").forEach(p => p.style.display = "none");
-        
-        document.getElementById(tabId).classList.add("active");
-        document.getElementById(paneId).style.display = "block";
-      });
-    };
-
-    bindTab("tab-console-input", "pane-console-input");
-    bindTab("tab-console-output", "pane-console-output");
-    bindTab("tab-console-results", "pane-console-results");
-  },
+  // Dummy bind for compatibility
+  bindCodingInteractions: function(questionId) {},
 
   // Save current question inputs to session answers registry
   saveCurrentAnswer: function() {
@@ -348,7 +209,8 @@ const Navigation = {
       btnSaveNext.addEventListener("click", () => {
         const q = Questions.getCurrentQuestion();
         if (q && q.type === "coding") {
-          this.submitCodingCode();
+          // Simply move forward for coding reading section
+          this.moveNext();
         } else {
           this.saveCurrentAnswer();
           this.moveNext();

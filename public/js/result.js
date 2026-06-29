@@ -76,27 +76,14 @@ const Result = {
             }
           }
         } else if (q.type === "coding") {
-          totalCoding += 15; // Coding weight (15 marks per coding Q)
+          totalCoding += 0; // Coding weight disabled
           sectionCounts[sec.id].total++; // Increment Q count
 
-          if (ans && ans.value.trim().length > 30) {
+          if (ans) {
             sectionCounts[sec.id].attempted++;
-            // Evaluate code against hidden test cases
-            const evalResult = await Judge0.evaluateSubmission(
-              ans.value,
-              ans.lang,
-              q.id
-            );
-
-            // Marks awarded proportionally to tests passed
-            const passedRatio = evalResult.totalCount > 0 ? (evalResult.passedCount / evalResult.totalCount) : 0;
-            const marksAwarded = passedRatio * 15;
-            scoreCoding += marksAwarded;
-
-            if (passedRatio >= 0.75) {
-              topicTracker[topic].correct++;
-              sectionCounts[sec.id].correct++;
-            }
+            // Marking as viewed/read
+            topicTracker[topic].correct++;
+            sectionCounts[sec.id].correct++;
           }
         }
       }
@@ -161,18 +148,14 @@ const Result = {
     // Rank out of 350,000 students
     this.stats.prediction.rank = Math.max(1, Math.round(((100 - percentile) / 100) * 350000));
 
-    // Profile Predictions (Standard NQT Cutoffs)
-    // Prime: >= 85% Foundation, >= 75% Advanced, >= 70% Coding
-    // Digital: >= 70% Foundation, >= 60% Advanced, >= 40% Coding
-    // Ninja: >= 50% Foundation, >= 20% Coding
+    // Profile Predictions (Aptitude-based as coding is disabled)
     const foundationPct = (this.stats.scores.foundation / totalFoundation) * 100;
     const advancedPct = (this.stats.scores.advanced / totalAdvanced) * 100;
-    const codingPct = (this.stats.scores.coding / totalCoding) * 100;
 
     let profile = "Not Eligible";
-    if (foundationPct >= 80 && advancedPct >= 70 && codingPct >= 65) {
+    if (foundationPct >= 80 && advancedPct >= 70) {
       profile = "Prime";
-    } else if (foundationPct >= 65 && advancedPct >= 55 && codingPct >= 30) {
+    } else if (foundationPct >= 65 && advancedPct >= 55) {
       profile = "Digital";
     } else if (foundationPct >= 45) {
       profile = "Ninja";
