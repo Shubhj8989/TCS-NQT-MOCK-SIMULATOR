@@ -43,10 +43,23 @@ const languages = {
 
 // Helper: Get Judge0 config
 function getJudge0Config() {
+  // Check Vercel environment variables first
+  if (process.env.RAPIDAPI_KEY) {
+    return {
+      apiUrl: process.env.JUDGE0_API_URL || "https://judge0-ce.p.rapidapi.com",
+      apiKey: process.env.RAPIDAPI_KEY.trim(),
+      useLocalMock: false
+    };
+  }
+
   try {
     const configPath = path.join(__dirname, "..", "secure_data", "config.json");
     if (fs.existsSync(configPath)) {
-      return JSON.parse(fs.readFileSync(configPath, "utf8"));
+      const fileConfig = JSON.parse(fs.readFileSync(configPath, "utf8"));
+      if (fileConfig.apiKey) {
+        fileConfig.useLocalMock = false;
+      }
+      return fileConfig;
     }
   } catch (err) {
     console.error("Error reading judge0 config file", err.message);
