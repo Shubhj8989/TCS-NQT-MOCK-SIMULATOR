@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - TCS iON Assessment Portal</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    .tab-item {
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: var(--font-heading);
+      border-bottom: 3px solid transparent;
+      color: var(--text-gray);
+      transition: all var(--transition-fast);
+    }
+    .tab-item.active {
+      border-bottom-color: var(--accent-color);
+      color: var(--primary-color);
+    }
+    .feedback-msg {
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      display: none;
+    }
+  </style>
+</head>
+<body class="login-layout">
+  <div class="login-container">
+    <div class="login-sidebar">
+      <div>
+        <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; color: #a5c3f6;">Candidate System</div>
+        <h2>System 104</h2>
+      </div>
+      <div>
+        <p>Log in with your Candidate ID to begin the exam. If you are a new candidate, switch to the Register tab.</p>
+        <p style="margin-top: 1rem; font-size: 0.8rem; color: #7f9fd2;">TCS iON Digital Zone © 2026</p>
+      </div>
+    </div>
+
+    <div class="login-form-area">
+      <!-- Tabs header -->
+      <div style="display:flex; border-bottom: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+        <div id="tab-signin" class="tab-item active">Sign In</div>
+        <div id="tab-register" class="tab-item">Register</div>
+      </div>
+
+      <!-- Feedback messaging -->
+      <div id="feedback-msg" class="feedback-msg"></div>
+
+      <!-- Sign In Panel -->
+      <div id="panel-signin">
+        <div class="form-group">
+          <label for="login-username">Candidate ID (Username)</label>
+          <input type="text" id="login-username" class="form-control" placeholder="e.g. nqt_candidate_1">
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password" class="form-control" placeholder="Enter password">
+        </div>
+        <button id="btn-signin" class="btn btn-tcs">Sign In</button>
+      </div>
+
+      <!-- Register Panel -->
+      <div id="panel-register" style="display:none;">
+        <div class="form-group">
+          <label for="reg-name">Full Name</label>
+          <input type="text" id="reg-name" class="form-control" placeholder="e.g. Jane Smith">
+        </div>
+        <div class="form-group">
+          <label for="reg-username">Choose Candidate ID (Username)</label>
+          <input type="text" id="reg-username" class="form-control" placeholder="e.g. jane_smith">
+        </div>
+        <div class="form-group">
+          <label for="reg-password">Password</label>
+          <input type="password" id="reg-password" class="form-control" placeholder="Create password">
+        </div>
+        <button id="btn-register" class="btn btn-tcs" style="background-color: var(--success-color);">Register Account</button>
+      </div>
+      
+      <div class="system-details">
+        Browser Check: Compatible | Security Shield: Enabled
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/utils.js"></script>
+  <script>
+    // Tab switching controls
+    const tabSignin = document.getElementById("tab-signin");
+    const tabRegister = document.getElementById("tab-register");
+    const panelSignin = document.getElementById("panel-signin");
+    const panelRegister = document.getElementById("panel-register");
+    const feedbackMsg = document.getElementById("feedback-msg");
+
+    const showMsg = (text, isError = true) => {
+      feedbackMsg.innerHTML = text;
+      feedbackMsg.style.display = "block";
+      feedbackMsg.style.color = isError ? "var(--danger-color)" : "var(--success-color)";
+    };
+
+    const clearMsg = () => {
+      feedbackMsg.innerHTML = "";
+      feedbackMsg.style.display = "none";
+    };
+
+    tabSignin.addEventListener("click", () => {
+      tabSignin.classList.add("active");
+      tabRegister.classList.remove("active");
+      panelSignin.style.display = "block";
+      panelRegister.style.display = "none";
+      clearMsg();
+    });
+
+    tabRegister.addEventListener("click", () => {
+      tabRegister.classList.add("active");
+      tabSignin.classList.remove("active");
+      panelRegister.style.display = "block";
+      panelSignin.style.display = "none";
+      clearMsg();
+    });
+
+    // 1. Sign In submission
+    document.getElementById("btn-signin").addEventListener("click", () => {
+      const username = document.getElementById("login-username").value;
+      const pass = document.getElementById("login-password").value;
+
+      if (!username || !pass) {
+        showMsg("Please enter both Candidate ID and password.");
+        return;
+      }
+
+      const res = Utils.loginUser(username, pass);
+      if (res.success) {
+        // Retrieve chosen mock test ID
+        const mockId = Utils.loadState("selected_mock_id");
+        if (!mockId) {
+          window.location.href = "./index.html";
+        } else {
+          window.location.href = "./instructions.html";
+        }
+      } else {
+        showMsg(res.message);
+      }
+    });
+
+    // 2. Registration submission
+    document.getElementById("btn-register").addEventListener("click", () => {
+      const name = document.getElementById("reg-name").value;
+      const username = document.getElementById("reg-username").value;
+      const pass = document.getElementById("reg-password").value;
+
+      if (!name || !username || !pass) {
+        showMsg("All fields are required for registration.");
+        return;
+      }
+
+      if (username.trim().includes(" ")) {
+        showMsg("Candidate ID cannot contain spaces.");
+        return;
+      }
+
+      const res = Utils.registerUser(username, name, pass);
+      if (res.success) {
+        showMsg("Registration successful! Switching to Sign In...", false);
+        // Autofill username
+        document.getElementById("login-username").value = username.trim();
+        document.getElementById("login-password").value = "";
+        setTimeout(() => {
+          tabSignin.click();
+        }, 1500);
+      } else {
+        showMsg(res.message);
+      }
+    });
+  </script>
+</body>
+</html>

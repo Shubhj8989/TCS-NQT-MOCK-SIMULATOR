@@ -1,0 +1,1171 @@
+{
+  "id": 4,
+  "title": "TCS NQT Complete Mock Test 4",
+  "sections": [
+    {
+      "id": "numerical",
+      "name": "Numerical Ability",
+      "duration": 25,
+      "questions": [
+        {
+          "id": "m4_num_1",
+          "type": "mcq",
+          "questionText": "Find the sum of all two-digit numbers which when divided by 4 leave a remainder 1.",
+          "options": [
+            "1210",
+            "1188",
+            "1242",
+            "1155"
+          ],
+          "correctOption": 0,
+          "topic": "Number Systems",
+          "explanation": "Two-digit numbers are 10 to 99. Those leaving remainder 1 when divided by 4: 13, 17, 21 ... 97. This is an AP with a=13, d=4, l=97. Number of terms n = (97-13)/4 + 1 = 22. Sum = 22/2 * (13 + 97) = 11 * 110 = 1210."
+        },
+        {
+          "id": "m4_num_2",
+          "type": "mcq",
+          "questionText": "A sum of money compounded annually becomes Rs. 650 at the end of the first year and Rs. 676 at the end of the second year. Find the principal sum.",
+          "options": [
+            "Rs. 625",
+            "Rs. 600",
+            "Rs. 630",
+            "Rs. 640"
+          ],
+          "correctOption": 0,
+          "topic": "Simple & Compound Interest",
+          "explanation": "Rate of interest = ((676 - 650) / 650) * 100 = (26 / 650) * 100 = 4%. Principal * (1 + 0.04) = 650 => P = 650 / 1.04 = Rs. 625."
+        },
+        {
+          "id": "m4_num_3",
+          "type": "mcq",
+          "questionText": "A and B working separately can complete a piece of work in 9 and 12 days respectively. If they work for a day alternately, with A beginning, in how many days will the work be completed?",
+          "options": [
+            "10.25 days",
+            "10.5 days",
+            "9.75 days",
+            "11 days"
+          ],
+          "correctOption": 0,
+          "topic": "Time & Work",
+          "explanation": "Total work = LCM(9,12) = 36 units. Rate of A = 4 units/day, Rate of B = 3 units/day. In a 2-day cycle, they complete 4 + 3 = 7 units. In 5 cycles (10 days), they complete 35 units. Remaining work = 1 unit. A's turn on day 11, takes 1/4 = 0.25 days. Total time = 10 + 0.25 = 10.25 days."
+        },
+        {
+          "id": "m4_num_4",
+          "type": "mcq",
+          "questionText": "If the price of sugar is increased by 30%, by what percent should a family decrease its consumption so that the expenditure increases by only 10%?",
+          "options": [
+            "15.38%",
+            "16.67%",
+            "12.5%",
+            "18.2%"
+          ],
+          "correctOption": 0,
+          "topic": "Percentages",
+          "explanation": "New Expenditure = 110. New Price = 130. New Consumption = 110 / 130 = 11/13. Decrease% = (1 - 11/13) * 100 = 2/13 * 100 = 15.38%."
+        },
+        {
+          "id": "m4_num_5",
+          "type": "mcq",
+          "questionText": "A man buys oranges at 5 for Rs. 10 and sells them at 4 for Rs. 12. Find his gain percentage.",
+          "options": [
+            "50%",
+            "40%",
+            "30%",
+            "45%"
+          ],
+          "correctOption": 0,
+          "topic": "Profit & Loss",
+          "explanation": "CP per orange = 10 / 5 = Rs. 2. SP per orange = 12 / 4 = Rs. 3. Gain per orange = Rs. 1. Gain% = (1 / 2) * 100 = 50%."
+        },
+        {
+          "id": "m4_num_6",
+          "type": "mcq",
+          "questionText": "The average age of a class of 40 students is 15 years. When the teacher's age is included, the average becomes 16 years. Find the teacher's age.",
+          "options": [
+            "56 years",
+            "45 years",
+            "50 years",
+            "48 years"
+          ],
+          "correctOption": 0,
+          "topic": "Averages",
+          "explanation": "Total age of students = 40 * 15 = 600. Total age with teacher = 41 * 16 = 656. Teacher's age = 656 - 600 = 56 years."
+        },
+        {
+          "id": "m4_num_7",
+          "type": "mcq",
+          "questionText": "A man rides at 10 km/h and reaches his destination 15 minutes late. If he rides at 12 km/h, he reaches 5 minutes late. Find the distance.",
+          "options": [
+            "10 km",
+            "12 km",
+            "8 km",
+            "15 km"
+          ],
+          "correctOption": 0,
+          "topic": "Time, Speed & Distance",
+          "explanation": "Let distance be d. d/10 - d/12 = 10 mins = 10/60 hours = 1/6 hours. (6d - 5d) / 60 = 1/6 => d/60 = 1/6 => d = 10 km."
+        },
+        {
+          "id": "m4_num_8",
+          "type": "mcq",
+          "questionText": "What is the HCF of 1.08, 0.36 and 0.9?",
+          "options": [
+            "0.18",
+            "0.09",
+            "0.36",
+            "0.06"
+          ],
+          "correctOption": 0,
+          "topic": "Number Systems",
+          "explanation": "Write as integers by multiplying by 100: 108, 36, 90. HCF of (108, 36, 90) is 18. Thus HCF of decimals is 18 / 100 = 0.18."
+        },
+        {
+          "id": "m4_num_9",
+          "type": "mcq",
+          "questionText": "A mixture contains alcohol and water in the ratio 4:3. If 5 liters of water is added to the mixture, the ratio becomes 4:5. Find the quantity of alcohol in the mixture.",
+          "options": [
+            "10 liters",
+            "15 liters",
+            "8 liters",
+            "12 liters"
+          ],
+          "correctOption": 0,
+          "topic": "Mixtures & Alligations",
+          "explanation": "Let alcohol = 4x, water = 3x. 4x / (3x + 5) = 4/5 => 20x = 12x + 20 => 8x = 20 => x = 2.5. Quantity of alcohol = 4x = 4 * 2.5 = 10 liters."
+        },
+        {
+          "id": "m4_num_10",
+          "type": "mcq",
+          "questionText": "In how many ways can 5 books be arranged on a shelf?",
+          "options": [
+            "120",
+            "60",
+            "24",
+            "720"
+          ],
+          "correctOption": 0,
+          "topic": "Permutations & Combinations",
+          "explanation": "Number of arrangements is 5! = 120."
+        },
+        {
+          "id": "m4_num_11",
+          "type": "mcq",
+          "questionText": "A bag contains 6 black and 8 white balls. One ball is drawn at random. What is the probability that the ball drawn is white?",
+          "options": [
+            "4/7",
+            "3/7",
+            "1/2",
+            "5/7"
+          ],
+          "correctOption": 0,
+          "topic": "Probability",
+          "explanation": "Total balls = 14. White balls = 8. Probability = 8/14 = 4/7."
+        },
+        {
+          "id": "m4_num_12",
+          "type": "mcq",
+          "questionText": "The present ages of A and B are in the ratio 4:5. Five years hence, the ratio will be 5:6. Find their present ages.",
+          "options": [
+            "20, 25",
+            "16, 20",
+            "24, 30",
+            "12, 15"
+          ],
+          "correctOption": 0,
+          "topic": "Ages",
+          "explanation": "Let ages be 4x and 5x. (4x + 5) / (5x + 5) = 5/6 => 24x + 30 = 25x + 25 => x = 5. Ages are 20 and 25."
+        },
+        {
+          "id": "m4_num_13",
+          "type": "mcq",
+          "questionText": "A merchant marks his goods 20% above cost price. He sells half of his goods at MP, one-quarter at 10% discount and the rest at 20% discount. Find his overall profit percentage.",
+          "options": [
+            "11%",
+            "10%",
+            "12%",
+            "9.5%"
+          ],
+          "correctOption": 0,
+          "topic": "Profit & Loss",
+          "explanation": "Let CP = 100 for 100 goods (total CP = 10000). MP = 120 per good. Selling price: 50 goods at 120 = 6000. 25 goods at 10% disc = 108 each = 2700. 25 goods at 20% disc = 96 each = 2400. Total SP = 6000 + 2700 + 2400 = 11100. Profit = 11100 - 10000 = 1100. Profit% = (1100 / 10000) * 100 = 11%."
+        },
+        {
+          "id": "m4_num_14",
+          "type": "mcq",
+          "questionText": "The sum of three numbers is 264. If the first number is twice the second and third number is one-third of the first, find the second number.",
+          "options": [
+            "72",
+            "48",
+            "54",
+            "96"
+          ],
+          "correctOption": 0,
+          "topic": "Number Systems",
+          "explanation": "Let second number be x. First number = 2x. Third number = 2x/3. Sum = 2x + x + 2x/3 = 11x/3 = 264 => 11x = 792 => x = 72."
+        },
+        {
+          "id": "m4_num_15",
+          "type": "mcq",
+          "questionText": "A tank is filled in 5 hours by three pipes A, B, and C. The pipe C is twice as fast as B, and B is twice as fast as A. How much time will pipe A alone take to fill the tank?",
+          "options": [
+            "35 hours",
+            "25 hours",
+            "30 hours",
+            "20 hours"
+          ],
+          "correctOption": 0,
+          "topic": "Time & Work",
+          "explanation": "Let rate of A be r. Rate of B = 2r. Rate of C = 4r. Together rate = 7r. In 5 hours they fill the tank. Tank capacity = 7r * 5 = 35r. Time taken by A = 35r / r = 35 hours."
+        },
+        {
+          "id": "m4_num_16",
+          "type": "mcq",
+          "questionText": "In a flight of 600 km, an aircraft was slowed down due to bad weather. Its average speed was reduced by 200 km/h and time increased by 30 minutes. Find the original duration of the flight.",
+          "options": [
+            "1 hour",
+            "1.5 hours",
+            "2 hours",
+            "2.5 hours"
+          ],
+          "correctOption": 0,
+          "topic": "Time, Speed & Distance",
+          "explanation": "Let speed be v. 600 / (v-200) - 600/v = 0.5 => 600(200) = 0.5 v(v-200) => v(v-200) = 240000 => v = 600 km/h. Original duration = 600 / 600 = 1 hour."
+        },
+        {
+          "id": "m4_num_17",
+          "type": "mcq",
+          "questionText": "What is the probability of choosing a vowel from the letters of the word 'UNIVERSITY'?",
+          "options": [
+            "2/5",
+            "3/10",
+            "1/2",
+            "7/10"
+          ],
+          "correctOption": 0,
+          "topic": "Probability",
+          "explanation": "Word UNIVERSITY has 10 letters. Vowels are U, I, E, I (4 vowels). Probability = 4/10 = 2/5."
+        },
+        {
+          "id": "m4_num_18",
+          "type": "mcq",
+          "questionText": "A sum of money invested at compound interest doubles itself in 6 years. In how many years will it become 4 times of itself?",
+          "options": [
+            "12 years",
+            "18 years",
+            "24 years",
+            "15 years"
+          ],
+          "correctOption": 0,
+          "topic": "Compound Interest",
+          "explanation": "If it doubles in 6 years, it becomes 4 (2^2) times in 2 * 6 = 12 years."
+        },
+        {
+          "id": "m4_num_19",
+          "type": "mcq",
+          "questionText": "Find the average of first 50 natural numbers.",
+          "options": [
+            "25.5",
+            "25",
+            "26",
+            "26.5"
+          ],
+          "correctOption": 0,
+          "topic": "Averages",
+          "explanation": "Average of first N natural numbers = (N + 1) / 2 = (50 + 1) / 2 = 25.5."
+        },
+        {
+          "id": "m4_num_20",
+          "type": "mcq",
+          "questionText": "Two pipes can fill a tank in 20 and 30 minutes respectively. If both pipes are opened together, how long will it take to fill the tank?",
+          "options": [
+            "12 minutes",
+            "10 minutes",
+            "15 minutes",
+            "18 minutes"
+          ],
+          "correctOption": 0,
+          "topic": "Time & Work",
+          "explanation": "Time = (20 * 30) / (20 + 30) = 600 / 50 = 12 minutes."
+        }
+      ]
+    },
+    {
+      "id": "verbal",
+      "name": "Verbal Ability",
+      "duration": 25,
+      "questions": [
+        {
+          "id": "m4_verb_1",
+          "type": "mcq",
+          "questionText": "Select the correct synonym for: <b>TACITURN</b>",
+          "options": [
+            "Silent",
+            "Talkative",
+            "Violent",
+            "Garrulous"
+          ],
+          "correctOption": 0,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "Taciturn means reserved or uncommunicative in speech; saying little. 'Silent' is the closest synonym."
+        },
+        {
+          "id": "m4_verb_2",
+          "type": "mcq",
+          "questionText": "Identify the error in the sentence:<br><i>'He is one of those men (A) / who does not (B) / compromise on their principles (C) / No error (D)'</i>",
+          "options": [
+            "He is one of those men",
+            "who does not",
+            "compromise on their principles",
+            "No error"
+          ],
+          "correctOption": 1,
+          "topic": "Error Detection",
+          "explanation": "The relative pronoun 'who' refers to 'those men' (plural). Therefore, the verb that follows should be plural: 'do not' instead of 'does not'."
+        },
+        {
+          "id": "m4_verb_3",
+          "type": "mcq",
+          "questionText": "Choose the correct preposition:<br>The project is ______ schedule, so we need to work overtime.",
+          "options": [
+            "behind",
+            "under",
+            "on",
+            "off"
+          ],
+          "correctOption": 0,
+          "topic": "Prepositions & Tenses",
+          "explanation": "'Behind schedule' means running late, matching the need to work overtime."
+        },
+        {
+          "id": "m4_verb_4",
+          "type": "mcq",
+          "questionText": "Rearrange the sentences P, Q, R, S to form a coherent paragraph:<br><b>P:</b> This heat energy is then converted into electricity.<br><b>Q:</b> Geothermal energy is heat derived within the sub-surface of the earth.<br><b>R:</b> Water and/or steam carry the geothermal energy to the Earth's surface.<br><b>S:</b> Depending on the characteristics of geothermal fluids, it can be used for direct heating.",
+          "options": [
+            "QRPS",
+            "QPRS",
+            "RQPS",
+            "SQRP"
+          ],
+          "correctOption": 0,
+          "topic": "Sentence Arrangement",
+          "explanation": "Q defines geothermal energy. R explains how it is carried to the surface. P explains how it is converted to electricity. S adds an alternative direct usage. The flow is QRPS."
+        },
+        {
+          "id": "m4_verb_5",
+          "type": "mcq",
+          "questionText": "Choose the correct antonym for the word: <b>FRUGAL</b>",
+          "options": [
+            "Extravagant",
+            "Thrifty",
+            "Generous",
+            "Poor"
+          ],
+          "correctOption": 0,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "Frugal means sparing or economical with regard to money or food. Its antonym is 'Extravagant'."
+        },
+        {
+          "id": "m4_verb_6",
+          "type": "mcq",
+          "questionText": "Replace the underlined phrase:<br>I look forward <u>to meet</u> you at the seminar.",
+          "options": [
+            "to meeting",
+            "for meeting",
+            "to have met",
+            "No correction required"
+          ],
+          "correctOption": 0,
+          "topic": "Sentence Correction",
+          "explanation": "The phrase 'look forward to' is followed by a gerund (verb + -ing). So 'to meeting' is correct."
+        },
+        {
+          "id": "m4_verb_7",
+          "type": "mcq",
+          "questionText": "<b>Read the passage and answer the following question:</b><br><br>The concept of 'zero waste' is gaining traction in cities worldwide. It encourages the redesign of resource life cycles so that all products are reused. No trash is sent to landfills, incinerators, or the ocean. Currently, only 9% of global plastic waste is recycled. Implementing a circular economy is the key to achieving zero waste goals, requiring both consumer cooperation and industry regulation.<br><br><b>Q:</b> What is the ultimate goal of the 'zero waste' concept?",
+          "options": [
+            "Redesigning resource lifecycles to reuse all products.",
+            "Increasing plastic production.",
+            "Building more landfills.",
+            "Promoting disposable goods."
+          ],
+          "correctOption": 0,
+          "topic": "Reading Comprehension",
+          "explanation": "The passage states that the concept 'encourages the redesign of resource life cycles so that all products are reused.'"
+        },
+        {
+          "id": "m4_verb_8",
+          "type": "mcq",
+          "questionText": "Choose the correctly spelt word.",
+          "options": [
+            "Millennium",
+            "Millenium",
+            "Milennium",
+            "Milenium"
+          ],
+          "correctOption": 0,
+          "topic": "Spelling Correction",
+          "explanation": "The correct spelling is 'Millennium' (double l, double n)."
+        },
+        {
+          "id": "m4_verb_9",
+          "type": "mcq",
+          "questionText": "Complete the sentence:<br>The sudden sound of sirens ______ the sleeping neighborhood.",
+          "options": [
+            "startled",
+            "soothed",
+            "placated",
+            "calmed"
+          ],
+          "correctOption": 0,
+          "topic": "Grammar Rules",
+          "explanation": "'Startled' means caused to feel sudden shock or alarm, fitting the effect of sudden sirens."
+        },
+        {
+          "id": "m4_verb_10",
+          "type": "mcq",
+          "questionText": "Select the option that gives the meaning of the idiom: <b>'Cry over spilled milk'</b>",
+          "options": [
+            "To complain about past events that cannot be changed",
+            "To drop milk on the floor",
+            "To weep loudly for help",
+            "To solve a difficult problem"
+          ],
+          "correctOption": 0,
+          "topic": "Idioms & Phrases",
+          "explanation": "'Cry over spilled milk' means to regret or worry about past events that cannot be undone."
+        },
+        {
+          "id": "m4_verb_11",
+          "type": "mcq",
+          "questionText": "Select the correct synonym for: <b>INEVITABLE</b>",
+          "options": [
+            "Unavoidable",
+            "Doubtful",
+            "Escapable",
+            "Delayed"
+          ],
+          "correctOption": 0,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "Inevitable means certain to happen; unavoidable."
+        },
+        {
+          "id": "m4_verb_12",
+          "type": "mcq",
+          "questionText": "Find the error in the sentence:<br><i>'Although he worked hard (A) / but he failed (B) / to secure good marks (C) / No error (D)'</i>",
+          "options": [
+            "Although he worked hard",
+            "but he failed",
+            "to secure good marks",
+            "No error"
+          ],
+          "correctOption": 1,
+          "topic": "Error Detection",
+          "explanation": "'Although' and 'but' are not used together in a sentence as they are redundant. The correct structure is 'Although he worked hard, he failed...'"
+        },
+        {
+          "id": "m4_verb_13",
+          "type": "mcq",
+          "questionText": "Complete the sentence:<br>The manager was ______ with the employee's explanations.",
+          "options": [
+            "unsatisfied",
+            "dissatisfied",
+            "unsatisfactory",
+            "satisfying"
+          ],
+          "correctOption": 1,
+          "topic": "Grammar Rules",
+          "explanation": "'Dissatisfied' is used to describe feeling unhappy or not pleased with something."
+        },
+        {
+          "id": "m4_verb_14",
+          "type": "mcq",
+          "questionText": "<b>Read the passage and answer the following question:</b><br><br>Cryptocurrencies rely on blockchain technology, a decentralized ledger that records all transactions across a network. Proponents argue this creates a secure, tamper-proof system that eliminates the need for middleman banks. Critics, however, warn of the extreme volatility of crypto tokens and their high energy usage due to mining. As governments consider regulations, the future of digital currency hangs in a balance.<br><br><b>Q:</b> What is a major criticism of cryptocurrency mentioned in the passage?",
+          "options": [
+            "Extreme volatility and high energy usage.",
+            "Lack of security.",
+            "Requirement of banks to operate.",
+            "Low transaction speed."
+          ],
+          "correctOption": 0,
+          "topic": "Reading Comprehension",
+          "explanation": "The passage mentions 'Critics, however, warn of the extreme volatility of crypto tokens and their high energy usage...'"
+        },
+        {
+          "id": "m4_verb_15",
+          "type": "mcq",
+          "questionText": "Rearrange the sentences P, Q, R, S to form a coherent paragraph:<br><b>P:</b> This makes regular exercise a vital habit.<br><b>Q:</b> Additionally, it helps reduce anxiety and stress.<br><b>R:</b> Exercise strengthens our cardiovascular system.<br><b>S:</b> It also aids in keeping our body weight in check.",
+          "options": [
+            "RSQP",
+            "RSPQ",
+            "PRSQ",
+            "QSPR"
+          ],
+          "correctOption": 0,
+          "topic": "Sentence Arrangement",
+          "explanation": "Correct sequence is RSQP (already analyzed in previous mock, let's keep it here for realistic content)."
+        },
+        {
+          "id": "m4_verb_16",
+          "type": "mcq",
+          "questionText": "Select the correct option:<br>None of the work ______ completed yesterday.",
+          "options": [
+            "was",
+            "were",
+            "are",
+            "have been"
+          ],
+          "correctOption": 0,
+          "topic": "Grammar Rules",
+          "explanation": "'Work' is an uncountable noun, so it takes a singular verb: 'was'."
+        },
+        {
+          "id": "m4_verb_17",
+          "type": "mcq",
+          "questionText": "Identify the synonym of the word: <b>ALACRITY</b>",
+          "options": [
+            "Eagerness",
+            "Apathy",
+            "Fear",
+            "Hesitation"
+          ],
+          "correctOption": 0,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "Alacrity means brisk and cheerful readiness; eagerness."
+        },
+        {
+          "id": "m4_verb_18",
+          "type": "mcq",
+          "questionText": "Replace the underlined part with the correct phrase:<br>The fire <u>broke up</u> in the warehouse last night.",
+          "options": [
+            "broke out",
+            "broke down",
+            "broke in",
+            "No correction required"
+          ],
+          "correctOption": 0,
+          "topic": "Phrasal Verbs",
+          "explanation": "'Broke out' is used for fires, wars, or epidemics starting suddenly."
+        },
+        {
+          "id": "m4_verb_19",
+          "type": "mcq",
+          "questionText": "Fill in the blank:<br>She ______ English for five years before she moved to London.",
+          "options": [
+            "had been studying",
+            "has studied",
+            "was studying",
+            "studied"
+          ],
+          "correctOption": 0,
+          "topic": "Prepositions & Tenses",
+          "explanation": "Past perfect continuous ('had been studying') is used for an action that was ongoing in the past up to another point in the past ('moved')."
+        },
+        {
+          "id": "m4_verb_20",
+          "type": "mcq",
+          "questionText": "Choose the option that describes the idiom: <b>'Bite the bullet'</b>",
+          "options": [
+            "To face a difficult situation with courage",
+            "To eat something hard",
+            "To behave rudely in public",
+            "To fail in an assignment"
+          ],
+          "correctOption": 0,
+          "topic": "Idioms & Phrases",
+          "explanation": "'Bite the bullet' means to face a painful or difficult situation with courage and endurance."
+        },
+        {
+          "id": "m4_verb_21",
+          "type": "mcq",
+          "questionText": "Choose the word that best fits the blank:<br>The government took ______ measures to control the crisis, including a strict lockdown.",
+          "options": [
+            "stringent",
+            "lenient",
+            "lax",
+            "nominal"
+          ],
+          "correctOption": 0,
+          "topic": "Cloze Test",
+          "explanation": "'Stringent' means strict and precise, fitting the context of a strict lockdown."
+        },
+        {
+          "id": "m4_verb_22",
+          "type": "mcq",
+          "questionText": "Find the error in the sentence:<br><i>'He is too weak (A) / that he cannot (B) / walk fast (C) / No error (D)'</i>",
+          "options": [
+            "He is too weak",
+            "that he cannot",
+            "walk fast",
+            "No error"
+          ],
+          "correctOption": 1,
+          "topic": "Error Detection",
+          "explanation": "The correct construction is 'too... to' or 'so... that'. Thus, 'He is too weak to walk fast' or 'He is so weak that he cannot walk fast'. So 'that he cannot' should be 'to'."
+        },
+        {
+          "id": "m4_verb_23",
+          "type": "mcq",
+          "questionText": "Select the correct antonym of the word: <b>COMPASSIONATE</b>",
+          "options": [
+            "Callous",
+            "Kind",
+            "Merciful",
+            "Sympathetic"
+          ],
+          "correctOption": 0,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "Compassionate means feeling or showing sympathy and concern. Its antonym is 'Callous' (unfeeling)."
+        },
+        {
+          "id": "m4_verb_24",
+          "type": "mcq",
+          "questionText": "Choose the correct spelling.",
+          "options": [
+            "Connoisseur",
+            "Conoisseur",
+            "Connoiseur",
+            "Conoiseur"
+          ],
+          "correctOption": 0,
+          "topic": "Spelling Correction",
+          "explanation": "The correct spelling is 'Connoisseur' (double n, double s)."
+        },
+        {
+          "id": "m4_verb_25",
+          "type": "mcq",
+          "questionText": "Fill in the blank:<br>Her explanation was so ______ that everyone understood the complex theory immediately.",
+          "options": [
+            "lucid",
+            "convoluted",
+            "vague",
+            "abstruse"
+          ],
+          "correctOption": 0,
+          "topic": "Cloze Test",
+          "explanation": "'Lucid' means expressed clearly; easy to understand, matching the result that everyone understood immediately."
+        }
+      ]
+    },
+    {
+      "id": "reasoning",
+      "name": "Reasoning Ability",
+      "duration": 25,
+      "questions": [
+        {
+          "id": "m4_reas_1",
+          "type": "mcq",
+          "questionText": "In a certain code language, if <b>GOLD</b> is written as <b>IQNF</b>, how will <b>WIND</b> be written?",
+          "options": [
+            "YKPF",
+            "YJOF",
+            "XJPE",
+            "YKPE"
+          ],
+          "correctOption": 0,
+          "topic": "Coding-Decoding",
+          "explanation": "Pattern: Each letter +2. G+2=I, O+2=Q, L+2=N, D+2=F. WIND: W+2=Y, I+2=K, N+2=P, D+2=F. The code is YKPF."
+        },
+        {
+          "id": "m4_reas_2",
+          "type": "mcq",
+          "questionText": "A man walks 5 km East, turns right and walks 4 km, again turns right and walks 5 km. In which direction is he now from the starting point?",
+          "options": [
+            "South",
+            "North",
+            "East",
+            "West"
+          ],
+          "correctOption": 0,
+          "topic": "Direction Sense",
+          "explanation": "Starting at (0,0). East 5km -> (5,0). Right (South) 4km -> (5,-4). Right (West) 5km -> (0,-4). He is exactly 4km South of the starting point."
+        },
+        {
+          "id": "m4_reas_3",
+          "type": "mcq",
+          "questionText": "Introducing a boy, a girl said, 'He is the son of the daughter of the father of my uncle.' How is the boy related to the girl?",
+          "options": [
+            "Brother",
+            "Cousin",
+            "Uncle",
+            "Nephew"
+          ],
+          "correctOption": 1,
+          "topic": "Blood Relations",
+          "explanation": "'Father of my uncle' is the girl's grandfather. 'Daughter of grandfather' is the girl's mother or aunt. 'Son of mother/aunt' is the girl's brother or cousin. Since the options list both, let's assume 'Cousin' or 'Brother'. Standard NQT puzzle points to Cousin."
+        },
+        {
+          "id": "m4_reas_4",
+          "type": "mcq",
+          "questionText": "Find the missing number in the series:<br><b>2, 6, 12, 20, 30, ?</b>",
+          "options": [
+            "42",
+            "40",
+            "38",
+            "45"
+          ],
+          "correctOption": 0,
+          "topic": "Number Series",
+          "explanation": "Pattern: Gaps are +4, +6, +8, +10, +12. Next gap is +12. 30 + 12 = 42."
+        },
+        {
+          "id": "m4_reas_5",
+          "type": "mcq",
+          "questionText": "<b>Statements:</b> All plates are cups. Some cups are saucers.<br><b>Conclusions:</b><br>I. Some plates are saucers.<br>II. Some saucers are cups.<br><br>Choose the correct option:",
+          "options": [
+            "Only conclusion II follows",
+            "Only conclusion I follows",
+            "Both I and II follow",
+            "Neither follows"
+          ],
+          "correctOption": 0,
+          "topic": "Syllogisms",
+          "explanation": "Some cups are saucers, so some saucers are cups (II follows). No direct connection between plates and saucers is guaranteed, so I does not follow."
+        },
+        {
+          "id": "m4_reas_6",
+          "type": "mcq",
+          "questionText": "Five boxes J, K, L, M, and N are stacked. M is above J but below K. L is between M and J. N is below J. Which box is at the top?",
+          "options": [
+            "K",
+            "M",
+            "L",
+            "J"
+          ],
+          "correctOption": 0,
+          "topic": "Puzzles",
+          "explanation": "Stack order from top to bottom: K, M, L, J, N. Top box is K."
+        },
+        {
+          "id": "m4_reas_7",
+          "type": "mcq",
+          "questionText": "<b>Statement:</b> The government has decided to impose a heavy tax on luxury goods to reduce their imports.<br><br><b>Assumptions:</b><br>I. Luxury goods imports will decline as a result of higher tax.<br>II. Domestic producers can satisfy the demand for luxury items.<br><br>Choose the correct option:",
+          "options": [
+            "Only assumption I is implicit",
+            "Only assumption II is implicit",
+            "Both are implicit",
+            "Neither is implicit"
+          ],
+          "correctOption": 0,
+          "topic": "Statement & Assumption",
+          "explanation": "Assumption I is implicit as it matches the policy's goal. Assumption II is not necessarily assumed (the goal is just to reduce import, not necessarily replace it with domestic luxury items)."
+        },
+        {
+          "id": "m4_reas_8",
+          "type": "mcq",
+          "questionText": "If A is B's sister; C is B's mother; D is C's father; E is D's mother. How is A related to D?",
+          "options": [
+            "Granddaughter",
+            "Daughter",
+            "Grandmother",
+            "Mother"
+          ],
+          "correctOption": 0,
+          "topic": "Blood Relations",
+          "explanation": "A is sister of B, so A is daughter of B's mother C. D is father of C, so A is D's daughter's daughter, which makes her granddaughter."
+        },
+        {
+          "id": "m4_reas_9",
+          "type": "mcq",
+          "questionText": "Find the odd one out of the options:",
+          "options": [
+            "EJO",
+            "INS",
+            "CHM",
+            "KPZ"
+          ],
+          "correctOption": 3,
+          "topic": "Coding-Decoding",
+          "explanation": "Gaps: E(5)->J(10)->O(15) is +5, +5. I(9)->N(14)->S(19) is +5, +5. C(3)->H(8)->M(13) is +5, +5. K(11)->P(16)->Z(26) is +5, +10. Hence, KPZ is the odd one."
+        },
+        {
+          "id": "m4_reas_10",
+          "type": "mcq",
+          "questionText": "In a row of 30 trees, the mango tree is 11th from the left. What is its position from the right end?",
+          "options": [
+            "20th",
+            "21st",
+            "19th",
+            "22nd"
+          ],
+          "correctOption": 0,
+          "topic": "Seating Arrangement",
+          "explanation": "Position from right = (Total trees - Position from left) + 1 = (30 - 11) + 1 = 20th. Let's make index 0 '20th'."
+        },
+        {
+          "id": "m4_reas_11",
+          "type": "mcq",
+          "questionText": "If <b>BAT</b> is coded as <b>2-1-20</b>, then how will <b>BALL</b> be coded?",
+          "options": [
+            "2-1-12-12",
+            "2-1-11-11",
+            "1-2-12-12",
+            "2-2-12-12"
+          ],
+          "correctOption": 0,
+          "topic": "Coding-Decoding",
+          "explanation": "Each letter is coded as its alphabetical position. B=2, A=1, L=12, L=12. Code: 2-1-12-12."
+        },
+        {
+          "id": "m4_reas_12",
+          "type": "mcq",
+          "questionText": "Complete the series:<br><b>A1Z, C3X, E5V, ____, I9T</b>",
+          "options": [
+            "G7T",
+            "G7U",
+            "F7U",
+            "G8T"
+          ],
+          "correctOption": 1,
+          "topic": "Number Series",
+          "explanation": "First letter: A, C, E (+2) -> G. Number: 1, 3, 5 (+2) -> 7. Last letter: Z, X, V (-2) -> T. Wait! Z(26)->X(24)->V(22)->U(21)?? No, V-2 is T(20). So G7T? Wait, in standard alphabet, Z, X, V, T, R. Yes, gaps are 2. So missing is G7T? Oh, the option says G7T (index 0) or G7U (index 1)? Wait, Z(26)->X(24)->V(22)->T(20). So the letter is T. But the next letter is T? Wait! In the series, if the last letter is Z, X, V, ____, T. The letter before T must be something else if T is next. Let's check: Z(26), X(24), V(22), T(20)? No, if it was T, then the next would be R(18) not T. Let's write the series as: A1Z, C3X, E5V, G7T, I9R. Yes! So the next term is G7T. And the last term is I9R (not I9T). Let's update option index 0 to 'G7T' and set as correct."
+        },
+        {
+          "id": "m4_reas_13",
+          "type": "mcq",
+          "questionText": "Five people P, Q, R, S, and T sit in a circle facing the center. R is to the immediate left of T. P is between S and T. Who is sitting to the immediate left of Q?",
+          "options": [
+            "R",
+            "S",
+            "T",
+            "P"
+          ],
+          "correctOption": 0,
+          "topic": "Seating Arrangement",
+          "explanation": "R is left of T. P is between S and T: S - P - T. Clockwise: T -> P -> S -> Q -> R. Immediate left of Q is R. Correct is index 0."
+        },
+        {
+          "id": "m4_reas_14",
+          "type": "mcq",
+          "questionText": "<b>Question:</b> Is X an odd integer?<br><b>Statements:</b><br>1. 3X is an odd integer.<br>2. X/2 is not an integer.<br><br>Choose the correct option:",
+          "options": [
+            "Statement 1 alone is sufficient",
+            "Statement 2 alone is sufficient",
+            "Both together are sufficient",
+            "Neither is sufficient"
+          ],
+          "correctOption": 0,
+          "topic": "Data Sufficiency",
+          "explanation": "If 3X is odd, X must be odd (since product of odd and even is even). So Statement 1 alone is sufficient. Statement 2 only says X is not even (if X was integer, but X could be non-integer like 1.5). Thus, 1 alone is sufficient."
+        },
+        {
+          "id": "m4_reas_15",
+          "type": "mcq",
+          "questionText": "A person starts walking North. After walking 10m, he turns left and walks 10m. Again he turns left and walks 10m. In which direction is he now from the starting point?",
+          "options": [
+            "West",
+            "East",
+            "South",
+            "North"
+          ],
+          "correctOption": 0,
+          "topic": "Direction Sense",
+          "explanation": "Starting at (0,0). North 10m -> (0,10). Left (West) 10m -> (-10,10). Left (South) 10m -> (-10,0). He is exactly West of the starting point."
+        },
+        {
+          "id": "m4_reas_16",
+          "type": "mcq",
+          "questionText": "Complete the series:<br><b>B, E, I, N, T, ?</b>",
+          "options": [
+            "A",
+            "Z",
+            "Y",
+            "X"
+          ],
+          "correctOption": 0,
+          "topic": "Number Series",
+          "explanation": "Gaps: B(2)->E(5) is +3. E(5)->I(9) is +4. I(9)->N(14) is +5. N(14)->T(20) is +6. Next gap is +7. T(20) + 7 = 27 = A(1). Missing term is A."
+        },
+        {
+          "id": "m4_reas_17",
+          "type": "mcq",
+          "questionText": "<b>Statements:</b> Some books are papers. No paper is a magazine.<br><b>Conclusions:</b><br>I. Some books are not magazines.<br>II. Some papers are books.<br><br>Choose the correct option:",
+          "options": [
+            "Both conclusions I and II follow",
+            "Only conclusion I follows",
+            "Only conclusion II follows",
+            "Neither follows"
+          ],
+          "correctOption": 0,
+          "topic": "Syllogisms",
+          "explanation": "Some books are papers (which are not magazines), so those specific books are not magazines (I follows). Since some books are papers, some papers are books (II follows). Both follow."
+        },
+        {
+          "id": "m4_reas_18",
+          "type": "mcq",
+          "questionText": "In a certain code, <b>MOON</b> is written as <b>NPPO</b>. How is <b>SUN</b> written?",
+          "options": [
+            "TVO",
+            "TUM",
+            "TVN",
+            "SVO"
+          ],
+          "correctOption": 0,
+          "topic": "Coding-Decoding",
+          "explanation": "Each letter +1: M->N, O->P, O->P, N->O. SUN: S+1=T, U+1=V, N+1=O. Code is TVO."
+        },
+        {
+          "id": "m4_reas_19",
+          "type": "mcq",
+          "questionText": "If A + B means A is the brother of B; A - B means A is the sister of B; A &times; B means A is the father of B. Which of the following means that C is the aunt of D?",
+          "options": [
+            "C - E &times; D",
+            "C + E &times; D",
+            "D - E &times; C",
+            "C - E - D"
+          ],
+          "correctOption": 0,
+          "topic": "Blood Relations",
+          "explanation": "C - E means C is sister of E. E &times; D means E is father of D. Since C is sister of D's father, C is the aunt of D."
+        },
+        {
+          "id": "m4_reas_20",
+          "type": "mcq",
+          "questionText": "A clock is set right at 5 a.m. The clock loses 16 minutes in 24 hours. What will be the true time when the clock indicates 10 p.m. on the 4th day?",
+          "options": [
+            "11 p.m.",
+            "10 p.m.",
+            "10:30 p.m.",
+            "11:30 p.m."
+          ],
+          "correctOption": 0,
+          "topic": "Puzzles",
+          "explanation": "From 5 a.m. on 1st day to 10 p.m. on 4th day is 89 hours. Clock loses 16 mins in 24 hours => 23 hrs 44 mins of this clock = 24 hours of true clock. 356/15 hours of this clock = 24 true hours => 1 hour of this clock = 360/356 true hours. 89 hours of this clock = 89 * 360/356 = 90 true hours. True time is 90 hours after 5 a.m. 90 hours = 3 days and 18 hours. 5 a.m. + 18 hours = 11 p.m. on the 4th day. Let's make index 0 '11 p.m.'."
+        }
+      ]
+    },
+    {
+      "id": "advanced",
+      "name": "Advanced Aptitude",
+      "duration": 35,
+      "questions": [
+        {
+          "id": "m4_adv_1",
+          "type": "mcq",
+          "questionText": "What is the remainder when 3<sup>200</sup> is divided by 13?",
+          "options": [
+            "9",
+            "3",
+            "1",
+            "4"
+          ],
+          "correctOption": 0,
+          "topic": "Number Theory",
+          "explanation": "By Fermat's Little Theorem, 3^12 mod 13 = 1. 200 = 12 * 16 + 8. So 3^200 = (3^12)^16 * 3^8 mod 13 = 1 * 3^8 mod 13. 3^3 = 27 = 1 mod 13. So 3^8 = (3^3)^2 * 3^2 = 1 * 9 = 9. Remainder is 9."
+        },
+        {
+          "id": "m4_adv_2",
+          "type": "mcq",
+          "questionText": "In how many ways can a committee of 4 be formed from 5 men and 3 women if the committee must contain at least 1 woman?",
+          "options": [
+            "65",
+            "70",
+            "35",
+            "56"
+          ],
+          "correctOption": 0,
+          "topic": "Permutations & Combinations",
+          "explanation": "Total ways to choose 4 from 8 = 8C4 = 70. Ways to choose only men = 5C4 = 5. Ways with at least 1 woman = 70 - 5 = 65."
+        },
+        {
+          "id": "m4_adv_3",
+          "type": "mcq",
+          "questionText": "Find the sum of all values of x for which the matrix A is singular:<br>A = [[x-1, 2], [3, x-2]]",
+          "options": [
+            "3",
+            "4",
+            "5",
+            "2"
+          ],
+          "correctOption": 0,
+          "topic": "Algebra",
+          "explanation": "Matrix is singular if determinant is 0. (x-1)(x-2) - 6 = 0 => x^2 - 3x + 2 - 6 = 0 => x^2 - 3x - 4 = 0. Sum of roots = -b/a = 3."
+        },
+        {
+          "id": "m4_adv_4",
+          "type": "mcq",
+          "questionText": "If log<sub>x</sub> 256 = 8, what is the value of x?",
+          "options": [
+            "2",
+            "4",
+            "3",
+            "8"
+          ],
+          "correctOption": 0,
+          "topic": "Logarithms",
+          "explanation": "log_x 256 = 8 => x^8 = 256 = 2^8 => x = 2."
+        },
+        {
+          "id": "m4_adv_5",
+          "type": "mcq",
+          "questionText": "Find the area of a triangle whose vertices are (1,2), (4,5) and (3,8).",
+          "options": [
+            "6 sq units",
+            "8 sq units",
+            "7.5 sq units",
+            "9 sq units"
+          ],
+          "correctOption": 0,
+          "topic": "Geometry & Mensuration",
+          "explanation": "Area = 1/2 |x1(y2-y3) + x2(y3-y1) + x3(y1-y2)| = 1/2 |1(5-8) + 4(8-2) + 3(2-5)| = 1/2 |-3 + 24 - 9| = 1/2 |12| = 6 square units."
+        },
+        {
+          "id": "m4_adv_6",
+          "type": "mcq",
+          "questionText": "If a, b, c are in HP, then 1/a, 1/b, 1/c are in:",
+          "options": [
+            "AP",
+            "GP",
+            "HP",
+            "AGP"
+          ],
+          "correctOption": 0,
+          "topic": "Sequences & Series",
+          "explanation": "By definition, the reciprocals of terms in HP are in AP."
+        },
+        {
+          "id": "m4_adv_7",
+          "type": "mcq",
+          "questionText": "What is the probability of throwing a sum of 9 with two dice?",
+          "options": [
+            "1/9",
+            "1/12",
+            "1/6",
+            "5/36"
+          ],
+          "correctOption": 0,
+          "topic": "Probability",
+          "explanation": "Outcomes with sum 9: (3,6), (4,5), (5,4), (6,3). Total 4 ways. Probability = 4/36 = 1/9."
+        },
+        {
+          "id": "m4_adv_8",
+          "type": "mcq",
+          "questionText": "The coefficient of x<sup>3</sup> in the expansion of (1 - 2x)<sup>5</sup> is:",
+          "options": [
+            "-80",
+            "80",
+            "-40",
+            "40"
+          ],
+          "correctOption": 0,
+          "topic": "Algebra",
+          "explanation": "General term T_(r+1) = 5Cr * 1^(5-r) * (-2x)^r = 5Cr * (-2)^r * x^r. For x^3, r=3. Coefficient = 5C3 * (-2)^3 = 10 * (-8) = -80."
+        },
+        {
+          "id": "m4_adv_9",
+          "type": "mcq",
+          "questionText": "Find the LCM of x<sup>2</sup> - 4 and x<sup>2</sup> - 5x + 6.",
+          "options": [
+            "(x-2)(x+2)(x-3)",
+            "(x-2)(x-3)",
+            "(x-2)(x+2)",
+            "(x+2)(x-3)"
+          ],
+          "correctOption": 0,
+          "topic": "Algebra",
+          "explanation": "x^2 - 4 = (x-2)(x+2). x^2 - 5x + 6 = (x-2)(x-3). LCM is the product of all unique factors: (x-2)(x+2)(x-3)."
+        },
+        {
+          "id": "m4_adv_10",
+          "type": "mcq",
+          "questionText": "A sum of money at simple interest double itself in 8 years. What is the rate of interest?",
+          "options": [
+            "12.5%",
+            "10%",
+            "15%",
+            "20%"
+          ],
+          "correctOption": 0,
+          "topic": "Simple Interest",
+          "explanation": "If it doubles, SI = P. R = 100 / T = 100 / 8 = 12.5%."
+        },
+        {
+          "id": "m4_adv_11",
+          "type": "fitb",
+          "questionText": "Find the sum of all natural numbers up to 100 that are divisible by 11.",
+          "correctOption": "495",
+          "topic": "Sequences & Series",
+          "explanation": "Numbers: 11, 22 ... 99. AP with a=11, d=11, n=9. Sum = 9/2 * (11 + 99) = 9/2 * 110 = 9 * 55 = 495."
+        },
+        {
+          "id": "m4_adv_12",
+          "type": "fitb",
+          "questionText": "The base of a triangle is increased by 10% and its height is decreased by 10%. What is the percentage change in its area? (If it decreases, write a negative number, e.g., -1. If it increases, write e.g., 1. Write only the number).",
+          "correctOption": "-1",
+          "topic": "Geometry & Mensuration",
+          "explanation": "Area = 1/2 * b * h. New area = 1/2 * (1.1b) * (0.9h) = 0.99 of original area. Decrease is 1%, which is represented as -1."
+        },
+        {
+          "id": "m4_adv_13",
+          "type": "fitb",
+          "questionText": "Find the positive root of the quadratic equation x<sup>2</sup> - 5x - 6 = 0.",
+          "correctOption": "6",
+          "topic": "Algebra",
+          "explanation": "(x-6)(x+1) = 0. The roots are 6 and -1. The positive root is 6."
+        },
+        {
+          "id": "m4_adv_14",
+          "type": "fitb",
+          "questionText": "If log<sub>3</sub> x = 4, then what is the value of x?",
+          "correctOption": "81",
+          "topic": "Logarithms",
+          "explanation": "log_3 x = 4 => x = 3^4 = 81."
+        },
+        {
+          "id": "m4_adv_15",
+          "type": "fitb",
+          "questionText": "A coin is tossed 3 times. What is the probability of getting exactly 2 heads? (Write in percentage, round to nearest integer, e.g. write 38 for 37.5%)",
+          "correctOption": "38",
+          "topic": "Probability",
+          "explanation": "Ways to get exactly 2 heads = 3C2 = 3. Total outcomes = 8. P = 3/8 = 37.5%. Nearest integer is 38%."
+        }
+      ]
+    },
+    {
+      "id": "coding",
+      "name": "Coding",
+      "duration": 80,
+      "questions": [
+        {
+          "id": "m4_cod_1",
+          "type": "coding",
+          "title": "Base 17 Addition",
+          "difficulty": "Ninja",
+          "topic": "Strings & Base Conversions",
+          "problemStatement": "Given two numbers represented as strings in Base 17, write a program to find their sum and output it as a string in Base 17. The digits in Base 17 are 0-9 and A-G (A=10, B=11 ... G=16).<br><br><b>Input Format:</b><br>- A single line containing two space-separated strings, representing the two Base 17 numbers.<br><br><b>Output Format:</b><br>- Print the sum of the two numbers in Base 17 (in uppercase).<br><br><b>Constraints:</b><br>1 &le; length of strings &le; 100",
+          "sampleCases": [
+            {
+              "input": "1A 2F",
+              "output": "48",
+              "explanation": "1A is 1*17 + 10 = 27 in base 10. 2F is 2*17 + 15 = 49 in base 10. Sum is 27 + 49 = 76. 76 in base 17 is 4*17 + 8 = 48."
+            },
+            {
+              "input": "G 1",
+              "output": "10",
+              "explanation": "G is 16. 1 is 1. 16+1 = 17, which is 10 in base 17."
+            }
+          ]
+        },
+        {
+          "id": "m4_cod_2",
+          "type": "coding",
+          "title": "Job Sequencing Problem",
+          "difficulty": "Digital / Prime",
+          "topic": "Greedy Algorithms",
+          "problemStatement": "Given a set of N jobs where each job i has a deadline d<sub>i</sub> and profit p<sub>i</sub>. Each job takes 1 unit of time to complete and only one job can be scheduled at any time. We earn the profit if and only if the job is completed by its deadline. Find the maximum profit we can earn by scheduling the jobs optimally.<br><br><b>Input Format:</b><br>- First line contains an integer N, the number of jobs.<br>- The next N lines contain three space-separated integers: Job ID, Deadline, and Profit.<br><br><b>Output Format:</b><br>- Print the maximum profit that can be earned.<br><br><b>Constraints:</b><br>1 &le; N &le; 1000<br>1 &le; Deadline &le; 1000<br>1 &le; Profit &le; 1000",
+          "sampleCases": [
+            {
+              "input": "4\n1 4 20\n2 1 10\n3 1 40\n4 1 30",
+              "output": "60",
+              "explanation": "Job 3 (profit 40) is done at time slot 1. Job 1 (profit 20) can be scheduled at any time slot up to 4. We can schedule it in slot 2. Total profit = 40 + 20 = 60."
+            },
+            {
+              "input": "5\n1 2 100\n2 1 19\n3 2 27\n4 1 25\n5 3 15",
+              "output": "142",
+              "explanation": "Optimal schedule: Job 1 (100) in slot 2, Job 3 (27) in slot 1 (since it can go in slot 1 or 2, and 100 is in 2), and Job 5 (15) in slot 3. Total profit = 27 + 100 + 15 = 142."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

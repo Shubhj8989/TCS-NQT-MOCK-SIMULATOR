@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TCS iON Assessment Console</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/exam.css">
+</head>
+<body class="exam-body">
+  <!-- Top Header -->
+  <div class="exam-header">
+    <div class="exam-title-area">
+      <div class="exam-title" id="mock-test-title">TCS NQT National Mock</div>
+    </div>
+    
+    <!-- Timer -->
+    <div class="exam-timer-area">
+      <div class="timer-box">
+        <span>Time Left:</span>
+        <span id="exam-countdown">00:00</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sections Tabs Bar -->
+  <div class="sections-nav" id="section-tabs-container">
+    <!-- Rendered dynamically -->
+  </div>
+
+  <!-- Main Workspace -->
+  <div class="exam-workspace" id="exam-workspace">
+    <!-- Left Question Panel -->
+    <div class="question-panel">
+      <div class="question-panel-header">
+        <div class="question-number-title" id="current-question-title">Question 1</div>
+        <div class="question-score-meta">Marks: +1 | Negative: 0</div>
+      </div>
+      <div class="question-content" id="question-display-body">
+        <!-- Rendered dynamically (MCQ / FITB / Coding) -->
+      </div>
+    </div>
+
+    <!-- Right Sidebar Panel -->
+    <div class="sidebar-panel">
+      <!-- Candidate Profile -->
+      <div class="candidate-profile-box">
+        <div class="candidate-photo" style="background-image: url('https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=100&auto=format&fit=crop&q=60');"></div>
+        <div class="candidate-details">
+          <strong>JOHN DOE</strong>
+          <span>ID: TCS_NQT_2026</span><br>
+          <span style="font-size:0.7rem; color:var(--tcs-text-gray);">System ID: 104</span>
+        </div>
+      </div>
+
+      <!-- Palette stats -->
+      <div class="palette-summary">
+        <div class="stat-item">
+          <span class="stat-badge answered" id="stat-count-answered">0</span>
+          <span>Answered</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-badge not-answered" id="stat-count-not-answered">0</span>
+          <span>Not Answered</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-badge not-visited" id="stat-count-not-visited">0</span>
+          <span>Not Visited</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-badge marked-review" id="stat-count-marked-review">0</span>
+          <span>Marked Review</span>
+        </div>
+        <div class="stat-item" style="grid-column: span 2;">
+          <span class="stat-badge answered-review" id="stat-count-answered-review">0</span>
+          <span>Answered & Marked for Review</span>
+        </div>
+      </div>
+
+      <!-- Grid Palette -->
+      <div class="palette-grid-container">
+        <div class="palette-section-title">Question Palette</div>
+        <div class="palette-grid" id="question-palette-grid">
+          <!-- Rendered dynamically -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Navigation Actions -->
+  <div class="exam-footer" id="exam-footer-panel">
+    <div class="footer-left">
+      <button id="btn-mark-review" class="btn-exam">Mark for Review & Next</button>
+      <button id="btn-clear" class="btn-exam">Clear Response</button>
+    </div>
+    
+    <div class="footer-center">
+      <button id="btn-compile-run" class="btn-exam btn-exam-primary" style="display:none;">Compile & Run</button>
+    </div>
+
+    <div class="footer-right">
+      <button id="btn-prev" class="btn-exam">Previous</button>
+      <button id="btn-save-next" class="btn-exam btn-exam-primary">Save & Next</button>
+      <button id="btn-submit" class="btn-exam btn-exam-success">Submit Section</button>
+    </div>
+  </div>
+
+  <!-- Settings overlay for Judge0 (Optional for advanced users) -->
+  <!-- We put a tiny link in candidates profile to configure RapidAPI Key if they want real compile. -->
+  <div style="position:fixed; bottom: 5px; left: 5px; font-size: 0.65rem; color:#888; z-index: 100; cursor:pointer;" id="link-compiler-settings">⚙️ Compiler Settings</div>
+
+  <!-- Core Javascript Engines -->
+  <script src="./js/utils.js"></script>
+  <script src="./js/judge0.js"></script>
+  <script src="./js/questions.js"></script>
+  <script src="./js/timer.js"></script>
+  <script src="./js/palette.js"></script>
+  <script src="./js/navigation.js"></script>
+
+  <script>
+    // Initialize exam portal on window load
+    window.addEventListener("load", async () => {
+      // Verify active session
+      const user = Utils.getCurrentUser();
+      if (!user) {
+        window.location.href = "./login.html";
+        return;
+      }
+
+      // Update Candidate Profile Card
+      document.querySelector(".candidate-details strong").innerText = user.name.toUpperCase();
+      document.querySelector(".candidate-details span").innerText = `ID: ${user.username.toUpperCase()}`;
+
+      // 1. Get mock ID from storage
+      const mockId = Utils.loadState("selected_mock_id") || "1";
+      
+      // Check if finished
+      if (Utils.loadState("exam_finished")) {
+        window.location.href = "./result.html";
+        return;
+      }
+
+      // 2. Load Mock Test Data
+      document.getElementById("mock-test-title").innerText = `TCS NQT National Mock Test ${mockId} - Terminal Console`;
+      
+      try {
+        await Questions.loadMockTest(mockId);
+      } catch (err) {
+        Utils.showAlert("Error loading mock test", "Could not retrieve question files. Returning to landing page...", () => {
+          window.location.href = "./index.html";
+        });
+        return;
+      }
+
+      // 3. Initialize Navigation & Palette
+      Navigation.init();
+
+      // Adjust footer for Coding layout if current question is coding
+      const checkQuestionTypeAndAdjustFooter = () => {
+        const q = Questions.getCurrentQuestion();
+        const runBtn = document.getElementById("btn-compile-run");
+        const saveBtn = document.getElementById("btn-save-next");
+        const reviewBtn = document.getElementById("btn-mark-review");
+
+        if (q && q.type === "coding") {
+          runBtn.style.display = "inline-block";
+          saveBtn.innerText = "Submit Code";
+          saveBtn.title = "Evaluates against hidden test cases";
+          reviewBtn.style.display = "none";
+        } else {
+          runBtn.style.display = "none";
+          saveBtn.innerText = "Save & Next";
+          saveBtn.title = "";
+          reviewBtn.style.display = "inline-block";
+        }
+      };
+      
+      checkQuestionTypeAndAdjustFooter();
+      
+      // Hook change in loaded question
+      const originalLoadQ = Navigation.loadQuestion;
+      Navigation.loadQuestion = function(idx) {
+        originalLoadQ.call(Navigation, idx);
+        checkQuestionTypeAndAdjustFooter();
+      };
+
+      // Bind Compile & Run footer action
+      document.getElementById("btn-compile-run").addEventListener("click", () => {
+        Navigation.compileAndRun();
+      });
+
+      // 4. Start active Section Timer
+      const currentSec = Questions.getCurrentSection();
+      Timer.start(
+        currentSec.duration,
+        currentSec.id,
+        (timeStr) => {
+          document.getElementById("exam-countdown").innerText = timeStr;
+        },
+        () => {
+          // Timer Timeout callback: auto save & lock section
+          Navigation.saveCurrentAnswer();
+          Navigation.lockAndMoveToNextSection();
+        }
+      );
+
+      // 5. Initialize Security Anti-Cheat
+      Utils.initSecurity(() => {
+        // Callback if security violations exceeded
+        Navigation.saveCurrentAnswer();
+        Navigation.finishExam();
+      });
+
+      // 6. Compiler settings panel configuration
+      document.getElementById("link-compiler-settings").addEventListener("click", () => {
+        const config = Judge0.getConfig();
+        let promptVal = prompt("Configure Compiler:\nTo use real Judge0 API, enter your RapidAPI Key. If empty, local mock compiler is active.", config.apiKey);
+        if (promptVal !== null) {
+          config.apiKey = promptVal.trim();
+          config.useLocalMock = !config.apiKey;
+          Judge0.saveConfig(config);
+          alert(config.apiKey ? "RapidAPI Key Saved! Real compiler active." : "RapidAPI Key cleared. Local Mock Compiler active.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>

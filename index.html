@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TCS NQT National Mock Simulator</title>
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="welcome-layout">
+  <div class="welcome-card">
+    <!-- User Login Status Banner -->
+    <div id="login-status-banner" style="display:none; justify-content:space-between; align-items:center; background: rgba(255,255,255,0.15); padding: 0.6rem 1rem; border-radius: var(--radius-sm); margin-bottom: 1.5rem; font-size: 0.85rem; border: 1px solid rgba(255,255,255,0.15); text-align: left;">
+      <span id="login-status-text" style="color: white; font-weight: 500;">Logged in as: John Doe</span>
+      <a href="#" id="link-logout" style="color:#ff8b8b; font-weight:600; text-decoration:underline; cursor: pointer;">Logout</a>
+    </div>
+
+    <div class="welcome-logo">TCS NQT</div>
+    <div style="font-size: 1.2rem; font-weight: 500; letter-spacing: 2px; color: #a5c3f6; text-transform: uppercase; margin-bottom: 1.5rem;">Simulator Portal</div>
+    
+    <p class="welcome-subtitle">
+      Experience the actual TCS iON assessment environment. Practice memory-based PYQs, code in Python/Java/C++, and track your percentiles and job profile eligibility.
+    </p>
+
+    <div class="mock-selector-box">
+      <label for="mock-select">Select a Mock Test to Begin:</label>
+      <select id="mock-select" class="custom-select">
+        <option value="1">Mock Test 1 (Foundation + Advanced Coding)</option>
+        <option value="2">Mock Test 2 (Foundation + Advanced Coding)</option>
+        <option value="3">Mock Test 3 (Foundation + Advanced Coding)</option>
+        <option value="4">Mock Test 4 (Foundation + Advanced Coding)</option>
+        <option value="5">Mock Test 5 (Foundation + Advanced Coding)</option>
+      </select>
+    </div>
+
+    <button id="btn-start" class="btn btn-primary">Start Simulation</button>
+
+    <div style="margin-top: 2rem; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 1.5rem; text-align: left; font-size: 0.8rem; color: #c2d6f8;">
+      <h4 style="color: white; margin-bottom: 0.5rem; font-size: 0.9rem;">Exam Structure:</h4>
+      <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+        <span><strong>Part 1:</strong> Numerical, Verbal, Reasoning</span>
+        <span>75 Minutes</span>
+      </div>
+      <div style="display: flex; justify-content: space-between;">
+        <span><strong>Part 2:</strong> Advanced Aptitude + Coding (2 Qs)</span>
+        <span>115 Minutes</span>
+      </div>
+    </div>
+    
+    <!-- Footer Credit -->
+    <div style="margin-top: 1.5rem; text-align: center; font-size: 0.75rem; color: rgba(255,255,255,0.6); font-family: var(--font-heading); letter-spacing: 1px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1rem;">
+      Design by <a href="https://shubh.dev" target="_blank" style="color: #a5c3f6; font-weight: 600; text-decoration: none;">Shubh.dev</a>
+    </div>
+  </div>
+
+  <script src="./js/utils.js"></script>
+  <script>
+    window.addEventListener("load", () => {
+      const user = Utils.getCurrentUser();
+      const banner = document.getElementById("login-status-banner");
+      const statusText = document.getElementById("login-status-text");
+      const logoutLink = document.getElementById("link-logout");
+
+      if (user) {
+        statusText.innerText = `Logged in as: ${user.name}`;
+        banner.style.display = "flex";
+      }
+
+      logoutLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        Utils.logoutUser();
+        window.location.reload();
+      });
+
+      document.getElementById("btn-start").addEventListener("click", () => {
+        const mockId = document.getElementById("mock-select").value;
+        
+        // Save selected mock test
+        Utils.saveState("selected_mock_id", mockId);
+
+        // Clear states for the current user's session
+        Utils.clearAllStates();
+        
+        if (user) {
+          // If logged in, go straight to instructions
+          window.location.href = "./instructions.html";
+        } else {
+          // If not logged in, go to login screen
+          window.location.href = "./login.html";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

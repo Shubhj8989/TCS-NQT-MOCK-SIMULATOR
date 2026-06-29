@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instructions - TCS iON Assessment Portal</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    .legend-box {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.85rem;
+    }
+    .legend-icon {
+      width: 25px;
+      height: 25px;
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: bold;
+    }
+    .legend-1 { background-color: #e9ecef; color: #333; border: 1px solid #ccc; }
+    .legend-2 { background-color: #e53e3e; }
+    .legend-3 { background-color: #38a169; }
+    .legend-4 { background-color: #805ad5; }
+    .legend-5 { 
+      background-color: #805ad5; 
+      position: relative; 
+    }
+    .legend-5::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 6px;
+      height: 6px;
+      background-color: #48bb78;
+      border-radius: 50%;
+      border: 1px solid white;
+    }
+  </style>
+</head>
+<body class="instruction-layout">
+  <div class="instruction-header">
+    <h1>General Instructions</h1>
+    <div class="candidate-summary">
+      <div class="candidate-avatar" style="background-image: url('https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=150&auto=format&fit=crop&q=60');"></div>
+      <div>
+        <div class="candidate-name">JOHN DOE</div>
+        <div style="font-size: 0.75rem; color: var(--text-gray);">Candidate ID: TCS_NQT_2026</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container" style="max-width: 960px; padding-top: 1rem;">
+    <div class="instruction-card">
+      <div class="instruction-card-header">Please read the following instructions carefully</div>
+      <div class="instruction-body">
+        <h3>General Information:</h3>
+        <ol>
+          <li>The total duration of the examination is <strong>190 Minutes</strong>.</li>
+          <li>The clock will be set at the server. The countdown timer in the top right corner of the screen will display the remaining time available for you to complete the active section.</li>
+          <li>Once the timer of a section hits zero, the section will be automatically submitted and locked. You will be automatically transitioned to the next section.</li>
+          <li><strong>Sequential Section Navigation:</strong> You cannot navigate between sections. You must complete the active section, and once you submit or time runs out, it will be locked forever.</li>
+        </ol>
+
+        <h3>Navigating to a Question:</h3>
+        <p>To answer a question, do the following:</p>
+        <ul>
+          <li>Click on the question number in the Question Palette on the right of your screen to go to that question directly.</li>
+          <li>Click on <strong>Save & Next</strong> to save your answer for the current question and then go to the next question.</li>
+          <li>Click on <strong>Mark for Review & Next</strong> to save your answer for the current question, mark it for review, and then go to the next question.</li>
+        </ul>
+
+        <h3>Question Status Legend:</h3>
+        <div style="margin: 1.5rem 0; padding-left: 1rem;">
+          <div class="legend-box">
+            <span class="legend-icon legend-1">1</span>
+            <span>You have not visited the question yet.</span>
+          </div>
+          <div class="legend-box">
+            <span class="legend-icon legend-2">2</span>
+            <span>You have visited the question but not answered it.</span>
+          </div>
+          <div class="legend-box">
+            <span class="legend-icon legend-3">3</span>
+            <span>You have answered the question.</span>
+          </div>
+          <div class="legend-box">
+            <span class="legend-icon legend-4">4</span>
+            <span>You have NOT answered the question, but have marked it for review.</span>
+          </div>
+          <div class="legend-box">
+            <span class="legend-icon legend-5">5</span>
+            <span>The question is answered and marked for review (it will be considered for evaluation).</span>
+          </div>
+        </div>
+
+        <h3>Coding IDE Rules:</h3>
+        <ul>
+          <li>For coding questions, a plain editor is provided. Write a fully functional program including imports and inputs.</li>
+          <li>Support is available for Python, Java, and C++.</li>
+          <li>Use the 'Compile & Run' button to validate your code against sample cases. Use the 'Submit' button to run all hidden test cases.</li>
+        </ul>
+
+        <h3 class="text-danger">⚠️ Warning & Security Actions:</h3>
+        <ul>
+          <li>This examination runs in <strong>strict fullscreen mode</strong>. If you try to exit fullscreen, minimize the window, or switch tabs, you will receive a security violation warning.</li>
+          <li>Exceeding <strong>3 security warnings</strong> will result in the immediate suspension and automatic submission of your examination.</li>
+        </ul>
+      </div>
+
+      <div class="instruction-footer">
+        <div class="declaration-box">
+          <input type="checkbox" id="declaration-check">
+          <label for="declaration-check">
+            I have read and understood the instructions. All computer hardware allotted to me is in proper working condition. I agree to adhere to all guidelines and understand that any tab switching or violation of fullscreen mode will lead to auto-submission.
+          </label>
+        </div>
+        <button id="btn-begin" class="btn btn-exam btn-exam-primary" style="opacity:0.5; cursor:not-allowed;" disabled>I am ready to begin</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/utils.js"></script>
+  <script>
+    window.addEventListener("load", () => {
+      const user = Utils.getCurrentUser();
+      if (user) {
+        document.querySelector(".candidate-name").innerText = user.name.toUpperCase();
+        document.querySelector(".candidate-name").nextElementSibling.innerText = `Candidate ID: ${user.username.toUpperCase()}`;
+      } else {
+        // Fallback or redirect if direct accessed
+        window.location.href = "./login.html";
+      }
+    });
+
+    const check = document.getElementById("declaration-check");
+    const btn = document.getElementById("btn-begin");
+
+    check.addEventListener("change", () => {
+      if (check.checked) {
+        btn.disabled = false;
+        btn.style.opacity = "1";
+        btn.style.cursor = "pointer";
+      } else {
+        btn.disabled = true;
+        btn.style.opacity = "0.5";
+        btn.style.cursor = "not-allowed";
+      }
+    });
+
+    btn.addEventListener("click", () => {
+      if (check.checked) {
+        // Request fullscreen and redirect to exam console
+        Utils.enterFullscreen();
+        setTimeout(() => {
+          window.location.href = "./exam.html";
+        }, 300);
+      }
+    });
+  </script>
+</body>
+</html>

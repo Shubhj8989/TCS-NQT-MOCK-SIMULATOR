@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment Report - TCS NQT Simulator</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    .loading-pane {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background-color: var(--bg-light);
+    }
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid #e2e8f0;
+      border-top-color: var(--accent-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 1.5rem;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body style="background-color: #f1f3f8; min-height: 100vh;">
+  <!-- Loading Pane -->
+  <div id="loading-pane" class="loading-pane">
+    <div class="spinner"></div>
+    <h3 style="font-family:var(--font-heading); color:var(--primary-color);">Evaluating Your Answers...</h3>
+    <p style="color:var(--text-gray); font-size:0.9rem; margin-top:0.5rem;">Grading MCQs and compiling coding submissions on Judge0...</p>
+  </div>
+
+  <!-- Dashboard Content -->
+  <div id="dashboard-content" class="result-layout" style="display:none;">
+    <div class="container" style="max-width: 1100px;">
+      
+      <!-- Top header banner -->
+      <div class="result-header">
+        <div class="result-header-content">
+          <p style="text-transform:uppercase; letter-spacing:2px; font-size:0.8rem; font-weight:600; margin-bottom:0.2rem; color:#a5c3f6;">National Mock Exam Report</p>
+          <h1 id="report-mock-title">TCS NQT Performance Analysis</h1>
+          <p id="report-date-meta">Date: June 2026 | System Allotted: 104</p>
+        </div>
+      </div>
+
+      <!-- Quick Metrics Grid -->
+      <div class="grid-cols-4">
+        <div class="metric-card">
+          <div class="metric-label">Overall Score</div>
+          <div class="metric-value"><span id="metric-score-val">0</span><span style="font-size:1.1rem; color:var(--text-gray); font-weight:normal;"> / 125</span></div>
+          <div class="metric-footer">Combined Part A & Part B</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Predicted Percentile</div>
+          <div class="metric-value" id="metric-percentile-val" style="color: var(--accent-color);">0%</div>
+          <div class="metric-footer" id="metric-percentile-label">Outperforming 0% of takers</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Estimated National Rank</div>
+          <div class="metric-value" id="metric-rank-val">#0</div>
+          <div class="metric-footer">Predicted out of 350,000</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Hiring Eligibility</div>
+          <div class="metric-value" id="metric-profile-val" style="color: var(--success-color); font-size: 1.8rem;">Ninja</div>
+          <div class="metric-footer">Based on cutoffs mapping</div>
+        </div>
+      </div>
+
+      <!-- Performance Split columns -->
+      <div class="grid-cols-2">
+        
+        <!-- Score Card Split -->
+        <div class="dash-card">
+          <div class="dash-card-header">Section-wise Performance Breakdown</div>
+          <div class="dash-card-body" style="padding:0.5rem 0;">
+            <div class="table-responsive">
+              <table class="custom-table">
+                <thead>
+                  <tr>
+                    <th>Section</th>
+                    <th>Sub-scores</th>
+                    <th>Accuracy %</th>
+                  </tr>
+                </thead>
+                <tbody id="section-breakdown-tbody">
+                  <!-- Rendered dynamically -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Predictor Card Split -->
+        <div class="dash-card">
+          <div class="dash-card-header">Eligible Job Profile Prediction</div>
+          <div class="dash-card-body">
+            <div class="profile-predictor">
+              
+              <!-- Prime Profile -->
+              <div class="profile-tier locked" id="tier-prime">
+                <div class="tier-icon">💎</div>
+                <div class="tier-details">
+                  <h4>TCS Prime Package (9.0 LPA)</h4>
+                  <p>Requires Foundation > 80%, Advanced > 70%, Coding > 65%</p>
+                </div>
+              </div>
+
+              <!-- Digital Profile -->
+              <div class="profile-tier locked" id="tier-digital">
+                <div class="tier-icon">⚡</div>
+                <div class="tier-details">
+                  <h4>TCS Digital Package (7.0 LPA)</h4>
+                  <p>Requires Foundation > 65%, Advanced > 55%, Coding > 30%</p>
+                </div>
+              </div>
+
+              <!-- Ninja Profile -->
+              <div class="profile-tier locked" id="tier-ninja">
+                <div class="tier-icon">🎯</div>
+                <div class="tier-details">
+                  <h4>TCS Ninja Package (3.6 LPA)</h4>
+                  <p>Requires Foundation > 45% (Basic MCQ cutoff)</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Topic Performance & Recommendation -->
+      <div class="grid-cols-2">
+        <div class="dash-card">
+          <div class="dash-card-header">Syllabus Topic Strength Analysis</div>
+          <div class="dash-card-body">
+            <h4 style="font-size:0.9rem; color:var(--success-color); margin-bottom:0.5rem;">🚀 Strong Topics (>= 70% Correct)</h4>
+            <div id="topics-strong-container" style="display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1.5rem;">
+              <!-- Badges -->
+            </div>
+            
+            <h4 style="font-size:0.9rem; color:var(--danger-color); margin-bottom:0.5rem;">⚠️ Weak Areas (< 50% Correct)</h4>
+            <div id="topics-weak-container" style="display:flex; flex-wrap:wrap; gap:0.5rem;">
+              <!-- Badges -->
+            </div>
+          </div>
+        </div>
+
+        <div class="dash-card">
+          <div class="dash-card-header">Personalized Recommendation</div>
+          <div class="dash-card-body" style="line-height:1.6; font-size:0.95rem;">
+            <p id="recommendation-text-val" style="margin-bottom: 1rem;"></p>
+            <div style="background-color: var(--tcs-light-blue); padding:1rem; border-left:4px solid var(--accent-color); border-radius:4px; font-size:0.85rem; color:#2c5282;">
+              <strong>National Cutoff Benchmarks:</strong><br>
+              Competitive NQT percentiles for Prime hiring usually require resolving at least 1 Coding problem fully, and solving 80%+ of the Advanced Aptitude box questions.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom actions -->
+      <div style="display:flex; justify-content:center; gap:1.5rem; margin-top:2rem; margin-bottom:4rem;">
+        <button id="btn-retake" class="btn" style="background-color:var(--primary-color); color:white;">Retake Assessment</button>
+        <button id="btn-home" class="btn btn-secondary">Simulator Portal Home</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="./js/utils.js"></script>
+  <script src="./js/judge0.js"></script>
+  <script src="./js/questions.js"></script>
+  <script src="./js/result.js"></script>
+
+  <script>
+    window.addEventListener("load", async () => {
+      const mockId = Utils.loadState("selected_mock_id") || "1";
+      
+      // Ensure exam was actually finished to show results
+      if (!Utils.loadState("exam_finished")) {
+        window.location.href = "./index.html";
+        return;
+      }
+
+      const user = Utils.getCurrentUser();
+      document.getElementById("report-mock-title").innerText = `TCS NQT Complete Mock Test ${mockId} - Performance Report`;
+      if (user) {
+        document.getElementById("report-date-meta").innerText = `Candidate: ${user.name.toUpperCase()} (ID: ${user.username.toUpperCase()}) | Date: ${new Date().toLocaleDateString()} | Terminal ID: 104`;
+      } else {
+        document.getElementById("report-date-meta").innerText = `Report Date: ${new Date().toLocaleDateString()} | System Terminal ID: 104`;
+      }
+
+      // 1. Fetch details to loadQuestions and run results calculation
+      let reportData = null;
+      try {
+        await Questions.loadMockTest(mockId);
+        reportData = await Result.calculate(mockId);
+      } catch (err) {
+        console.error("Grading failed", err);
+        alert("Failed to compute mock grading scorecard. Loading fallback report.");
+      }
+
+      // Hide loading spinner and show dashboard
+      document.getElementById("loading-pane").style.display = "none";
+      document.getElementById("dashboard-content").style.display = "block";
+
+      if (reportData) {
+        // Render metrics
+        document.getElementById("metric-score-val").innerText = reportData.scores.overall;
+        document.getElementById("metric-percentile-val").innerText = `${reportData.prediction.percentile}%`;
+        document.getElementById("metric-percentile-label").innerText = `Outperforming ${reportData.prediction.percentile}% of takers`;
+        document.getElementById("metric-rank-val").innerText = `#${reportData.prediction.rank.toLocaleString()}`;
+        document.getElementById("metric-profile-val").innerText = reportData.prediction.eligibleProfile;
+
+        // Render profile tier highlighting
+        const activeProfile = reportData.prediction.eligibleProfile;
+        if (activeProfile === "Prime") {
+          document.getElementById("tier-prime").className = "profile-tier active";
+          document.getElementById("tier-digital").className = "profile-tier";
+          document.getElementById("tier-ninja").className = "profile-tier";
+        } else if (activeProfile === "Digital") {
+          document.getElementById("tier-digital").className = "profile-tier active";
+          document.getElementById("tier-ninja").className = "profile-tier";
+        } else if (activeProfile === "Ninja") {
+          document.getElementById("tier-ninja").className = "profile-tier active";
+        }
+
+        // Render section table
+        const tableBody = document.getElementById("section-breakdown-tbody");
+        tableBody.innerHTML = `
+          <tr>
+            <td><strong>Numerical Ability</strong></td>
+            <td>${Questions.session.answers ? Math.round(Questions.getSectionStats("numerical").answered) : 0} Qs</td>
+            <td><span class="badge ${reportData.accuracy.numerical >= 70 ? "badge-success" : (reportData.accuracy.numerical >= 50 ? "badge-warning" : "badge-danger")}">${reportData.accuracy.numerical}%</span></td>
+          </tr>
+          <tr>
+            <td><strong>Verbal Ability</strong></td>
+            <td>${Questions.session.answers ? Math.round(Questions.getSectionStats("verbal").answered) : 0} Qs</td>
+            <td><span class="badge ${reportData.accuracy.verbal >= 70 ? "badge-success" : (reportData.accuracy.verbal >= 50 ? "badge-warning" : "badge-danger")}">${reportData.accuracy.verbal}%</span></td>
+          </tr>
+          <tr>
+            <td><strong>Reasoning Ability</strong></td>
+            <td>${Questions.session.answers ? Math.round(Questions.getSectionStats("reasoning").answered) : 0} Qs</td>
+            <td><span class="badge ${reportData.accuracy.reasoning >= 70 ? "badge-success" : (reportData.accuracy.reasoning >= 50 ? "badge-warning" : "badge-danger")}">${reportData.accuracy.reasoning}%</span></td>
+          </tr>
+          <tr>
+            <td><strong>Advanced Aptitude</strong></td>
+            <td>${Questions.session.answers ? Math.round(Questions.getSectionStats("advanced").answered) : 0} Qs</td>
+            <td><span class="badge ${reportData.accuracy.advanced >= 70 ? "badge-success" : (reportData.accuracy.advanced >= 50 ? "badge-warning" : "badge-danger")}">${reportData.accuracy.advanced}%</span></td>
+          </tr>
+          <tr>
+            <td><strong>Coding Sections</strong></td>
+            <td>${Questions.session.answers ? Math.round(Questions.getSectionStats("coding").answered) : 0} Qs</td>
+            <td><span class="badge ${reportData.accuracy.coding >= 70 ? "badge-success" : (reportData.accuracy.coding >= 50 ? "badge-warning" : "badge-danger")}">${reportData.accuracy.coding}%</span></td>
+          </tr>
+        `;
+
+        // Render topic badges
+        const strongContainer = document.getElementById("topics-strong-container");
+        strongContainer.innerHTML = "";
+        reportData.topics.strong.forEach(t => {
+          const badge = document.createElement("span");
+          badge.className = "badge badge-success";
+          badge.style.padding = "0.4rem 0.8rem";
+          badge.innerText = t;
+          strongContainer.appendChild(badge);
+        });
+
+        const weakContainer = document.getElementById("topics-weak-container");
+        weakContainer.innerHTML = "";
+        reportData.topics.weak.forEach(t => {
+          const badge = document.createElement("span");
+          badge.className = "badge badge-danger";
+          badge.style.padding = "0.4rem 0.8rem";
+          badge.innerText = t;
+          weakContainer.appendChild(badge);
+        });
+
+        // Recommendation
+        document.getElementById("recommendation-text-val").innerText = reportData.topics.recommendation;
+      }
+
+      // Actions bindings
+      document.getElementById("btn-retake").addEventListener("click", () => {
+        // Clear session of this specific mock to retry
+        Utils.clearState(`session_mock_${mockId}`);
+        Utils.clearState("exam_finished");
+        Utils.clearState("locked_sections");
+        window.location.href = "./instructions.html";
+      });
+
+      document.getElementById("btn-home").addEventListener("click", () => {
+        window.location.href = "./index.html";
+      });
+    });
+  </script>
+</body>
+</html>

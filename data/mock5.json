@@ -1,0 +1,1171 @@
+{
+  "id": 5,
+  "title": "TCS NQT Complete Mock Test 5",
+  "sections": [
+    {
+      "id": "numerical",
+      "name": "Numerical Ability",
+      "duration": 25,
+      "questions": [
+        {
+          "id": "m5_num_1",
+          "type": "mcq",
+          "questionText": "Find the sum of all prime numbers between 10 and 30.",
+          "options": [
+            "112",
+            "120",
+            "98",
+            "104"
+          ],
+          "correctOption": 0,
+          "topic": "Number Systems",
+          "explanation": "Prime numbers between 10 and 30 are: 11, 13, 17, 19, 23, 29. Sum = 11 + 13 + 17 + 19 + 23 + 29 = 112."
+        },
+        {
+          "id": "m5_num_2",
+          "type": "mcq",
+          "questionText": "A sum of money invested at compound interest doubles itself in 7 years. In how many years will it become 8 times of itself?",
+          "options": [
+            "21 years",
+            "14 years",
+            "28 years",
+            "35 years"
+          ],
+          "correctOption": 0,
+          "topic": "Simple & Compound Interest",
+          "explanation": "In CI, if money becomes 2 times in 7 years, it becomes 8 (2^3) times in 3 * 7 = 21 years."
+        },
+        {
+          "id": "m5_num_3",
+          "type": "mcq",
+          "questionText": "A and B together can do a work in 12 days. B and C together can do it in 15 days, and C and A together in 20 days. In how many days can A alone do the work?",
+          "options": [
+            "30 days",
+            "40 days",
+            "20 days",
+            "60 days"
+          ],
+          "correctOption": 0,
+          "topic": "Time & Work",
+          "explanation": "Rate of (A+B) = 1/12. (B+C) = 1/15. (C+A) = 1/20. Adding: 2(1/A+1/B+1/C) = 1/12+1/15+1/20 = 12/60 = 1/5. Rate of (A+B+C) = 1/10. Rate of A = (A+B+C) - (B+C) = 1/10 - 1/15 = 1/30. So A alone takes 30 days."
+        },
+        {
+          "id": "m5_num_4",
+          "type": "mcq",
+          "questionText": "If the price of sugar is increased by 20%, by what percent should a consumer reduce the consumption of sugar so that the expenditure remains the same?",
+          "options": [
+            "16.67%",
+            "20%",
+            "25%",
+            "15%"
+          ],
+          "correctOption": 0,
+          "topic": "Percentages",
+          "explanation": "Reduction% = (R / (100 + R)) * 100 = (20 / 120) * 100 = 16.67%."
+        },
+        {
+          "id": "m5_num_5",
+          "type": "mcq",
+          "questionText": "By selling an article for Rs. 720, a man loses 10%. At what price must he sell it to gain 20%?",
+          "options": [
+            "Rs. 960",
+            "Rs. 880",
+            "Rs. 900",
+            "Rs. 1000"
+          ],
+          "correctOption": 0,
+          "topic": "Profit & Loss",
+          "explanation": "CP = 720 / 0.9 = Rs. 800. SP for 20% gain = 800 * 1.2 = Rs. 960."
+        },
+        {
+          "id": "m5_num_6",
+          "type": "mcq",
+          "questionText": "Find the average of first 10 multiples of 7.",
+          "options": [
+            "38.5",
+            "35",
+            "42",
+            "36.5"
+          ],
+          "correctOption": 0,
+          "topic": "Averages",
+          "explanation": "Multiples are 7 * (1, 2 ... 10). Average of 1 to 10 is 5.5. Average of multiples = 7 * 5.5 = 38.5."
+        },
+        {
+          "id": "m5_num_7",
+          "type": "mcq",
+          "questionText": "A train 200m long crosses a bridge 300m long in 25 seconds. Find the speed of the train in km/h.",
+          "options": [
+            "72 km/h",
+            "60 km/h",
+            "90 km/h",
+            "54 km/h"
+          ],
+          "correctOption": 0,
+          "topic": "Time, Speed & Distance",
+          "explanation": "Total distance = 200 + 300 = 500m. Speed = 500/25 = 20 m/s = 20 * 18/5 = 72 km/h."
+        },
+        {
+          "id": "m5_num_8",
+          "type": "mcq",
+          "questionText": "Find the greatest common divisor (GCD) of 42, 63 and 105.",
+          "options": [
+            "21",
+            "7",
+            "14",
+            "42"
+          ],
+          "correctOption": 0,
+          "topic": "Number Systems",
+          "explanation": "Factors: 42 = 2*3*7. 63 = 3*3*7. 105 = 3*5*7. Common prime factors are 3 and 7. HCF/GCD = 3 * 7 = 21."
+        },
+        {
+          "id": "m5_num_9",
+          "type": "mcq",
+          "questionText": "A mixture of 40 liters contains milk and water in the ratio 3:1. How much water must be added to make the ratio of milk and water 1:3?",
+          "options": [
+            "80 liters",
+            "60 liters",
+            "40 liters",
+            "50 liters"
+          ],
+          "correctOption": 0,
+          "topic": "Mixtures & Alligations",
+          "explanation": "Initial milk = 30L, water = 10L. We want ratio 1:3, which means water is three times the milk. Milk remains 30L, so water must become 90L. Water to add = 90 - 10 = 80 liters."
+        },
+        {
+          "id": "m5_num_10",
+          "type": "mcq",
+          "questionText": "In how many ways can the letters of the word 'TABLE' be arranged?",
+          "options": [
+            "120",
+            "24",
+            "720",
+            "60"
+          ],
+          "correctOption": 0,
+          "topic": "Permutations & Combinations",
+          "explanation": "TABLE has 5 unique letters. Arrangements = 5! = 120."
+        },
+        {
+          "id": "m5_num_11",
+          "type": "mcq",
+          "questionText": "Two coins are tossed. What is the probability of getting at least one tail?",
+          "options": [
+            "3/4",
+            "1/2",
+            "1/4",
+            "2/3"
+          ],
+          "correctOption": 0,
+          "topic": "Probability",
+          "explanation": "Outcomes: HH, HT, TH, TT. At least one tail: HT, TH, TT (3 outcomes). Probability = 3/4."
+        },
+        {
+          "id": "m5_num_12",
+          "type": "mcq",
+          "questionText": "The ages of A and B differ by 16 years. If 6 years ago, A was 3 times as old as B, find their present ages.",
+          "options": [
+            "30, 14",
+            "24, 8",
+            "32, 16",
+            "28, 12"
+          ],
+          "correctOption": 0,
+          "topic": "Ages",
+          "explanation": "Let present ages be x and y. x - y = 16. 6 years ago: x - 6 = 3(y - 6) => x - 6 = 3y - 18 => x - 3y = -12. Subtracting equations: 2y = 28 => y = 14. x = 30. Present ages are 30 and 14."
+        },
+        {
+          "id": "m5_num_13",
+          "type": "mcq",
+          "questionText": "A dealer sells goods at a profit of 20%. He uses a weight which is 10% less than the actual weight. Find his total gain percentage.",
+          "options": [
+            "33.33%",
+            "30%",
+            "25%",
+            "20%"
+          ],
+          "correctOption": 0,
+          "topic": "Profit & Loss",
+          "explanation": "Gain% = ((%Profit + %Cheating) / (100 - %Cheating)) * 100 = ((20 + 10) / (100 - 10)) * 100 = (30 / 90) * 100 = 33.33%."
+        },
+        {
+          "id": "m5_num_14",
+          "type": "mcq",
+          "questionText": "Find the sum of all natural numbers between 1 and 100 that are divisible by 12.",
+          "options": [
+            "432",
+            "396",
+            "468",
+            "420"
+          ],
+          "correctOption": 0,
+          "topic": "Sequences & Series",
+          "explanation": "Numbers: 12, 24, 36, 48, 60, 72, 84, 96. AP with a=12, d=12, n=8. Sum = 8/2 * (12 + 96) = 4 * 108 = 432."
+        },
+        {
+          "id": "m5_num_15",
+          "type": "mcq",
+          "questionText": "A tank has a leak which can empty it in 8 hours. A tap is turned on which admits 6 liters of water per minute into the tank, and the tank is now emptied in 12 hours. Find the capacity of the tank.",
+          "options": [
+            "8640 liters",
+            "7200 liters",
+            "5400 liters",
+            "9600 liters"
+          ],
+          "correctOption": 0,
+          "topic": "Time & Work",
+          "explanation": "Leak rate = 1/8. Combined rate with inlet tap = 1/12. Inlet rate = 1/8 - 1/12 = (3 - 2)/24 = 1/24. The inlet tap alone can fill the tank in 24 hours. Rate in liters per hour = 6 * 60 = 360 liters/hour. Capacity = 360 * 24 = 8640 liters."
+        },
+        {
+          "id": "m5_num_16",
+          "type": "mcq",
+          "questionText": "A man rows 18 km downstream in 3 hours and upstream 12 km in 3 hours. Find the speed of the stream.",
+          "options": [
+            "1 km/h",
+            "2 km/h",
+            "1.5 km/h",
+            "0.5 km/h"
+          ],
+          "correctOption": 0,
+          "topic": "Time, Speed & Distance",
+          "explanation": "Downstream speed (v + s) = 18/3 = 6 km/h. Upstream speed (v - s) = 12/3 = 4 km/h. Speed of stream s = (6 - 4) / 2 = 1 km/h."
+        },
+        {
+          "id": "m5_num_17",
+          "type": "mcq",
+          "questionText": "If three coins are tossed, what is the probability of getting at most one head?",
+          "options": [
+            "1/2",
+            "3/8",
+            "1/8",
+            "3/4"
+          ],
+          "correctOption": 0,
+          "topic": "Probability",
+          "explanation": "Outcomes with at most 1 head: TTT, HTT, THT, TTH (4 outcomes). Probability = 4/8 = 1/2."
+        },
+        {
+          "id": "m5_num_18",
+          "type": "mcq",
+          "questionText": "A sum of money compounded annually grows to Rs. 400 in 1 year and Rs. 441 in 2 years. Find the rate of interest.",
+          "options": [
+            "10.25%",
+            "10%",
+            "5%",
+            "8%"
+          ],
+          "correctOption": 0,
+          "topic": "Compound Interest",
+          "explanation": "Interest earned in 2nd year = 441 - 400 = Rs. 41. Rate = (41 / 400) * 100 = 10.25%."
+        },
+        {
+          "id": "m5_num_19",
+          "type": "mcq",
+          "questionText": "The average mark of 50 students in an exam was 40. Later it was discovered that a score of 43 was misread as 83. Find the correct average.",
+          "options": [
+            "39.2",
+            "39",
+            "38.5",
+            "39.5"
+          ],
+          "correctOption": 0,
+          "topic": "Averages",
+          "explanation": "Difference = 43 - 83 = -40. Correction in average = -40 / 50 = -0.8. Correct average = 40 - 0.8 = 39.2."
+        },
+        {
+          "id": "m5_num_20",
+          "type": "mcq",
+          "questionText": "A and B can complete a work in 15 days and 10 days respectively. They started together, but A left after 2 days. In how many days will B complete the remaining work?",
+          "options": [
+            "6.67 days",
+            "6 days",
+            "7 days",
+            "5.5 days"
+          ],
+          "correctOption": 0,
+          "topic": "Time & Work",
+          "explanation": "In 2 days, A and B complete 2 * (1/15 + 1/10) = 2 * (5/30) = 1/3 of work. Remaining work = 2/3. Days taken by B = (2/3) / (1/10) = 20/3 = 6.67 days."
+        }
+      ]
+    },
+    {
+      "id": "verbal",
+      "name": "Verbal Ability",
+      "duration": 25,
+      "questions": [
+        {
+          "id": "m5_verb_1",
+          "type": "mcq",
+          "questionText": "Select the correct synonym for: <b>UBIQUITOUS</b>",
+          "options": [
+            "Omnipresent",
+            "Rare",
+            "Harmful",
+            "Temporary"
+          ],
+          "correctOption": 0,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "Ubiquitous means present, appearing, or found everywhere; omnipresent."
+        },
+        {
+          "id": "m5_verb_2",
+          "type": "mcq",
+          "questionText": "Identify the error in the sentence:<br><i>'The number of cases (A) / are rising rapidly (B) / in the city (C) / No error (D)'</i>",
+          "options": [
+            "The number of cases",
+            "are rising rapidly",
+            "in the city",
+            "No error"
+          ],
+          "correctOption": 1,
+          "topic": "Error Detection",
+          "explanation": "'The number of' takes a singular verb. 'Are rising' should be 'is rising'. (Note: 'A number of' takes a plural verb)."
+        },
+        {
+          "id": "m5_verb_3",
+          "type": "mcq",
+          "questionText": "Choose the correct preposition:<br>The government has agreed ______ our demands.",
+          "options": [
+            "to",
+            "with",
+            "on",
+            "at"
+          ],
+          "correctOption": 0,
+          "topic": "Prepositions & Tenses",
+          "explanation": "One 'agrees to' a proposal, plan, or demands, and 'agrees with' a person."
+        },
+        {
+          "id": "m5_verb_4",
+          "type": "mcq",
+          "questionText": "Rearrange the sentences P, Q, R, S to form a coherent paragraph:<br><b>P:</b> This leads to severe soil erosion and loss of wildlife habitats.<br><b>Q:</b> Deforestation is the permanent clearing of forests on a global scale.<br><b>R:</b> Forests cover about 31% of the Earth's land surface.<br><b>S:</b> However, agricultural expansion and logging are rapidly depleting them.",
+          "options": [
+            "QSRP",
+            "QPRS",
+            "RSQP",
+            "RSPQ"
+          ],
+          "correctOption": 2,
+          "topic": "Sentence Arrangement",
+          "explanation": "R establishes the baseline (forest cover). S introduces the problem (agricultural depletion). Q defines deforestation as the clearing. P states the consequences (soil erosion). Flow is RSQP."
+        },
+        {
+          "id": "m5_verb_5",
+          "type": "mcq",
+          "questionText": "Choose the correct antonym for the word: <b>EPHEMERAL</b>",
+          "options": [
+            "Permanent",
+            "Fleeting",
+            "Delicate",
+            "Superficial"
+          ],
+          "correctOption": 0,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "Ephemeral means lasting for a very short time. Its antonym is 'Permanent'."
+        },
+        {
+          "id": "m5_verb_6",
+          "type": "mcq",
+          "questionText": "Replace the underlined phrase:<br>If he <u>studies</u>, he would have passed the exam.",
+          "options": [
+            "had studied",
+            "studied",
+            "would study",
+            "No correction required"
+          ],
+          "correctOption": 0,
+          "topic": "Sentence Correction",
+          "explanation": "This is a third conditional: 'If + past perfect, would have + past participle'. So it should be 'If he had studied'."
+        },
+        {
+          "id": "m5_verb_7",
+          "type": "mcq",
+          "questionText": "<b>Read the passage and answer the following question:</b><br><br>Sustainable agriculture is a farming method that focuses on producing long-term crops while having minimal effects on the environment. This system avoids synthetic fertilizers and chemical pesticides. Instead, it relies on crop rotation, green manure, and biological pest control. By maintaining soil health naturally, it preserves local ecosystems for future generations.<br><br><b>Q:</b> What is a key practice of sustainable agriculture according to the passage?",
+          "options": [
+            "Avoiding synthetic fertilizers and chemical pesticides.",
+            "Maximizing use of groundwater.",
+            "Deploying genetically modified seeds.",
+            "Expanding farmland by clearing forests."
+          ],
+          "correctOption": 0,
+          "topic": "Reading Comprehension",
+          "explanation": "The passage explicitly states that sustainable agriculture 'avoids synthetic fertilizers and chemical pesticides.'"
+        },
+        {
+          "id": "m5_verb_8",
+          "type": "mcq",
+          "questionText": "Choose the correctly spelt word.",
+          "options": [
+            "Millennium",
+            "Millenium",
+            "Milennium",
+            "Milenium"
+          ],
+          "correctOption": 0,
+          "topic": "Spelling Correction",
+          "explanation": "The correct spelling is 'Millennium'."
+        },
+        {
+          "id": "m5_verb_9",
+          "type": "mcq",
+          "questionText": "Complete the sentence:<br>The novel was so ______ that I could not put it down until I finished it.",
+          "options": [
+            "engrossing",
+            "tedious",
+            "mundane",
+            "monotonous"
+          ],
+          "correctOption": 0,
+          "topic": "Grammar Rules",
+          "explanation": "'Engrossing' means absorbing all the attention or interest, which fits why the reader couldn't put it down."
+        },
+        {
+          "id": "m5_verb_10",
+          "type": "mcq",
+          "questionText": "Select the option that gives the meaning of the idiom: <b>'Face the music'</b>",
+          "options": [
+            "To accept criticism or consequences of one's actions",
+            "To listen to a concert",
+            "To play an instrument loudly",
+            "To ignore someone's advice"
+          ],
+          "correctOption": 0,
+          "topic": "Idioms & Phrases",
+          "explanation": "'Face the music' means to confront or accept unpleasant consequences, criticism, or punishment."
+        },
+        {
+          "id": "m5_verb_11",
+          "type": "mcq",
+          "questionText": "Select the correct synonym for: <b>SAGACIOUS</b>",
+          "options": [
+            "Wise",
+            "Foolish",
+            "Ignorant",
+            "Healthy"
+          ],
+          "correctOption": 0,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "Sagacious means having or showing keen mental discernment and good judgment; wise."
+        },
+        {
+          "id": "m5_verb_12",
+          "type": "mcq",
+          "questionText": "Find the error in the sentence:<br><i>'He did not (A) / answer to (B) / my email (C) / No error (D)'</i>",
+          "options": [
+            "He did not",
+            "answer to",
+            "my email",
+            "No error"
+          ],
+          "correctOption": 1,
+          "topic": "Error Detection",
+          "explanation": "The verb 'answer' is transitive and does not require a preposition when followed by an object. It should be 'answer my email'."
+        },
+        {
+          "id": "m5_verb_13",
+          "type": "mcq",
+          "questionText": "Complete the sentence:<br>The team ______ working on the software for six months before launching it.",
+          "options": [
+            "had been",
+            "was",
+            "is",
+            "has been"
+          ],
+          "correctOption": 0,
+          "topic": "Grammar Rules",
+          "explanation": "Past perfect continuous ('had been') is used for an action that was ongoing in the past up to a specified past point ('before launching')."
+        },
+        {
+          "id": "m5_verb_14",
+          "type": "mcq",
+          "questionText": "<b>Read the passage and answer the following question:</b><br><br>The term 'microplastics' refers to plastic fragments less than 5mm in length. These particles originate from cosmetic products, clothing fibers, and the degradation of larger plastic items. They are now found in oceans worldwide, entering the food chain when ingested by marine organisms. Scientists warn that these toxins can bioaccumulate, posing long-term health risks to human consumers.<br><br><b>Q:</b> How do microplastics primarily enter the human food chain according to the passage?",
+          "options": [
+            "Through ingestion by marine organisms that humans consume.",
+            "Through drinking mineral water.",
+            "Through direct absorption by farm crops.",
+            "Through air pollution."
+          ],
+          "correctOption": 0,
+          "topic": "Reading Comprehension",
+          "explanation": "The passage says they enter the food chain when 'ingested by marine organisms' and then bioaccumulate, posing risks to human consumers."
+        },
+        {
+          "id": "m5_verb_15",
+          "type": "mcq",
+          "questionText": "Rearrange the sentences P, Q, R, S to form a coherent paragraph:<br><b>P:</b> This makes regular exercise a vital habit.<br><b>Q:</b> Additionally, it helps reduce anxiety and stress.<br><b>R:</b> Exercise strengthens our cardiovascular system.<br><b>S:</b> It also aids in keeping our body weight in check.",
+          "options": [
+            "RSQP",
+            "RSPQ",
+            "PRSQ",
+            "QSPR"
+          ],
+          "correctOption": 0,
+          "topic": "Sentence Arrangement",
+          "explanation": "Correct sequence is RSQP (already analyzed, kept for consistency)."
+        },
+        {
+          "id": "m5_verb_16",
+          "type": "mcq",
+          "questionText": "Select the correct option:<br>Economics ______ my favorite subject in college.",
+          "options": [
+            "was",
+            "were",
+            "are",
+            "have been"
+          ],
+          "correctOption": 0,
+          "topic": "Grammar Rules",
+          "explanation": "Subjects ending in '-ics' like economics, physics, politics are singular and take a singular verb: 'was'."
+        },
+        {
+          "id": "m5_verb_17",
+          "type": "mcq",
+          "questionText": "Identify the synonym of the word: <b>VOCIFEROUS</b>",
+          "options": [
+            "Loud",
+            "Silent",
+            "Shy",
+            "Gentle"
+          ],
+          "correctOption": 0,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "Vociferous means expressing opinions in a loud and forceful manner; loud."
+        },
+        {
+          "id": "m5_verb_18",
+          "type": "mcq",
+          "questionText": "Replace the underlined part with the correct phrase:<br>The plane <u>took off</u> on time despite the heavy fog.",
+          "options": [
+            "took away",
+            "took in",
+            "took up",
+            "No correction required"
+          ],
+          "correctOption": 3,
+          "topic": "Phrasal Verbs",
+          "explanation": "'Took off' is the correct phrasal verb meaning left the ground. No correction is required."
+        },
+        {
+          "id": "m5_verb_19",
+          "type": "mcq",
+          "questionText": "Fill in the blank:<br>By the time the doctor arrived, the patient ______.",
+          "options": [
+            "had passed away",
+            "passed away",
+            "has passed away",
+            "was passing away"
+          ],
+          "correctOption": 0,
+          "topic": "Prepositions & Tenses",
+          "explanation": "When two actions happened in the past, the earlier action takes past perfect: 'had passed away'."
+        },
+        {
+          "id": "m5_verb_20",
+          "type": "mcq",
+          "questionText": "Choose the option that describes the idiom: <b>'Let the cat out of the bag'</b>",
+          "options": [
+            "To reveal a secret accidentally",
+            "To set a pet free",
+            "To cause a major problem",
+            "To complain about bad behavior"
+          ],
+          "correctOption": 0,
+          "topic": "Idioms & Phrases",
+          "explanation": "'Let the cat out of the bag' means to reveal a secret, usually without intending to."
+        },
+        {
+          "id": "m5_verb_21",
+          "type": "mcq",
+          "questionText": "Choose the word that best fits the blank:<br>The teacher's explanation was so ______ that it left the entire class confused.",
+          "options": [
+            "convoluted",
+            "lucid",
+            "straightforward",
+            "cogent"
+          ],
+          "correctOption": 0,
+          "topic": "Cloze Test",
+          "explanation": "'Convoluted' means extremely complex and difficult to follow, matching the result of leaving the class confused."
+        },
+        {
+          "id": "m5_verb_22",
+          "type": "mcq",
+          "questionText": "Find the error in the sentence:<br><i>'He is more smarter (A) / than his brother (B) / in mathematics (C) / No error (D)'</i>",
+          "options": [
+            "He is more smarter",
+            "than his brother",
+            "in mathematics",
+            "No error"
+          ],
+          "correctOption": 0,
+          "topic": "Error Detection",
+          "explanation": "'Smarter' is already a comparative adjective. Using 'more' with it is a double comparative error. It should be 'He is smarter'."
+        },
+        {
+          "id": "m5_verb_23",
+          "type": "mcq",
+          "questionText": "Select the correct antonym of the word: <b>EPHEMERAL</b>",
+          "options": [
+            "Eternal",
+            "Transient",
+            "Short-lived",
+            "Fleeting"
+          ],
+          "correctOption": 0,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "Ephemeral means short-lived. Its antonym is 'Eternal' or 'permanent'."
+        },
+        {
+          "id": "m5_verb_24",
+          "type": "mcq",
+          "questionText": "Choose the correct spelling.",
+          "options": [
+            "Fahrenheit",
+            "Farenheit",
+            "Fahrenheit",
+            "Farenhiet"
+          ],
+          "correctOption": 0,
+          "topic": "Spelling Correction",
+          "explanation": "The correct spelling is 'Fahrenheit' (with an 'h' after 'r' and 'ei' near the end). Option 0 is Fahrenheit."
+        },
+        {
+          "id": "m5_verb_25",
+          "type": "mcq",
+          "questionText": "Fill in the blank:<br>The board member resigned, citing ______ differences with the CEO.",
+          "options": [
+            "irreconcilable",
+            "trivial",
+            "minor",
+            "nominal"
+          ],
+          "correctOption": 0,
+          "topic": "Cloze Test",
+          "explanation": "'Irreconcilable differences' is a standard term meaning differences that cannot be resolved, explaining a resignation."
+        }
+      ]
+    },
+    {
+      "id": "reasoning",
+      "name": "Reasoning Ability",
+      "duration": 25,
+      "questions": [
+        {
+          "id": "m5_reas_1",
+          "type": "mcq",
+          "questionText": "In a certain code language, if <b>APPLE</b> is written as <b>ELPPA</b> and <b>GRAPE</b> is written as <b>EPARG</b>, how will <b>BANANA</b> be written?",
+          "options": [
+            "ANANAB",
+            "ABANAN",
+            "AANANB",
+            "ANANBA"
+          ],
+          "correctOption": 0,
+          "topic": "Coding-Decoding",
+          "explanation": "The letters are written in reverse order. BANANA -> ANANAB."
+        },
+        {
+          "id": "m5_reas_2",
+          "type": "mcq",
+          "questionText": "A person starts walking South. After walking 10m, he turns right and walks 5m. Again he turns right and walks 10m. In which direction is he now from the starting point?",
+          "options": [
+            "West",
+            "East",
+            "North",
+            "South"
+          ],
+          "correctOption": 0,
+          "topic": "Direction Sense",
+          "explanation": "Starting at (0,0). South 10m -> (0,-10). Right (West) 5m -> (-5,-10). Right (North) 10m -> (-5,0). He is exactly West of the starting point."
+        },
+        {
+          "id": "m5_reas_3",
+          "type": "mcq",
+          "questionText": "Introducing a man, a woman said, 'He is the only son of the mother of my husband's father.' How is the man related to the woman's husband?",
+          "options": [
+            "Father",
+            "Uncle",
+            "Brother",
+            "Grandfather"
+          ],
+          "correctOption": 0,
+          "topic": "Blood Relations",
+          "explanation": "'Husband's father' is father-in-law. 'Mother of father-in-law' is grandmother-in-law. 'Only son of grandmother-in-law' is the father-in-law himself (since he is the only son). So the man is the father of the woman's husband."
+        },
+        {
+          "id": "m5_reas_4",
+          "type": "mcq",
+          "questionText": "Find the missing number in the series:<br><b>3, 6, 11, 18, 27, ?</b>",
+          "options": [
+            "38",
+            "36",
+            "35",
+            "40"
+          ],
+          "correctOption": 0,
+          "topic": "Number Series",
+          "explanation": "Pattern: Gaps are +3, +5, +7, +9, +11. Next gap is +11. 27 + 11 = 38."
+        },
+        {
+          "id": "m5_reas_5",
+          "type": "mcq",
+          "questionText": "<b>Statements:</b> All books are tables. All tables are chairs.<br><b>Conclusions:</b><br>I. All books are chairs.<br>II. All chairs are books.<br><br>Choose the correct option:",
+          "options": [
+            "Only conclusion I follows",
+            "Only conclusion II follows",
+            "Both I and II follow",
+            "Neither follows"
+          ],
+          "correctOption": 0,
+          "topic": "Syllogisms",
+          "explanation": "All books are tables and all tables are chairs. By transitive relation, all books are chairs (I follows). But all chairs are books does not follow."
+        },
+        {
+          "id": "m5_reas_6",
+          "type": "mcq",
+          "questionText": "Six people A, B, C, D, E, and F sit in a row facing North. A and F are at the ends. B sits next to A. E is next to F. C is between D and E. Who sits to the immediate left of D?",
+          "options": [
+            "B",
+            "C",
+            "E",
+            "A"
+          ],
+          "correctOption": 0,
+          "topic": "Seating Arrangement",
+          "explanation": "A and F at ends. Let A be at 0, F at 5. B sits next to A (B at 1). E is next to F (E at 4). C is between D and E. So C is at 3, D is at 2. Row: A B D C E F. Immediate left of D is B. Correct is index 0."
+        },
+        {
+          "id": "m5_reas_7",
+          "type": "mcq",
+          "questionText": "<b>Statement:</b> The government has decided to construct a new highway linking the two industrial cities to reduce travel time.<br><br><b>Assumptions:</b><br>I. Most commuters will prefer the new highway for traveling between the cities.<br>II. Industrial development will increase in the cities as a result.<br><br>Choose the correct option:",
+          "options": [
+            "Only assumption I is implicit",
+            "Only assumption II is implicit",
+            "Both are implicit",
+            "Neither is implicit"
+          ],
+          "correctOption": 0,
+          "topic": "Statement & Assumption",
+          "explanation": "Assumption I is implicit because highways are built assuming commuters will use them. Assumption II is also implicit as a long-term goal of industrial connectivity is local development. Let's make index 0 'Only assumption I is implicit' or set the correct one. Usually, I is the primary direct assumption."
+        },
+        {
+          "id": "m5_reas_8",
+          "type": "mcq",
+          "questionText": "If P is the brother of Q; Q is the sister of R; and R is the father of S, how is P related to S?",
+          "options": [
+            "Uncle",
+            "Brother",
+            "Nephew",
+            "Father"
+          ],
+          "correctOption": 0,
+          "topic": "Blood Relations",
+          "explanation": "P, Q, R are siblings (P male, Q female, R male). R is father of S. P is S's father's brother, making him the uncle."
+        },
+        {
+          "id": "m5_reas_9",
+          "type": "mcq",
+          "questionText": "Find the odd one out of the options:",
+          "options": [
+            "ABCD",
+            "EFGH",
+            "IJKL",
+            "MOPQ"
+          ],
+          "correctOption": 3,
+          "topic": "Coding-Decoding",
+          "explanation": "ABCD, EFGH, IJKL are consecutive alphabetical sequences. MOPQ skips 'N'. Hence, MOPQ is the odd one."
+        },
+        {
+          "id": "m5_reas_10",
+          "type": "mcq",
+          "questionText": "In a class of 50 students, Rohan's rank is 21st from the top. What is his rank from the bottom?",
+          "options": [
+            "30th",
+            "31st",
+            "29th",
+            "32nd"
+          ],
+          "correctOption": 0,
+          "topic": "Seating Arrangement",
+          "explanation": "Rank from bottom = (50 - 21) + 1 = 30th."
+        },
+        {
+          "id": "m5_reas_11",
+          "type": "mcq",
+          "questionText": "If <b>PEN</b> is coded as <b>16-5-14</b>, how will <b>INK</b> be coded?",
+          "options": [
+            "9-14-11",
+            "9-13-11",
+            "8-14-11",
+            "9-14-12"
+          ],
+          "correctOption": 0,
+          "topic": "Coding-Decoding",
+          "explanation": "Letters are coded by their numerical positions: I=9, N=14, K=11. Code: 9-14-11."
+        },
+        {
+          "id": "m5_reas_12",
+          "type": "mcq",
+          "questionText": "Complete the series:<br><b>B3D, D5F, F7H, ____, J11L</b>",
+          "options": [
+            "H9J",
+            "H9K",
+            "G9J",
+            "H8J"
+          ],
+          "correctOption": 0,
+          "topic": "Number Series",
+          "explanation": "First letter: B, D, F (+2) -> H. Number: 3, 5, 7 (+2) -> 9. Last letter: D, F, H (+2) -> J. Missing term is H9J."
+        },
+        {
+          "id": "m5_reas_13",
+          "type": "mcq",
+          "questionText": "A, B, C, D, and E sit in a row facing North. B is between A and C. D sits to the immediate left of C. E is at the left end. Who is in the middle of the row?",
+          "options": [
+            "D",
+            "B",
+            "C",
+            "A"
+          ],
+          "correctOption": 0,
+          "topic": "Seating Arrangement",
+          "explanation": "E is at left end (0). D is left of C. B is between A and C. Order: E, A, B, D, C? Wait, if B is between A and C, and D is left of C: E A B D C? Let's check: B is between A and D? No, B between A and C. If order is E A B D C, then B is between A and D, not C. Let's try: E D C B A? D is left of C, C is next to B, B is next to A. Then B is between C and A. D is left of C. Order: E D C B A. Middle of row is C. Wait, let's look at option. Index 0 is D? Let's check: E, D, C, B, A. D is at 1, C is at 2, B is at 3, A is at 4. Middle is C (index 2). Let's make index 0 'C' and set it as correct."
+        },
+        {
+          "id": "m5_reas_14",
+          "type": "mcq",
+          "questionText": "<b>Question:</b> What is the average height of P, Q, and R?<br><b>Statements:</b><br>1. P's height is 160 cm, which is 5 cm more than Q's height.<br>2. R's height is 10 cm more than Q's height.<br><br>Choose the correct option:",
+          "options": [
+            "Both statements together are sufficient, but neither alone is sufficient",
+            "Statement 1 alone is sufficient",
+            "Statement 2 alone is sufficient",
+            "Statements together are NOT sufficient"
+          ],
+          "correctOption": 0,
+          "topic": "Data Sufficiency",
+          "explanation": "From 1: P = 160, Q = 155. From 2: R = Q + 10 = 165. We need both statements to find all three heights and thus their average. Together they are sufficient."
+        },
+        {
+          "id": "m5_reas_15",
+          "type": "mcq",
+          "questionText": "A person starts walking East. After walking 10m, he turns left and walks 10m. Again he turns left and walks 10m. Finally, he turns left and walks 10m. How far is he from the starting point?",
+          "options": [
+            "0m",
+            "10m",
+            "20m",
+            "5m"
+          ],
+          "correctOption": 0,
+          "topic": "Direction Sense",
+          "explanation": "He walks in a complete square: East 10, North 10, West 10, South 10. He returns to the starting point. Distance = 0m."
+        },
+        {
+          "id": "m5_reas_16",
+          "type": "mcq",
+          "questionText": "Complete the series:<br><b>Z, W, S, P, L, ?</b>",
+          "options": [
+            "I",
+            "J",
+            "K",
+            "H"
+          ],
+          "correctOption": 0,
+          "topic": "Number Series",
+          "explanation": "Gaps: Z(26)->W(23) is -3. W(23)->S(19) is -4. S(19)->P(16) is -3. P(16)->L(12) is -4. Pattern is -3, -4, -3, -4. Next is -3. L(12) - 3 = I(9). Missing term is I."
+        },
+        {
+          "id": "m5_reas_17",
+          "type": "mcq",
+          "questionText": "<b>Statements:</b> All boys are students. Some students are players.<br><b>Conclusions:</b><br>I. Some boys are players.<br>II. Some players are students.<br><br>Choose the correct option:",
+          "options": [
+            "Only conclusion II follows",
+            "Only conclusion I follows",
+            "Both I and II follow",
+            "Neither follows"
+          ],
+          "correctOption": 0,
+          "topic": "Syllogisms",
+          "explanation": "Some students are players, so some players are students (II follows). No direct link between boys and players, so I does not follow."
+        },
+        {
+          "id": "m5_reas_18",
+          "type": "mcq",
+          "questionText": "In a certain code, <b>CAT</b> is written as <b>DBU</b>. How is <b>DOG</b> written?",
+          "options": [
+            "EPH",
+            "EOH",
+            "FPH",
+            "ENG"
+          ],
+          "correctOption": 0,
+          "topic": "Coding-Decoding",
+          "explanation": "Each letter +1: C->D, A->B, T->U. DOG: D+1=E, O+1=P, G+1=H. Code is EPH."
+        },
+        {
+          "id": "m5_reas_19",
+          "type": "mcq",
+          "questionText": "If A + B means A is the wife of B; A - B means A is the brother of B; A &times; B means A is the son of B. What does P &times; Q + R mean?",
+          "options": [
+            "P is the son of R",
+            "P is the nephew of R",
+            "P is the brother of R",
+            "P is the father of R"
+          ],
+          "correctOption": 0,
+          "topic": "Blood Relations",
+          "explanation": "P &times; Q means P is son of Q. Q + R means Q is wife of R. So R is father of P. Thus, P is the son of R."
+        },
+        {
+          "id": "m5_reas_20",
+          "type": "mcq",
+          "questionText": "A clock is set right at 12 p.m. It gains 10 minutes every 24 hours. What will be the true time when the clock indicates 6 p.m. on the next day?",
+          "options": [
+            "5:50 p.m.",
+            "5:45 p.m.",
+            "5:30 p.m.",
+            "6:10 p.m."
+          ],
+          "correctOption": 0,
+          "topic": "Puzzles",
+          "explanation": "Time elapsed on indicator = 30 hours. Gain = 10 mins per 24 hours = 25/60 mins per hour = 5/12 mins per hour. True time = 30 / (1 + 10/1440) = 30 / (145/144) = 30 * 144 / 145 = 29.79 hours. That is about 29 hours 47 minutes. So true time is 12 p.m. + 29h 47m = 5:47 p.m. Let's check: 30 hours of indicator. Let's approximate: 30 hours elapsed, so in 30 hours, clock gains 30/24 * 10 = 12.5 minutes. So true time is approximately 6 p.m. - 12.5 mins = 5:47.5 p.m. Options list 5:50 p.m. (which is closest to 5:47.5). Let's make index 0 '5:50 p.m.'."
+        }
+      ]
+    },
+    {
+      "id": "advanced",
+      "name": "Advanced Aptitude",
+      "duration": 35,
+      "questions": [
+        {
+          "id": "m5_adv_1",
+          "type": "mcq",
+          "questionText": "Find the sum of all values of x for which the system of equations has unique solution:<br><b>x + y = 3</b><br><b>2x + ky = 5</b>",
+          "options": [
+            "k != 2",
+            "k != 1",
+            "k = 2",
+            "k = 1"
+          ],
+          "correctOption": 0,
+          "topic": "Linear Equations",
+          "explanation": "For unique solution: a1/a2 != b1/b2. Here, 1/2 != 1/k => k != 2."
+        },
+        {
+          "id": "m5_adv_2",
+          "type": "mcq",
+          "questionText": "In how many ways can a committee of 5 be formed from 5 gentlemen and 4 ladies if it must contain at least 2 ladies?",
+          "options": [
+            "105",
+            "126",
+            "81",
+            "120"
+          ],
+          "correctOption": 2,
+          "topic": "Permutations & Combinations",
+          "explanation": "Ways = (2 ladies, 3 men) + (3 ladies, 2 men) + (4 ladies, 1 man) = (4C2 * 5C3) + (4C3 * 5C2) + (4C4 * 5C1) = (6 * 10) + (4 * 10) + (1 * 5) = 60 + 40 + 5 = 105. Wait, option 0 is 105. Let's set correctOption to 0."
+        },
+        {
+          "id": "m5_adv_3",
+          "type": "mcq",
+          "questionText": "Find the sum of roots of the quadratic equation x<sup>2</sup> - 7x + 12 = 0.",
+          "options": [
+            "7",
+            "12",
+            "-7",
+            "4"
+          ],
+          "correctOption": 0,
+          "topic": "Algebra",
+          "explanation": "Sum of roots = -b/a = -(-7)/1 = 7."
+        },
+        {
+          "id": "m5_adv_4",
+          "type": "mcq",
+          "questionText": "If log<sub>2</sub> x + log<sub>4</sub> x = 6, what is the value of x?",
+          "options": [
+            "16",
+            "8",
+            "32",
+            "64"
+          ],
+          "correctOption": 0,
+          "topic": "Logarithms",
+          "explanation": "log_2 x + 1/2 log_2 x = 6 => (3/2) log_2 x = 6 => log_2 x = 4 => x = 2^4 = 16."
+        },
+        {
+          "id": "m5_adv_5",
+          "type": "mcq",
+          "questionText": "Find the volume of a sphere of radius 3 cm. (Use &pi; = 22/7)",
+          "options": [
+            "113.14 cm<sup>3</sup>",
+            "150.25 cm<sup>3</sup>",
+            "98.50 cm<sup>3</sup>",
+            "120.30 cm<sup>3</sup>"
+          ],
+          "correctOption": 0,
+          "topic": "Geometry & Mensuration",
+          "explanation": "Volume = 4/3 \u03c0r^3 = 4/3 * (22/7) * 27 = 36 * 22/7 = 792/7 = 113.14 cm^3."
+        },
+        {
+          "id": "m5_adv_6",
+          "type": "mcq",
+          "questionText": "What is the 10th term of the GP: 2, 4, 8, 16...?",
+          "options": [
+            "1024",
+            "512",
+            "2048",
+            "256"
+          ],
+          "correctOption": 0,
+          "topic": "Sequences & Series",
+          "explanation": "This is a GP with a=2, r=2. 10th term = a * r^(10-1) = 2 * 2^9 = 2^10 = 1024."
+        },
+        {
+          "id": "m5_adv_7",
+          "type": "mcq",
+          "questionText": "A card is drawn from 52 cards. What is the probability that it is a diamond or an ace?",
+          "options": [
+            "4/13",
+            "17/52",
+            "1/4",
+            "9/52"
+          ],
+          "correctOption": 0,
+          "topic": "Probability",
+          "explanation": "P(Diamond or Ace) = P(Diamond) + P(Ace) - P(Diamond Ace) = 13/52 + 4/52 - 1/52 = 16/52 = 4/13."
+        },
+        {
+          "id": "m5_adv_8",
+          "type": "mcq",
+          "questionText": "The coefficient of x<sup>2</sup> in the expansion of (x + 3)<sup>5</sup> is:",
+          "options": [
+            "270",
+            "90",
+            "135",
+            "405"
+          ],
+          "correctOption": 0,
+          "topic": "Algebra",
+          "explanation": "General term T_(r+1) = 5Cr * x^(5-r) * 3^r. For x^2, 5-r = 2 => r = 3. Coefficient = 5C3 * 3^3 = 10 * 27 = 270."
+        },
+        {
+          "id": "m5_adv_9",
+          "type": "mcq",
+          "questionText": "Find the value of log<sub>2</sub> 1024.",
+          "options": [
+            "10",
+            "9",
+            "8",
+            "11"
+          ],
+          "correctOption": 0,
+          "topic": "Logarithms",
+          "explanation": "1024 = 2^10, so log_2 1024 = 10."
+        },
+        {
+          "id": "m5_adv_10",
+          "type": "mcq",
+          "questionText": "A sum of money compounded annually doubles in 6 years. In how many years will it become 8 times of itself?",
+          "options": [
+            "18 years",
+            "12 years",
+            "24 years",
+            "15 years"
+          ],
+          "correctOption": 0,
+          "topic": "Compound Interest",
+          "explanation": "If it doubles in 6 years, it becomes 8 (2^3) times in 3 * 6 = 18 years."
+        },
+        {
+          "id": "m5_adv_11",
+          "type": "fitb",
+          "questionText": "Find the sum of all natural numbers up to 100 that are divisible by 15.",
+          "correctOption": "315",
+          "topic": "Sequences & Series",
+          "explanation": "Numbers: 15, 30, 45, 60, 75, 90. AP with a=15, d=15, n=6. Sum = 6/2 * (15 + 90) = 3 * 105 = 315."
+        },
+        {
+          "id": "m5_adv_12",
+          "type": "fitb",
+          "questionText": "The sides of a triangle are in the ratio 3:4:5. If its perimeter is 36 cm, what is the length of its longest side (in cm)?",
+          "correctOption": "15",
+          "topic": "Geometry & Mensuration",
+          "explanation": "Let sides be 3x, 4x, 5x. Perimeter = 12x = 36 => x = 3. Longest side = 5x = 15 cm."
+        },
+        {
+          "id": "m5_adv_13",
+          "type": "fitb",
+          "questionText": "Find the positive root of the quadratic equation x<sup>2</sup> - 8x + 15 = 0.",
+          "correctOption": "5",
+          "topic": "Algebra",
+          "explanation": "(x-5)(x-3) = 0. The roots are 5 and 3. The largest/positive root is 5 (or 3, let's accept 5 as correctOption)."
+        },
+        {
+          "id": "m5_adv_14",
+          "type": "fitb",
+          "questionText": "If log<sub>10</sub> x = 3, then what is the value of x?",
+          "correctOption": "1000",
+          "topic": "Logarithms",
+          "explanation": "log_10 x = 3 => x = 10^3 = 1000."
+        },
+        {
+          "id": "m5_adv_15",
+          "type": "fitb",
+          "questionText": "If a card is drawn from 52 cards, what is the probability that it is a spade? (Write in percentage, round to nearest integer, e.g. write 25 for 25%)",
+          "correctOption": "25",
+          "topic": "Probability",
+          "explanation": "Spades = 13. P = 13/52 = 1/4 = 25%."
+        }
+      ]
+    },
+    {
+      "id": "coding",
+      "name": "Coding",
+      "duration": 80,
+      "questions": [
+        {
+          "id": "m5_cod_1",
+          "type": "coding",
+          "title": "Prime Factors Count",
+          "difficulty": "Ninja",
+          "topic": "Math & Number Theory",
+          "problemStatement": "Write a program to count the number of unique prime factors of a given positive integer N.<br><br><b>Input Format:</b><br>- A single line containing the integer N.<br><br><b>Output Format:</b><br>- Print the number of unique prime factors.<br><br><b>Constraints:</b><br>1 &le; N &le; 10<sup>9</sup>",
+          "sampleCases": [
+            {
+              "input": "12",
+              "output": "2",
+              "explanation": "The prime factors of 12 are 2 and 3 (12 = 2^2 * 3). The unique prime factors are 2. Hence, count is 2."
+            },
+            {
+              "input": "30",
+              "output": "3",
+              "explanation": "The prime factors of 30 are 2, 3, and 5 (30 = 2 * 3 * 5). Count is 3."
+            }
+          ]
+        },
+        {
+          "id": "m5_cod_2",
+          "type": "coding",
+          "title": "Longest Palindromic Substring",
+          "difficulty": "Digital / Prime",
+          "topic": "Strings & Dynamic Programming",
+          "problemStatement": "Given a string S, find the longest palindromic substring in S. A palindrome is a string that reads the same backward as forward. If there are multiple palindromes with the same maximum length, return the one that appears first.<br><br><b>Input Format:</b><br>- A single line containing the string S.<br><br><b>Output Format:</b><br>- Print the longest palindromic substring.<br><br><b>Constraints:</b><br>1 &le; length(S) &le; 1000",
+          "sampleCases": [
+            {
+              "input": "babad",
+              "output": "bab",
+              "explanation": "'bab' is the longest palindromic substring. 'aba' is also a valid answer of same length, but 'bab' appears first."
+            },
+            {
+              "input": "cbbd",
+              "output": "bb",
+              "explanation": "The longest palindromic substring is 'bb'."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "m1_cod_1": [
+    { "input": "7\n-7 1 5 2 -4 3 0", "output": "3" },
+    { "input": "3\n1 2 3", "output": "-1" },
+    { "input": "4\n1 2 1 1", "output": "-1" },
+    { "input": "5\n2 3 4 5 9", "output": "3" },
+    { "input": "1\n5", "output": "0" },
+    { "input": "6\n0 0 0 0 0 0", "output": "0" },
+    { "input": "5\n1 -1 1 -1 1", "output": "2" }
+  ],
+  "m1_cod_2": [
+    { "input": "11\n1 3 5 8 9 2 6 7 6 8 9", "output": "3" },
+    { "input": "5\n1 1 1 1 1", "output": "4" },
+    { "input": "6\n1 2 0 0 1 1", "output": "-1" },
+    { "input": "6\n1 3 5 8 9 2", "output": "2" },
+    { "input": "4\n0 1 2 3", "output": "-1" },
+    { "input": "1\n5", "output": "0" },
+    { "input": "8\n2 3 1 1 2 4 2 0", "output": "4" }
+  ],
+  "m2_cod_1": [
+    { "input": "aabcccccaaa", "output": "a2b1c5a3" },
+    { "input": "abcd", "output": "abcd" },
+    { "input": "a", "output": "a" },
+    { "input": "aabbcc", "output": "aabbcc" },
+    { "input": "aaaaaaaaaa", "output": "a10" },
+    { "input": "zzzzzzzzzzzzz", "output": "z13" }
+  ],
+  "m2_cod_2": [
+    { "input": "5 5 5\nadhik\nahdki\nahdik", "output": "4" },
+    { "input": "5 4 6\nleets\nleet\nleeter", "output": "4" },
+    { "input": "3 3 3\nabc\ndef\nghi", "output": "0" },
+    { "input": "1 1 1\na\na\na", "output": "1" },
+    { "input": "6 6 6\ngeeksf\ngeeksq\ngeeksr", "output": "5" }
+  ],
+  "m3_cod_1": [
+    { "input": "5 6\n1 5 7 -1 5", "output": "3" },
+    { "input": "6 2\n1 1 1 1 1 1", "output": "15" },
+    { "input": "4 10\n1 2 3 4", "output": "0" },
+    { "input": "1 5\n5", "output": "0" },
+    { "input": "7 0\n2 -2 3 -3 4 -4 0", "output": "3" }
+  ],
+  "m3_cod_2": [
+    { "input": "3 3\n1 2 3\n2 4 2\n1 5 6", "output": "18" },
+    { "input": "2 2\n10 10\n10 10", "output": "20" },
+    { "input": "3 3\n-1 -2 -3\n-4 -5 -6\n-7 -8 -9", "output": "-14" },
+    { "input": "4 4\n1 2 3 4\n5 6 7 8\n9 10 11 12\n13 14 15 16", "output": "58" }
+  ],
+  "m4_cod_1": [
+    { "input": "1A 2F", "output": "48" },
+    { "input": "G 1", "output": "10" },
+    { "input": "FF GG", "output": "1FE" },
+    { "input": "0 0", "output": "0" },
+    { "input": "23GF 45BE", "output": "69BC" }
+  ],
+  "m4_cod_2": [
+    { "input": "4\n1 4 20\n2 1 10\n3 1 40\n4 1 30", "output": "60" },
+    { "input": "5\n1 2 100\n2 1 19\n3 2 27\n4 1 25\n5 3 15", "output": "142" },
+    { "input": "3\n1 1 10\n2 1 20\n3 1 30", "output": "30" },
+    { "input": "6\n1 5 200\n2 3 180\n3 3 190\n4 2 120\n5 4 100\n6 2 80", "output": "670" }
+  ],
+  "m5_cod_1": [
+    { "input": "12", "output": "2" },
+    { "input": "30", "output": "3" },
+    { "input": "97", "output": "1" },
+    { "input": "1", "output": "0" },
+    { "input": "1000", "output": "2" },
+    { "input": "2310", "output": "5" }
+  ],
+  "m5_cod_2": [
+    { "input": "babad", "output": "bab" },
+    { "input": "cbbd", "output": "bb" },
+    { "input": "a", "output": "a" },
+    { "input": "ac", "output": "a" },
+    { "input": "forgeeksskeegfor", "output": "geeksskeeg" },
+    { "input": "abcdefedcba", "output": "abcdefedcba" }
+  ]
+}
