@@ -357,6 +357,8 @@
                 isCorrect = parseInt(ans.value) === q.correctOption;
               } else if (q.type === "fitb") {
                 isCorrect = String(ans.value).trim().toLowerCase() === String(q.correctOption).trim().toLowerCase();
+              } else if (q.type === "writing") {
+                isCorrect = ans.evaluation && ans.evaluation.score >= 3.5;
               } else if (q.type === "coding") {
                 isCorrect = ans.value === "yes";
               }
@@ -384,9 +386,71 @@
               if (ans) {
                 selectedStr = `Value: <strong>${ans.value}</strong>`;
               }
+            } else if (q.type === "writing") {
+              correctStr = `Genuine Answer Reference:<br><div style="margin-top: 0.4rem; padding: 0.5rem; background: rgba(0,255,0,0.05); border-left: 3px solid var(--success-color); font-style: italic; white-space: pre-wrap;">${q.correctOption}</div>`;
+              if (ans) {
+                selectedStr = `<div style="white-space: pre-wrap; font-style: italic; border-left: 3px solid #718096; padding-left: 0.5rem; margin-bottom: 0.5rem;">${ans.value}</div>`;
+                if (ans.evaluation) {
+                  const score = ans.evaluation.score;
+                  const feedback = ans.evaluation.feedback;
+                  const grammar = ans.evaluation.grammarErrors && ans.evaluation.grammarErrors.length > 0 ? ans.evaluation.grammarErrors.join(", ") : "None detected";
+                  selectedStr += `
+                    <div style="margin-top: 0.8rem; padding: 0.8rem; background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.08); border-radius: 6px; font-size: 0.85rem;">
+                      <div style="font-weight: 600; color: var(--accent-color); margin-bottom: 0.4rem;">📝 Groq AI Grading Report:</div>
+                      <div style="margin-bottom: 0.2rem;">• <strong>Score:</strong> ${score} / 5</div>
+                      <div style="margin-bottom: 0.2rem;">• <strong>Verdict:</strong> <span style="color: ${score >= 3.5 ? 'var(--success-color)' : 'var(--danger-color)'}; font-weight:600;">${score >= 3.5 ? 'PASS' : 'FAIL'}</span></div>
+                      <div style="margin-bottom: 0.2rem;">• <strong>AI Feedback:</strong> ${feedback}</div>
+                      ${ans.evaluation.grammarErrors && ans.evaluation.grammarErrors.length > 0 ? `<div style="color: #c53030; margin-top: 0.2rem;">• <strong>Grammar Suggestions:</strong> ${grammar}</div>` : ""}
+                    </div>
+                  `;
+                }
+              }
             } else if (q.type === "coding") {
-              correctStr = `Solved (Self-Evaluation)`;
-              selectedStr = ans.value === "yes" ? `Yes, I solved it` : `No, I did not solve it`;
+              correctStr = `Optimal Logic & Test Cases Reference Answer Sheet`;
+              if (ans) {
+                const escapedCode = ans.value.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+                selectedStr = `
+                  <div style="font-weight: 600; font-size: 0.8rem; color: #4a5568; margin-bottom: 0.3rem;">Language: <span style="text-transform: uppercase; color: var(--accent-color);">${ans.lang || "Unknown"}</span></div>
+                  <pre style="background: #1e1e1e; color: #d4d4d4; padding: 1rem; border-radius: 6px; font-family: monospace; font-size: 0.85rem; overflow-x: auto; max-height: 250px; margin-bottom: 0.8rem; line-height: 1.5;"><code>${escapedCode}</code></pre>
+                `;
+
+                if (ans.evaluation) {
+                  const passed = ans.evaluation.passedCount || 0;
+                  const total = ans.evaluation.totalCount || 1;
+                  const score = ((passed / total) * 15).toFixed(1);
+                  selectedStr += `
+                    <div style="padding: 0.8rem; background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.08); border-radius: 6px; font-size: 0.85rem;">
+                      <div style="font-weight: 600; color: var(--accent-color); margin-bottom: 0.4rem;">💻 Testcase Evaluation:</div>
+                      <div style="margin-bottom: 0.2rem;">• <strong>Passed:</strong> ${passed} / ${total} test cases</div>
+                      <div style="margin-bottom: 0.2rem;">• <strong>Sub-score:</strong> ${score} / 15 Marks</div>
+                      <div style="margin-bottom: 0.2rem;">• <strong>Verdict:</strong> <span style="color: ${passed === total ? 'var(--success-color)' : 'var(--danger-color)'}; font-weight:600;">${ans.evaluation.verdict || "Completed"}</span></div>
+                    </div>
+                  `;
+
+                  if (ans.evaluation.aiReport) {
+                    const aiScore = ans.evaluation.aiReport.score || 0;
+                    const aiFeedback = ans.evaluation.aiReport.feedback || "";
+                    const complexity = ans.evaluation.aiReport.complexity || "N/A";
+                    selectedStr += `
+                      <div style="margin-top: 0.8rem; padding: 0.8rem; background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.08); border-radius: 6px; font-size: 0.85rem;">
+                        <div style="font-weight: 600; color: var(--accent-color); margin-bottom: 0.4rem;">🤖 Groq AI Code Review:</div>
+                        <div style="margin-bottom: 0.2rem;">• <strong>AI Score:</strong> ${aiScore} / 15 Marks</div>
+                        <div style="margin-bottom: 0.2rem;">• <strong>Complexity Analysed:</strong> <code>${complexity}</code></div>
+                        <div style="margin-bottom: 0.2rem;">• <strong>AI Suggestions:</strong> ${aiFeedback}</div>
+                      </div>
+                    `;
+                  }
+                } else {
+                  // Fallback if they didn't run submit
+                  selectedStr += `
+                    <div style="padding: 0.8rem; background: rgba(0,0,0,0.03); border: 1px dashed rgba(0,0,0,0.15); border-radius: 6px; font-size: 0.85rem; color: #718096;">
+                      ⚠️ Code was saved but not submitted during the simulation. Score calculated by local heuristic checker.
+                    </div>
+                  `;
+                }
+              } else {
+                selectedStr = "None (Unattempted)";
+              }
             }
 
             // Build question card element

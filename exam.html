@@ -96,6 +96,7 @@
     
     <div class="footer-center">
       <button id="btn-compile-run" class="btn-exam btn-exam-primary" style="display:none;">Compile & Run</button>
+      <button id="btn-submit-code" class="btn-exam btn-exam-success" style="display:none;">Submit Code</button>
     </div>
 
     <div class="footer-right">
@@ -159,13 +160,17 @@
       const checkQuestionTypeAndAdjustFooter = () => {
         const q = Questions.getCurrentQuestion();
         const runBtn = document.getElementById("btn-compile-run");
+        const submitCodeBtn = document.getElementById("btn-submit-code");
         const saveBtn = document.getElementById("btn-save-next");
         const reviewBtn = document.getElementById("btn-mark-review");
 
         runBtn.style.display = "none";
+        submitCodeBtn.style.display = "none";
         reviewBtn.style.display = "inline-block";
 
         if (q && q.type === "coding") {
+          runBtn.style.display = "inline-block";
+          submitCodeBtn.style.display = "inline-block";
           saveBtn.innerText = "Next Question";
           saveBtn.title = "Go to next question";
         } else {
@@ -186,6 +191,11 @@
       // Bind Compile & Run footer action
       document.getElementById("btn-compile-run").addEventListener("click", () => {
         Navigation.compileAndRun();
+      });
+
+      // Bind Submit Code footer action
+      document.getElementById("btn-submit-code").addEventListener("click", () => {
+        Navigation.submitCodingCode();
       });
 
       // 4. Start active Section Timer

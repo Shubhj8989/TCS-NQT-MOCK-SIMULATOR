@@ -64,6 +64,8 @@ const Navigation = {
         this.renderMCQ(q, panelBody);
       } else if (q.type === "fitb") {
         this.renderFITB(q, panelBody);
+      } else if (q.type === "writing") {
+        this.renderWriting(q, panelBody);
       }
     }
 
@@ -142,71 +144,209 @@ const Navigation = {
     container.appendChild(fitbDiv);
   },
 
-  // Coding Terminal IDE (Simplified: static problem statement viewing + Solved Checklist)
+  // Descriptive Writing (Email writing & Paragraph summary)
+  renderWriting: function(question, container) {
+    const textDiv = document.createElement("div");
+    textDiv.className = "question-text";
+    textDiv.innerHTML = question.questionText;
+    container.appendChild(textDiv);
+
+    const writingDiv = document.createElement("div");
+    writingDiv.className = "writing-container";
+    writingDiv.style.marginTop = "1rem";
+
+    // Recover existing answer
+    const savedAns = Questions.getAnswer(question.id);
+    const savedVal = savedAns ? savedAns.value : "";
+
+    writingDiv.innerHTML = `
+      <label style="display:block; font-size:0.85rem; color:var(--tcs-text-gray); margin-bottom:0.6rem; font-weight:500;">Type your answer inside the box (Recommended: ${question.wordLimit || "50-80"} words):</label>
+      <textarea class="writing-input" id="writing-ans" rows="12" style="width:100%; max-width:100%; min-height:220px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-sm); color: white; padding: 1rem; font-family: inherit; font-size: 0.95rem; line-height: 1.6; outline: none; transition: border-color 0.2s; resize: vertical;" placeholder="Type your response here...">${savedVal}</textarea>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.5rem; font-size:0.8rem; color:var(--tcs-text-gray);">
+        <span>Keep focus on correct formatting, grammar, and key terms.</span>
+        <span id="writing-word-count" style="font-weight:600; color:#a5c3f6;">Words: 0</span>
+      </div>
+    `;
+
+    container.appendChild(writingDiv);
+
+    const textarea = document.getElementById("writing-ans");
+    const wordCountSpan = document.getElementById("writing-word-count");
+
+    const updateWordCount = () => {
+      const text = textarea.value.trim();
+      const words = text ? text.split(/\s+/).length : 0;
+      wordCountSpan.innerText = `Words: ${words}`;
+      
+      // Auto-save the response dynamically on input, similar to coding
+      Questions.saveAnswer(question.id, textarea.value, "writing");
+    };
+
+    textarea.addEventListener("input", updateWordCount);
+    updateWordCount();
+  },
+
+  // Coding Terminal IDE
   renderCoding: function(question, container) {
     container.innerHTML = "";
 
     const codingWorkspace = document.createElement("div");
     codingWorkspace.className = "coding-workspace";
-    codingWorkspace.style.display = "block";
 
-    // Recover existing answer
-    const savedAns = Questions.getAnswer(question.id);
-    const isYes = savedAns && savedAns.value === "yes";
-    const isNo = savedAns && savedAns.value === "no";
-
+    // 1. Left Problem Description Pane
     const problemPane = document.createElement("div");
     problemPane.className = "coding-problem-pane";
-    problemPane.style.width = "100%";
-    problemPane.style.height = "auto";
-    problemPane.style.maxHeight = "none";
-    problemPane.style.borderRight = "none";
+    problemPane.style.width = "45%";
+    problemPane.style.borderRight = "1px solid var(--tcs-border)";
 
     problemPane.innerHTML = `
       <div class="question-panel-header">
         <div class="question-number-title">${question.title} [${question.difficulty}]</div>
         <div class="question-score-meta">Category: ${question.topic}</div>
       </div>
-      <div class="question-content" style="font-size:0.95rem; padding: 2.2rem; overflow-y: auto; max-height: calc(100vh - 350px); border-radius: var(--radius-md); background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); margin-top: 1rem;">
+      <div class="question-content" style="font-size:0.92rem; padding: 1.5rem; overflow-y: auto; max-height: calc(100vh - 180px); line-height: 1.6;">
         ${question.problemStatement}
       </div>
-      
-      <!-- Self Evaluation Box -->
-      <div style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(255,255,255,0.05); border: 1px dashed rgba(255,255,255,0.15); border-radius: var(--radius-md); text-align: left; box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);">
-        <h4 style="color: white; margin-bottom: 0.8rem; font-size: 0.95rem; font-family: var(--font-heading); display:flex; align-items:center; gap:0.5rem;">
-          <span>🎯 Self-Evaluation:</span>
-          <span style="font-weight:normal; font-size:0.85rem; color:#a5c3f6;">Did you solve this coding problem?</span>
-        </h4>
-        <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
-          <label style="display: flex; align-items: center; gap: 0.6rem; color: #e2e8f0; cursor: pointer; font-size: 0.9rem; font-weight: 500; padding: 0.4rem 0.8rem; border-radius: var(--radius-sm); transition: background 0.2s;">
-            <input type="radio" name="coding-solved-${question.id}" value="yes" ${isYes ? "checked" : ""} style="accent-color: #4ec9b0; width: 18px; height: 18px; cursor:pointer;">
-            Yes, I solved it (Award 15 Marks)
-          </label>
-          <label style="display: flex; align-items: center; gap: 0.6rem; color: #e2e8f0; cursor: pointer; font-size: 0.9rem; font-weight: 500; padding: 0.4rem 0.8rem; border-radius: var(--radius-sm); transition: background 0.2s;">
-            <input type="radio" name="coding-solved-${question.id}" value="no" ${isNo ? "checked" : ""} style="accent-color: #ff6b6b; width: 18px; height: 18px; cursor:pointer;">
-            No, I did not solve it (Award 0 Marks)
-          </label>
+    `;
+
+    // 2. Right Editor Pane
+    const editorPane = document.createElement("div");
+    editorPane.className = "coding-editor-pane";
+    editorPane.style.width = "55%";
+
+    // Recover existing answer
+    const savedAns = Questions.getAnswer(question.id);
+    const savedCode = savedAns && savedAns.type === "coding" ? savedAns.value : "";
+    const savedLang = savedAns && savedAns.lang ? savedAns.lang : "python";
+
+    // Templates fallback
+    const defaultTemplate = Judge0.languages[savedLang] ? Judge0.languages[savedLang].defaultCode : "";
+    const currentCode = savedCode || defaultTemplate;
+
+    editorPane.innerHTML = `
+      <div class="editor-header">
+        <div style="font-weight: bold; font-size: 0.85rem; color: #a5c3f6; font-family: sans-serif;">💻 NQT Coding Console</div>
+        <div class="editor-controls">
+          <select id="lang-selector" class="editor-select">
+            <option value="python" ${savedLang === "python" ? "selected" : ""}>Python (3.8.1)</option>
+            <option value="java" ${savedLang === "java" ? "selected" : ""}>Java (OpenJDK 13)</option>
+            <option value="cpp" ${savedLang === "cpp" ? "selected" : ""}>C++ (GCC 9.2)</option>
+            <option value="c" ${savedLang === "c" ? "selected" : ""}>C (GCC 9.2)</option>
+            <option value="perl" ${savedLang === "perl" ? "selected" : ""}>Perl (5.28)</option>
+          </select>
+          <button id="btn-reset-code" class="btn-exam" style="padding: 0.2rem 0.6rem; font-size: 0.75rem; background: #3c3c3c; color: #fff; border-color: #555; border-radius: 3px; cursor:pointer;">Reset</button>
+        </div>
+      </div>
+      <div class="editor-textarea-container" style="flex:1; display:flex; position:relative; background-color:#1e1e1e;">
+        <div class="line-numbers" id="editor-line-numbers" style="width: 40px; text-align: right; padding: 1rem 8px 1rem 0; color: #858585; border-right: 1px solid #3c3c3c; font-family: monospace; font-size: 14px; line-height: 20px; user-select: none; overflow-y: hidden;">1</div>
+        <textarea class="code-textarea" id="code-editor" spellcheck="false" style="flex: 1; background: transparent; color: #d4d4d4; border: none; outline: none; resize: none; font-family: Consolas, Monaco, monospace; font-size: 14px; line-height: 20px; padding: 1rem; overflow-y: auto; tab-size: 4;" placeholder="Type your code here...">${currentCode}</textarea>
+      </div>
+      <div class="coding-console-pane" style="height:200px; display:flex; flex-direction:column; background-color:#252526; border-top:2px solid #3c3c3c;">
+        <div class="console-tabs" style="display:flex; height:35px; background-color:#2d2d2d; border-bottom:1px solid #3c3c3c;">
+          <div class="console-tab active" id="tab-console-input" data-target="console-input-body" style="padding:0.4rem 1.2rem; color:#aaa; font-size:0.8rem; font-weight:bold; cursor:pointer; border-right:1px solid #3c3c3c; display:flex; align-items:center;">Custom Input</div>
+          <div class="console-tab" id="tab-console-output" data-target="console-output-body" style="padding:0.4rem 1.2rem; color:#aaa; font-size:0.8rem; font-weight:bold; cursor:pointer; border-right:1px solid #3c3c3c; display:flex; align-items:center;">Console Log</div>
+          <div class="console-tab" id="tab-console-results" data-target="console-results-body" style="padding:0.4rem 1.2rem; color:#aaa; font-size:0.8rem; font-weight:bold; cursor:pointer; border-right:1px solid #3c3c3c; display:flex; align-items:center;">Test Results</div>
+        </div>
+        <div class="console-body" id="console-input-body" style="flex:1; padding:0.8rem 1rem; overflow-y:auto;">
+          <label style="display:block; font-size:0.75rem; color:#888; margin-bottom:0.3rem; font-family:sans-serif;">Provide custom test input (stdin):</label>
+          <textarea class="custom-input-area" id="custom-stdin" style="width:100%; height:80px; background-color:#1e1e1e; color:#d4d4d4; border:1px solid #3c3c3c; border-radius:4px; padding:0.5rem; font-family:monospace; resize:none; outline:none;" placeholder="Enter input here...">${question.sampleCases && question.sampleCases[0] ? question.sampleCases[0].input : ""}</textarea>
+        </div>
+        <div class="console-body" id="console-output-body" style="display:none; flex:1; padding:0.8rem 1rem; overflow-y:auto;">
+          <pre class="console-log" id="console-output-text" style="color:#9cdcfe; font-family:monospace; margin:0; white-space:pre-wrap;">Run your code to view the compilation or execution logs.</pre>
+        </div>
+        <div class="console-body" id="console-results-body" style="display:none; flex:1; padding:0.8rem 1rem; overflow-y:auto;">
+          <div class="console-verdict" id="console-results-verdict" style="font-weight:bold; font-size:0.9rem; margin-bottom:0.5rem; color:#fff; font-family:sans-serif;">Click 'Submit Code' to evaluate your code against the hidden test suite.</div>
+          <div id="testcase-rows-container"></div>
         </div>
       </div>
     `;
 
     codingWorkspace.appendChild(problemPane);
+    codingWorkspace.appendChild(editorPane);
     container.appendChild(codingWorkspace);
 
-    // Bind selection changes
-    const radioYes = problemPane.querySelector('input[value="yes"]');
-    const radioNo = problemPane.querySelector('input[value="no"]');
+    // Dom Elements
+    const editor = document.getElementById("code-editor");
+    const langSelect = document.getElementById("lang-selector");
+    const resetBtn = document.getElementById("btn-reset-code");
+    const lineNumbers = document.getElementById("editor-line-numbers");
 
-    const saveChoice = (val) => {
-      Questions.saveAnswer(question.id, val, "coding");
-      // Refresh palette to update status markers (green)
-      Palette.render(Questions.session.currentSectionId, Questions.session.currentQuestionIndex, (targetIdx) => {
-        this.loadQuestion(targetIdx);
-      });
+    // Sync line numbers
+    const updateLineNumbers = () => {
+      const lines = editor.value.split('\n').length;
+      let lineNumsHtml = "";
+      for (let i = 1; i <= lines; i++) {
+        lineNumsHtml += `${i}<br>`;
+      }
+      lineNumbers.innerHTML = lineNumsHtml;
     };
 
-    radioYes.addEventListener("change", () => saveChoice("yes"));
-    radioNo.addEventListener("change", () => saveChoice("no"));
+    // Save choice
+    const handleCodeChange = () => {
+      Questions.saveAnswer(question.id, editor.value, "coding", langSelect.value);
+      updateLineNumbers();
+    };
+
+    // Bind event listeners
+    editor.addEventListener("input", handleCodeChange);
+    editor.addEventListener("scroll", () => {
+      lineNumbers.scrollTop = editor.scrollTop;
+    });
+
+    langSelect.addEventListener("change", () => {
+      const selectedLang = langSelect.value;
+      const tpl = Judge0.languages[selectedLang] ? Judge0.languages[selectedLang].defaultCode : "";
+      if (confirm("Changing language will replace your current code with the default template. Do you want to proceed?")) {
+        editor.value = tpl;
+        handleCodeChange();
+      } else {
+        const oldLang = Questions.getAnswer(question.id)?.lang || "python";
+        langSelect.value = oldLang;
+      }
+    });
+
+    resetBtn.addEventListener("click", () => {
+      const selectedLang = langSelect.value;
+      const tpl = Judge0.languages[selectedLang] ? Judge0.languages[selectedLang].defaultCode : "";
+      if (confirm("Resetting code will clear your current changes. Proceed?")) {
+        editor.value = tpl;
+        handleCodeChange();
+      }
+    });
+
+    // Handle Tab key inside editor
+    editor.addEventListener("keydown", (e) => {
+      if (e.key === "Tab") {
+        e.preventDefault();
+        const start = editor.selectionStart;
+        const end = editor.selectionEnd;
+        editor.value = editor.value.substring(0, start) + "    " + editor.value.substring(end);
+        editor.selectionStart = editor.selectionEnd = start + 4;
+        handleCodeChange();
+      }
+    });
+
+    // Console Tabs binding
+    const tabElements = document.querySelectorAll(".console-tab");
+    tabElements.forEach(tab => {
+      tab.addEventListener("click", () => {
+        tabElements.forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        
+        // Hide all console bodies in this panel
+        const consoleBodies = editorPane.querySelectorAll(".console-body");
+        consoleBodies.forEach(body => {
+          body.style.display = "none";
+        });
+
+        // Show target
+        const targetId = tab.getAttribute("data-target");
+        document.getElementById(targetId).style.display = "block";
+      });
+    });
+
+    // Initial lines and scrolling setup
+    updateLineNumbers();
   },
 
   // Dummy bind for compatibility
@@ -227,6 +367,11 @@ const Navigation = {
       const input = document.getElementById("fitb-ans");
       if (input && input.value.trim() !== "") {
         Questions.saveAnswer(q.id, input.value.trim(), "fitb");
+      }
+    } else if (q.type === "writing") {
+      const input = document.getElementById("writing-ans");
+      if (input) {
+        Questions.saveAnswer(q.id, input.value, "writing");
       }
     }
     // Coding is saved dynamically on input, so no manual action required
@@ -436,7 +581,7 @@ const Navigation = {
       );
 
       // Save answer
-      Questions.saveAnswer(q.id, editor.value, "coding", langSelect.value);
+      Questions.saveAnswer(q.id, editor.value, "coding", langSelect.value, evalResult);
 
       // Render verdict
       verdictEl.innerText = `${evalResult.verdict} (${evalResult.passedCount}/${evalResult.totalCount} passed)`;

@@ -1,0 +1,1191 @@
+{
+  "id": 10,
+  "title": "TCS NQT National Mock Test 10",
+  "sections": [
+    {
+      "id": "numerical",
+      "name": "Numerical Ability",
+      "duration": 25,
+      "questions": [
+        {
+          "id": "m10_num_1",
+          "type": "mcq",
+          "questionText": "A can do a piece of work in 10 days and B in 18 days. If they work together, in how many days will the work be completed?",
+          "options": [
+            "7.43 days",
+            "8.43 days",
+            "5.93 days",
+            "6.43 days"
+          ],
+          "correctOption": 3,
+          "topic": "Time & Work",
+          "explanation": "Combined rate = 1/10 + 1/18 = 28/180. Days required = 180/28 = 6.43 days."
+        },
+        {
+          "id": "m10_num_2",
+          "type": "mcq",
+          "questionText": "The population of a city is 100,000. If it increases at the rate of 5% per annum, what will be the population after 2 years?",
+          "options": [
+            "111,250",
+            "110,250",
+            "109,750",
+            "109,050"
+          ],
+          "correctOption": 1,
+          "topic": "Percentages",
+          "explanation": "Population after 2 years = 100000 * (1 + 5/100)^2 = 110,250."
+        },
+        {
+          "id": "m10_num_3",
+          "type": "mcq",
+          "questionText": "A and B invest in a business in the ratio of Rs. 22,000 and Rs. 13,000 respectively. If the total annual profit is Rs. 20,000, what is A's share?",
+          "options": [
+            "Rs. 12,471",
+            "Rs. 12,171",
+            "Rs. 12,921",
+            "Rs. 12,571"
+          ],
+          "correctOption": 3,
+          "topic": "Partnership",
+          "explanation": "Ratio of investment = 22000 : 13000. A's share = (22000 / 35000) * 20000 = Rs. 12571."
+        },
+        {
+          "id": "m10_num_4",
+          "type": "mcq",
+          "questionText": "The average age of a class of 30 students is 40 years, and another class of 20 students is 50 years. What is the combined average age of both classes?",
+          "options": [
+            "44.00 years",
+            "44.50 years",
+            "45.20 years",
+            "43.20 years"
+          ],
+          "correctOption": 0,
+          "topic": "Averages",
+          "explanation": "Sum of ages = (30 * 40) + (20 * 50) = 2200. Combined average = Sum / Total = 44.00 years."
+        },
+        {
+          "id": "m10_num_5",
+          "type": "mcq",
+          "questionText": "Find the simple interest on Rs. 10,000 at 7% per annum for 3 years.",
+          "options": [
+            "Rs. 2,050",
+            "Rs. 2,100",
+            "Rs. 1,980",
+            "Rs. 2,200"
+          ],
+          "correctOption": 1,
+          "topic": "Simple & Compound Interest",
+          "explanation": "Simple Interest = (P * R * T) / 100 = (10000 * 7 * 3) / 100 = Rs. 2100."
+        },
+        {
+          "id": "m10_num_6",
+          "type": "mcq",
+          "questionText": "What is the angle between the hands of a clock at 3:30?",
+          "options": [
+            "85°",
+            "90°",
+            "75°",
+            "60°"
+          ],
+          "correctOption": 2,
+          "topic": "Clocks & Calendars",
+          "explanation": "Angle = |30H - 11/2 M| = |30(3) - 5.5(30)| = |90 - 165| = 75 degrees."
+        },
+        {
+          "id": "m10_num_7",
+          "type": "mcq",
+          "questionText": "A car covers a distance in 4 hours at a speed of 70 km/h. Find the distance covered.",
+          "options": [
+            "265 km",
+            "300 km",
+            "270 km",
+            "280 km"
+          ],
+          "correctOption": 3,
+          "topic": "Speed, Distance & Time",
+          "explanation": "Distance = Speed * Time = 70 * 4 = 280 km."
+        },
+        {
+          "id": "m10_num_8",
+          "type": "mcq",
+          "questionText": "Simplify the expression: (28 + 31 * 2) - 0.",
+          "options": [
+            "90",
+            "85",
+            "100",
+            "89"
+          ],
+          "correctOption": 0,
+          "topic": "Simplification",
+          "explanation": "Using BODMAS: 28 + (31 * 2) = 90."
+        },
+        {
+          "id": "m10_num_9",
+          "type": "mcq",
+          "questionText": "Divide Rs. 2900 in the ratio 3:5. What is the smaller share?",
+          "options": [
+            "Rs. 1038",
+            "Rs. 1188",
+            "Rs. 1068",
+            "Rs. 1088"
+          ],
+          "correctOption": 3,
+          "topic": "Ratio & Proportion",
+          "explanation": "Smaller share = (3/8) * 2900 = Rs. 1088."
+        },
+        {
+          "id": "m10_num_10",
+          "type": "mcq",
+          "questionText": "An item is bought for Rs. 1500 and sold for Rs. 1800. What is the gain percent?",
+          "options": [
+            "15%",
+            "18%",
+            "25%",
+            "20%"
+          ],
+          "correctOption": 3,
+          "topic": "Profit & Loss",
+          "explanation": "Gain% = ((Gain) / CP) * 100 = ((300) / 1500) * 100 = 20%."
+        },
+        {
+          "id": "m10_num_11",
+          "type": "mcq",
+          "questionText": "In a 40L mixture, the ratio of milk to water is 3:1. How much water is in the mixture?",
+          "options": [
+            "10 liters",
+            "12 liters",
+            "8 liters",
+            "15 liters"
+          ],
+          "correctOption": 0,
+          "topic": "Mixtures & Alligations",
+          "explanation": "Water quantity = (1/4) * 40 = 10 liters."
+        },
+        {
+          "id": "m10_num_12",
+          "type": "mcq",
+          "questionText": "Find the sum of the first 130 natural numbers.",
+          "options": [
+            "8265",
+            "8515",
+            "8565",
+            "8415"
+          ],
+          "correctOption": 1,
+          "topic": "Number Systems",
+          "explanation": "Sum = n(n+1)/2 = 130 * 131 / 2 = 8515."
+        },
+        {
+          "id": "m10_num_13",
+          "type": "mcq",
+          "questionText": "In how many ways can the letters of the word 'LEMON' be arranged?",
+          "options": [
+            "720",
+            "60",
+            "120",
+            "24"
+          ],
+          "correctOption": 2,
+          "topic": "Permutations & Combinations",
+          "explanation": "LEMON has 5 distinct letters. Total arrangements = 5! = 120."
+        },
+        {
+          "id": "m10_num_14",
+          "type": "mcq",
+          "questionText": "Two unbiased coins are tossed. What is the probability of getting exactly one head?",
+          "options": [
+            "1/4",
+            "3/4",
+            "1/3",
+            "1/2"
+          ],
+          "correctOption": 3,
+          "topic": "Probability",
+          "explanation": "Sample space = {HH, HT, TH, TT}. Favorable = {HT, TH}. Probability = 2/4 = 1/2."
+        },
+        {
+          "id": "m10_num_15",
+          "type": "mcq",
+          "questionText": "What is the angle between the hands of a clock at 3:30?",
+          "options": [
+            "75°",
+            "90°",
+            "85°",
+            "60°"
+          ],
+          "correctOption": 0,
+          "topic": "Clocks & Calendars",
+          "explanation": "Angle = |30H - 11/2 M| = |30(3) - 5.5(30)| = |90 - 165| = 75 degrees."
+        },
+        {
+          "id": "m10_num_16",
+          "type": "mcq",
+          "questionText": "A car covers a distance in 4 hours at a speed of 70 km/h. Find the distance covered.",
+          "options": [
+            "265 km",
+            "300 km",
+            "270 km",
+            "280 km"
+          ],
+          "correctOption": 3,
+          "topic": "Speed, Distance & Time",
+          "explanation": "Distance = Speed * Time = 70 * 4 = 280 km."
+        },
+        {
+          "id": "m10_num_17",
+          "type": "mcq",
+          "questionText": "Simplify the expression: (37 + 49 * 2) - 0.",
+          "options": [
+            "145",
+            "130",
+            "135",
+            "134"
+          ],
+          "correctOption": 2,
+          "topic": "Simplification",
+          "explanation": "Using BODMAS: 37 + (49 * 2) = 135."
+        },
+        {
+          "id": "m10_num_18",
+          "type": "mcq",
+          "questionText": "Divide Rs. 3800 in the ratio 3:5. What is the smaller share?",
+          "options": [
+            "Rs. 1375",
+            "Rs. 1425",
+            "Rs. 1405",
+            "Rs. 1525"
+          ],
+          "correctOption": 1,
+          "topic": "Ratio & Proportion",
+          "explanation": "Smaller share = (3/8) * 3800 = Rs. 1425."
+        },
+        {
+          "id": "m10_num_19",
+          "type": "mcq",
+          "questionText": "An item is bought for Rs. 1950 and sold for Rs. 2340. What is the gain percent?",
+          "options": [
+            "20%",
+            "18%",
+            "15%",
+            "25%"
+          ],
+          "correctOption": 0,
+          "topic": "Profit & Loss",
+          "explanation": "Gain% = ((Gain) / CP) * 100 = ((390) / 1950) * 100 = 20%."
+        },
+        {
+          "id": "m10_num_20",
+          "type": "mcq",
+          "questionText": "In a 40L mixture, the ratio of milk to water is 3:1. How much water is in the mixture?",
+          "options": [
+            "12 liters",
+            "8 liters",
+            "10 liters",
+            "15 liters"
+          ],
+          "correctOption": 2,
+          "topic": "Mixtures & Alligations",
+          "explanation": "Water quantity = (1/4) * 40 = 10 liters."
+        }
+      ]
+    },
+    {
+      "id": "verbal",
+      "name": "Verbal Ability",
+      "duration": 25,
+      "questions": [
+        {
+          "id": "m10_verb_1",
+          "type": "mcq",
+          "questionText": "Select the correct synonym for: <b>CANDID</b>",
+          "options": [
+            "Frank",
+            "Secretive",
+            "Shy",
+            "Dishonest"
+          ],
+          "correctOption": 0,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "CANDID means being close in meaning to Frank."
+        },
+        {
+          "id": "m10_verb_2",
+          "type": "mcq",
+          "questionText": "Fill in the blank:<br>The project team has agreed ______ the new timeline suggested by the client.",
+          "options": [
+            "for",
+            "on",
+            "with",
+            "to"
+          ],
+          "correctOption": 3,
+          "topic": "Prepositions & Tenses",
+          "explanation": "The correct preposition is 'to'."
+        },
+        {
+          "id": "m10_verb_3",
+          "type": "mcq",
+          "questionText": "Identify the error in the sentence:<br><i>'Each of the candidates (A) / were (B) / highly qualified (C) / No error (D)'</i>",
+          "options": [
+            "regarding this plan",
+            "to London",
+            "were",
+            "No error"
+          ],
+          "correctOption": 2,
+          "topic": "Error Detection",
+          "explanation": "Each takes a singular verb: was."
+        },
+        {
+          "id": "m10_verb_4",
+          "type": "mcq",
+          "questionText": "Select the correct synonym for: <b>BENEVOLENT</b>",
+          "options": [
+            "Cruel",
+            "Kind",
+            "Hostile",
+            "Selfish"
+          ],
+          "correctOption": 1,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "BENEVOLENT means being close in meaning to Kind."
+        },
+        {
+          "id": "m10_verb_5",
+          "type": "mcq",
+          "questionText": "Fill in the blank:<br>The officer in charge congratulated the team ______ their outstanding success.",
+          "options": [
+            "on",
+            "with",
+            "for",
+            "at"
+          ],
+          "correctOption": 0,
+          "topic": "Prepositions & Tenses",
+          "explanation": "The correct preposition is 'on'."
+        },
+        {
+          "id": "m10_verb_6",
+          "type": "mcq",
+          "questionText": "Identify the error in the sentence:<br><i>'He is (A) / having three (B) / luxury cars (C) / No error (D)'</i>",
+          "options": [
+            "No error",
+            "to London",
+            "regarding this plan",
+            "having three"
+          ],
+          "correctOption": 3,
+          "topic": "Error Detection",
+          "explanation": "Statics verbs like 'have' are not used in continuous forms for possession."
+        },
+        {
+          "id": "m10_verb_7",
+          "type": "mcq",
+          "questionText": "Select the correct synonym for: <b>ACUMEN</b>",
+          "options": [
+            "Reluctance",
+            "Insight",
+            "Stupidity",
+            "Tension"
+          ],
+          "correctOption": 1,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "ACUMEN means being close in meaning to Insight."
+        },
+        {
+          "id": "m10_verb_8",
+          "type": "mcq",
+          "questionText": "Fill in the blank:<br>The football match was delayed ______ the torrential downpour.",
+          "options": [
+            "in spite of",
+            "because",
+            "with reference to",
+            "due to"
+          ],
+          "correctOption": 3,
+          "topic": "Prepositions & Tenses",
+          "explanation": "The correct preposition is 'due to'."
+        },
+        {
+          "id": "m10_verb_9",
+          "type": "mcq",
+          "questionText": "Identify the error in the sentence:<br><i>'Neither A nor B (A) / have finished (B) / their homework (C) / No error (D)'</i>",
+          "options": [
+            "have finished",
+            "regarding this plan",
+            "to London",
+            "No error"
+          ],
+          "correctOption": 0,
+          "topic": "Error Detection",
+          "explanation": "Neither/nor singular subject takes singular verb: has finished."
+        },
+        {
+          "id": "m10_verb_10",
+          "type": "mcq",
+          "questionText": "Select the correct synonym for: <b>ABANDON</b>",
+          "options": [
+            "Forsake",
+            "Support",
+            "Keep",
+            "Cherish"
+          ],
+          "correctOption": 0,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "ABANDON means being close in meaning to Forsake."
+        },
+        {
+          "id": "m10_verb_11",
+          "type": "mcq",
+          "questionText": "Fill in the blank:<br>He is very good ______ playing chess, having won several local tournaments.",
+          "options": [
+            "in",
+            "with",
+            "on",
+            "at"
+          ],
+          "correctOption": 3,
+          "topic": "Prepositions & Tenses",
+          "explanation": "The correct preposition is 'at'."
+        },
+        {
+          "id": "m10_verb_12",
+          "type": "mcq",
+          "questionText": "Identify the error in the sentence:<br><i>'Between you and I (A) / there are no secrets (B) / regarding this plan (C) / No error (D)'</i>",
+          "options": [
+            "regarding this plan",
+            "Between you and I",
+            "to London",
+            "No error"
+          ],
+          "correctOption": 1,
+          "topic": "Error Detection",
+          "explanation": "Prepositions like 'between' take objective pronouns: Between you and me."
+        },
+        {
+          "id": "m10_verb_13",
+          "type": "mcq",
+          "questionText": "Select the correct synonym for: <b>UBIQUITOUS</b>",
+          "options": [
+            "Temporary",
+            "Rare",
+            "Harmful",
+            "Omnipresent"
+          ],
+          "correctOption": 3,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "UBIQUITOUS means being close in meaning to Omnipresent."
+        },
+        {
+          "id": "m10_verb_14",
+          "type": "mcq",
+          "questionText": "Fill in the blank:<br>She has been working in this company ______ five years now.",
+          "options": [
+            "for",
+            "during",
+            "since",
+            "from"
+          ],
+          "correctOption": 0,
+          "topic": "Prepositions & Tenses",
+          "explanation": "The correct preposition is 'for'."
+        },
+        {
+          "id": "m10_verb_15",
+          "type": "mcq",
+          "questionText": "Identify the error in the sentence:<br><i>'One of my friends (A) / are going (B) / to London (C) / No error (D)'</i>",
+          "options": [
+            "to London",
+            "are going",
+            "No error",
+            "regarding this plan"
+          ],
+          "correctOption": 1,
+          "topic": "Error Detection",
+          "explanation": "One of followed by plural noun takes a singular verb."
+        },
+        {
+          "id": "m10_verb_16",
+          "type": "mcq",
+          "questionText": "Select the correct synonym for: <b>CANDID</b>",
+          "options": [
+            "Shy",
+            "Secretive",
+            "Frank",
+            "Dishonest"
+          ],
+          "correctOption": 2,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "CANDID means being close in meaning to Frank."
+        },
+        {
+          "id": "m10_verb_17",
+          "type": "mcq",
+          "questionText": "Fill in the blank:<br>The project team has agreed ______ the new timeline suggested by the client.",
+          "options": [
+            "for",
+            "on",
+            "with",
+            "to"
+          ],
+          "correctOption": 3,
+          "topic": "Prepositions & Tenses",
+          "explanation": "The correct preposition is 'to'."
+        },
+        {
+          "id": "m10_verb_18",
+          "type": "mcq",
+          "questionText": "Identify the error in the sentence:<br><i>'Each of the candidates (A) / were (B) / highly qualified (C) / No error (D)'</i>",
+          "options": [
+            "were",
+            "to London",
+            "regarding this plan",
+            "No error"
+          ],
+          "correctOption": 0,
+          "topic": "Error Detection",
+          "explanation": "Each takes a singular verb: was."
+        },
+        {
+          "id": "m10_verb_19",
+          "type": "mcq",
+          "questionText": "Select the correct synonym for: <b>BENEVOLENT</b>",
+          "options": [
+            "Cruel",
+            "Selfish",
+            "Hostile",
+            "Kind"
+          ],
+          "correctOption": 3,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "BENEVOLENT means being close in meaning to Kind."
+        },
+        {
+          "id": "m10_verb_20",
+          "type": "mcq",
+          "questionText": "Fill in the blank:<br>The officer in charge congratulated the team ______ their outstanding success.",
+          "options": [
+            "with",
+            "at",
+            "for",
+            "on"
+          ],
+          "correctOption": 3,
+          "topic": "Prepositions & Tenses",
+          "explanation": "The correct preposition is 'on'."
+        },
+        {
+          "id": "m10_verb_21",
+          "type": "mcq",
+          "questionText": "Identify the error in the sentence:<br><i>'He is (A) / having three (B) / luxury cars (C) / No error (D)'</i>",
+          "options": [
+            "having three",
+            "to London",
+            "regarding this plan",
+            "No error"
+          ],
+          "correctOption": 0,
+          "topic": "Error Detection",
+          "explanation": "Statics verbs like 'have' are not used in continuous forms for possession."
+        },
+        {
+          "id": "m10_verb_22",
+          "type": "mcq",
+          "questionText": "Select the correct synonym for: <b>ACUMEN</b>",
+          "options": [
+            "Stupidity",
+            "Reluctance",
+            "Tension",
+            "Insight"
+          ],
+          "correctOption": 3,
+          "topic": "Synonyms & Antonyms",
+          "explanation": "ACUMEN means being close in meaning to Insight."
+        },
+        {
+          "id": "m10_verb_23",
+          "type": "mcq",
+          "questionText": "Fill in the blank:<br>The football match was delayed ______ the torrential downpour.",
+          "options": [
+            "with reference to",
+            "because",
+            "due to",
+            "in spite of"
+          ],
+          "correctOption": 2,
+          "topic": "Prepositions & Tenses",
+          "explanation": "The correct preposition is 'due to'."
+        },
+        {
+          "id": "m10_email_1",
+          "type": "writing",
+          "wordLimit": "50-80",
+          "phrases": [
+            "digital catalog",
+            "reference books",
+            "study booths",
+            "operating hours",
+            "student benefit",
+            "funding",
+            "volunteer",
+            "look forward"
+          ],
+          "questionText": "<b>TCS NQT Email Writing Task</b><br>Write an email to your university dean suggesting improvements to the campus library.<br><br><b>Phrases to use:</b> <i>digital catalog, reference books, study booths, operating hours, student benefit, funding, volunteer, look forward</i>.<br><b>Sign the email as:</b> Kiran",
+          "correctOption": "Subject: Suggestions for Campus Library Improvements - Kiran\n\nDear Dean,\n\nI am writing to suggest a few updates to our campus library. Improving the digital catalog and updating the reference books would be a major student benefit. Furthermore, introducing isolated study booths and extending the operating hours would help students prepare better for exams.\n\nWe could seek additional funding or encourage students to volunteer. I look forward to hearing your thoughts on this matter.\n\nWarm regards,\nKiran",
+          "topic": "Email Writing",
+          "explanation": "Write a cohesive professional email using all required phrases, signed appropriately."
+        },
+        {
+          "id": "m10_summary_1",
+          "type": "writing",
+          "wordLimit": "30-50",
+          "questionText": "<b>TCS NQT Paragraph Summary Task</b><br>Read the paragraph below and write a summary in 30-50 words.<br><br><i>\"Remote work has revolutionized the modern corporate structure by saving commuting time and reducing company office overheads. However, telecommuting also introduces major drawbacks. Employees often experience professional isolation and struggle to maintain a boundary between their personal and working lives. Consequently, while remote work provides flexibility, it requires strict self-discipline to prevent burnouts and sustain team collaboration.\"</i>",
+          "correctOption": "Remote work offers flexibility, saves commuting time, and cuts office overheads, but it can trigger isolation and blur work-life boundaries. To prevent burnout and ensure effective team collaboration, employees must maintain strict self-discipline.",
+          "topic": "Paragraph Summary",
+          "explanation": "Condense the paragraph to its key points in 30-50 words."
+        }
+      ]
+    },
+    {
+      "id": "reasoning",
+      "name": "Reasoning Ability",
+      "duration": 25,
+      "questions": [
+        {
+          "id": "m10_reas_1",
+          "type": "mcq",
+          "questionText": "A is the father of B. C is the daughter of B. D is the brother of B. E is the son of A. What is the relation between C and E?",
+          "options": [
+            "Sister and Brother",
+            "Cousins",
+            "Niece and Uncle",
+            "Aunt and Nephew"
+          ],
+          "correctOption": 2,
+          "topic": "Blood Relations",
+          "explanation": "Tracing the relationship tree gives: Niece and Uncle"
+        },
+        {
+          "id": "m10_reas_2",
+          "type": "mcq",
+          "questionText": "Find the missing term in the series:<br><b>4, 9, 20, 43, 90, ?</b>",
+          "options": [
+            "180",
+            "185",
+            "192",
+            "187"
+          ],
+          "correctOption": 1,
+          "topic": "Number Series",
+          "explanation": "Pattern is (previous * 2) + (1, 2, 3, 4, 5)."
+        },
+        {
+          "id": "m10_reas_3",
+          "type": "mcq",
+          "questionText": "Six people sit in a circle facing the center. A sits opposite B. C sits between A and D. F sits opposite D. Who is sitting opposite C?",
+          "options": [
+            "E",
+            "A",
+            "F",
+            "D"
+          ],
+          "correctOption": 0,
+          "topic": "Seating Arrangement",
+          "explanation": "Analyzing the circular arrangement shows E must sit opposite C."
+        },
+        {
+          "id": "m10_reas_4",
+          "type": "mcq",
+          "questionText": "<b>Statements:</b> All birds are trees. All trees are papers.<br><b>Conclusions:</b><br>I. All birds are papers.<br>II. Some papers are birds.",
+          "options": [
+            "Neither follows",
+            "Only conclusion I follows",
+            "Only conclusion II follows",
+            "Both conclusions follow"
+          ],
+          "correctOption": 3,
+          "topic": "Syllogisms",
+          "explanation": "By transitive property, all birds are papers (I follows). Since all birds are papers, some papers are birds (II also follows)."
+        },
+        {
+          "id": "m10_reas_5",
+          "type": "mcq",
+          "questionText": "A is the brother of B; B is the sister of C; and C is the father of D. How is A related to D?",
+          "options": [
+            "Brother",
+            "Uncle",
+            "Father",
+            "Nephew"
+          ],
+          "correctOption": 1,
+          "topic": "Blood Relations",
+          "explanation": "Tracing the relationship tree gives: Uncle"
+        },
+        {
+          "id": "m10_reas_6",
+          "type": "mcq",
+          "questionText": "Find the missing term in the series:<br><b>5, 11, 23, 47, ?</b>",
+          "options": [
+            "96",
+            "90",
+            "98",
+            "95"
+          ],
+          "correctOption": 3,
+          "topic": "Number Series",
+          "explanation": "Pattern is (previous * 2) + 1."
+        },
+        {
+          "id": "m10_reas_7",
+          "type": "mcq",
+          "questionText": "Six people sit in a circle facing the center. A sits opposite B. C sits between A and D. F sits opposite D. Who is sitting opposite C?",
+          "options": [
+            "E",
+            "D",
+            "F",
+            "A"
+          ],
+          "correctOption": 0,
+          "topic": "Seating Arrangement",
+          "explanation": "Analyzing the circular arrangement shows E must sit opposite C."
+        },
+        {
+          "id": "m10_reas_8",
+          "type": "mcq",
+          "questionText": "<b>Statements:</b> All birds are trees. All trees are papers.<br><b>Conclusions:</b><br>I. All birds are papers.<br>II. Some papers are birds.",
+          "options": [
+            "Neither follows",
+            "Both conclusions follow",
+            "Only conclusion II follows",
+            "Only conclusion I follows"
+          ],
+          "correctOption": 1,
+          "topic": "Syllogisms",
+          "explanation": "By transitive property, all birds are papers (I follows). Since all birds are papers, some papers are birds (II also follows)."
+        },
+        {
+          "id": "m10_reas_9",
+          "type": "mcq",
+          "questionText": "Introducing a girl, a boy said, 'She is the daughter of the mother of the brother of my father.' How is the girl related to the boy?",
+          "options": [
+            "Mother",
+            "Cousin",
+            "Aunt",
+            "Sister"
+          ],
+          "correctOption": 2,
+          "topic": "Blood Relations",
+          "explanation": "Tracing the relationship tree gives: Aunt"
+        },
+        {
+          "id": "m10_reas_10",
+          "type": "mcq",
+          "questionText": "Find the missing term in the series:<br><b>3, 7, 15, 31, 63, ?</b>",
+          "options": [
+            "125",
+            "128",
+            "127",
+            "120"
+          ],
+          "correctOption": 2,
+          "topic": "Number Series",
+          "explanation": "Pattern is (previous * 2) + 1."
+        },
+        {
+          "id": "m10_reas_11",
+          "type": "mcq",
+          "questionText": "Six people sit in a circle facing the center. A sits opposite B. C sits between A and D. F sits opposite D. Who is sitting opposite C?",
+          "options": [
+            "A",
+            "D",
+            "F",
+            "E"
+          ],
+          "correctOption": 3,
+          "topic": "Seating Arrangement",
+          "explanation": "Analyzing the circular arrangement shows E must sit opposite C."
+        },
+        {
+          "id": "m10_reas_12",
+          "type": "mcq",
+          "questionText": "<b>Statements:</b> All birds are trees. All trees are papers.<br><b>Conclusions:</b><br>I. All birds are papers.<br>II. Some papers are birds.",
+          "options": [
+            "Both conclusions follow",
+            "Only conclusion I follows",
+            "Only conclusion II follows",
+            "Neither follows"
+          ],
+          "correctOption": 0,
+          "topic": "Syllogisms",
+          "explanation": "By transitive property, all birds are papers (I follows). Since all birds are papers, some papers are birds (II also follows)."
+        },
+        {
+          "id": "m10_reas_13",
+          "type": "mcq",
+          "questionText": "Pointing to a photograph of a boy, Suresh said, 'He is the son of the only son of my mother.' How is Suresh related to that boy?",
+          "options": [
+            "Brother",
+            "Uncle",
+            "Cousin",
+            "Father"
+          ],
+          "correctOption": 3,
+          "topic": "Blood Relations",
+          "explanation": "Tracing the relationship tree gives: Father"
+        },
+        {
+          "id": "m10_reas_14",
+          "type": "mcq",
+          "questionText": "Find the missing term in the series:<br><b>2, 3, 5, 8, 13, 21, ?</b>",
+          "options": [
+            "32",
+            "35",
+            "34",
+            "30"
+          ],
+          "correctOption": 2,
+          "topic": "Number Series",
+          "explanation": "Fibonacci sequence."
+        },
+        {
+          "id": "m10_reas_15",
+          "type": "mcq",
+          "questionText": "Six people sit in a circle facing the center. A sits opposite B. C sits between A and D. F sits opposite D. Who is sitting opposite C?",
+          "options": [
+            "A",
+            "E",
+            "D",
+            "F"
+          ],
+          "correctOption": 1,
+          "topic": "Seating Arrangement",
+          "explanation": "Analyzing the circular arrangement shows E must sit opposite C."
+        },
+        {
+          "id": "m10_reas_16",
+          "type": "mcq",
+          "questionText": "<b>Statements:</b> All birds are trees. All trees are papers.<br><b>Conclusions:</b><br>I. All birds are papers.<br>II. Some papers are birds.",
+          "options": [
+            "Both conclusions follow",
+            "Only conclusion II follows",
+            "Only conclusion I follows",
+            "Neither follows"
+          ],
+          "correctOption": 0,
+          "topic": "Syllogisms",
+          "explanation": "By transitive property, all birds are papers (I follows). Since all birds are papers, some papers are birds (II also follows)."
+        },
+        {
+          "id": "m10_reas_17",
+          "type": "mcq",
+          "questionText": "A man said to a woman, 'Your brother's only sister is my mother.' How is the woman related to the man?",
+          "options": [
+            "Sister",
+            "Daughter",
+            "Aunt",
+            "Mother"
+          ],
+          "correctOption": 3,
+          "topic": "Blood Relations",
+          "explanation": "Tracing the relationship tree gives: Mother"
+        },
+        {
+          "id": "m10_reas_18",
+          "type": "mcq",
+          "questionText": "Find the missing term in the series:<br><b>2, 6, 12, 20, 30, ?</b>",
+          "options": [
+            "44",
+            "42",
+            "40",
+            "38"
+          ],
+          "correctOption": 1,
+          "topic": "Number Series",
+          "explanation": "Pattern is n^2 + n."
+        },
+        {
+          "id": "m10_reas_19",
+          "type": "mcq",
+          "questionText": "Six people sit in a circle facing the center. A sits opposite B. C sits between A and D. F sits opposite D. Who is sitting opposite C?",
+          "options": [
+            "A",
+            "F",
+            "D",
+            "E"
+          ],
+          "correctOption": 3,
+          "topic": "Seating Arrangement",
+          "explanation": "Analyzing the circular arrangement shows E must sit opposite C."
+        },
+        {
+          "id": "m10_reas_20",
+          "type": "mcq",
+          "questionText": "<b>Statements:</b> All birds are trees. All trees are papers.<br><b>Conclusions:</b><br>I. All birds are papers.<br>II. Some papers are birds.",
+          "options": [
+            "Only conclusion I follows",
+            "Neither follows",
+            "Only conclusion II follows",
+            "Both conclusions follow"
+          ],
+          "correctOption": 3,
+          "topic": "Syllogisms",
+          "explanation": "By transitive property, all birds are papers (I follows). Since all birds are papers, some papers are birds (II also follows)."
+        }
+      ]
+    },
+    {
+      "id": "advanced",
+      "name": "Advanced Aptitude",
+      "duration": 25,
+      "questions": [
+        {
+          "id": "m10_adv_1",
+          "type": "mcq",
+          "questionText": "If the roots of the equation x<sup>2</sup> - px + q = 0 are consecutive integers, then p<sup>2</sup> - 4q is equal to:",
+          "options": [
+            "3",
+            "4",
+            "1",
+            "2"
+          ],
+          "correctOption": 2,
+          "topic": "Functions & Equations",
+          "explanation": "Algebraic expansion and simplification confirms the correct relationship."
+        },
+        {
+          "id": "m10_adv_2",
+          "type": "mcq",
+          "questionText": "Find the area of the region bounded by |x| + 2|y| = 2.",
+          "options": [
+            "6",
+            "4",
+            "8",
+            "2"
+          ],
+          "correctOption": 1,
+          "topic": "Geometry & Mensuration",
+          "explanation": "Calculating the bounded coordinate area yields 4 square units."
+        },
+        {
+          "id": "m10_adv_3",
+          "type": "mcq",
+          "questionText": "Find the remainder when 2<sup>1000</sup> is divided by 17.",
+          "options": [
+            "1",
+            "4",
+            "2",
+            "16"
+          ],
+          "correctOption": 0,
+          "topic": "Number Theory",
+          "explanation": "By Fermat's Little Theorem, 2^16 mod 17 = 1. Since 1000 = 16 * 62 + 8: 256 mod 17 = 1."
+        },
+        {
+          "id": "m10_adv_4",
+          "type": "mcq",
+          "questionText": "If the sum of the roots of the equation ax<sup>2</sup> + bx + c = 0 is equal to the sum of the squares of their reciprocals, then <b>bc<sup>2</sup>, ca<sup>2</sup>, ab<sup>2</sup></b> are in:",
+          "options": [
+            "Geometric Progression (GP)",
+            "None of the above",
+            "Harmonic Progression (HP)",
+            "Arithmetic Progression (AP)"
+          ],
+          "correctOption": 3,
+          "topic": "Functions & Equations",
+          "explanation": "Algebraic expansion and simplification confirms the correct relationship."
+        },
+        {
+          "id": "m10_adv_5",
+          "type": "mcq",
+          "questionText": "What is the area of the region bounded by the graphs of |x| + |y| = 4?",
+          "options": [
+            "8",
+            "32",
+            "16",
+            "24"
+          ],
+          "correctOption": 1,
+          "topic": "Geometry & Mensuration",
+          "explanation": "Calculating the bounded coordinate area yields 32 square units."
+        },
+        {
+          "id": "m10_adv_6",
+          "type": "mcq",
+          "questionText": "Find the remainder when 2<sup>1000</sup> is divided by 17.",
+          "options": [
+            "16",
+            "2",
+            "4",
+            "1"
+          ],
+          "correctOption": 3,
+          "topic": "Number Theory",
+          "explanation": "By Fermat's Little Theorem, 2^16 mod 17 = 1. Since 1000 = 16 * 62 + 8: 256 mod 17 = 1."
+        },
+        {
+          "id": "m10_adv_7",
+          "type": "mcq",
+          "questionText": "If the roots of the equation x<sup>2</sup> - px + q = 0 are consecutive integers, then p<sup>2</sup> - 4q is equal to:",
+          "options": [
+            "1",
+            "4",
+            "2",
+            "3"
+          ],
+          "correctOption": 0,
+          "topic": "Functions & Equations",
+          "explanation": "Algebraic expansion and simplification confirms the correct relationship."
+        },
+        {
+          "id": "m10_adv_8",
+          "type": "mcq",
+          "questionText": "Find the area of the region bounded by |x| + 2|y| = 2.",
+          "options": [
+            "2",
+            "4",
+            "6",
+            "8"
+          ],
+          "correctOption": 1,
+          "topic": "Geometry & Mensuration",
+          "explanation": "Calculating the bounded coordinate area yields 4 square units."
+        },
+        {
+          "id": "m10_adv_9",
+          "type": "mcq",
+          "questionText": "Find the remainder when 2<sup>1000</sup> is divided by 17.",
+          "options": [
+            "4",
+            "2",
+            "1",
+            "16"
+          ],
+          "correctOption": 2,
+          "topic": "Number Theory",
+          "explanation": "By Fermat's Little Theorem, 2^16 mod 17 = 1. Since 1000 = 16 * 62 + 8: 256 mod 17 = 1."
+        },
+        {
+          "id": "m10_adv_10",
+          "type": "mcq",
+          "questionText": "If the sum of the roots of the equation ax<sup>2</sup> + bx + c = 0 is equal to the sum of the squares of their reciprocals, then <b>bc<sup>2</sup>, ca<sup>2</sup>, ab<sup>2</sup></b> are in:",
+          "options": [
+            "Harmonic Progression (HP)",
+            "None of the above",
+            "Arithmetic Progression (AP)",
+            "Geometric Progression (GP)"
+          ],
+          "correctOption": 2,
+          "topic": "Functions & Equations",
+          "explanation": "Algebraic expansion and simplification confirms the correct relationship."
+        },
+        {
+          "id": "m10_adv_11",
+          "type": "mcq",
+          "questionText": "What is the area of the region bounded by the graphs of |x| + |y| = 4?",
+          "options": [
+            "16",
+            "8",
+            "24",
+            "32"
+          ],
+          "correctOption": 3,
+          "topic": "Geometry & Mensuration",
+          "explanation": "Calculating the bounded coordinate area yields 32 square units."
+        },
+        {
+          "id": "m10_adv_12",
+          "type": "mcq",
+          "questionText": "Find the remainder when 2<sup>1000</sup> is divided by 17.",
+          "options": [
+            "1",
+            "2",
+            "4",
+            "16"
+          ],
+          "correctOption": 0,
+          "topic": "Number Theory",
+          "explanation": "By Fermat's Little Theorem, 2^16 mod 17 = 1. Since 1000 = 16 * 62 + 8: 256 mod 17 = 1."
+        },
+        {
+          "id": "m10_adv_13",
+          "type": "mcq",
+          "questionText": "If the roots of the equation x<sup>2</sup> - px + q = 0 are consecutive integers, then p<sup>2</sup> - 4q is equal to:",
+          "options": [
+            "4",
+            "3",
+            "2",
+            "1"
+          ],
+          "correctOption": 3,
+          "topic": "Functions & Equations",
+          "explanation": "Algebraic expansion and simplification confirms the correct relationship."
+        },
+        {
+          "id": "m10_adv_14",
+          "type": "mcq",
+          "questionText": "Find the area of the region bounded by |x| + 2|y| = 2.",
+          "options": [
+            "8",
+            "2",
+            "4",
+            "6"
+          ],
+          "correctOption": 2,
+          "topic": "Geometry & Mensuration",
+          "explanation": "Calculating the bounded coordinate area yields 4 square units."
+        },
+        {
+          "id": "m10_adv_15",
+          "type": "mcq",
+          "questionText": "Find the remainder when 2<sup>1000</sup> is divided by 17.",
+          "options": [
+            "2",
+            "1",
+            "16",
+            "4"
+          ],
+          "correctOption": 1,
+          "topic": "Number Theory",
+          "explanation": "By Fermat's Little Theorem, 2^16 mod 17 = 1. Since 1000 = 16 * 62 + 8: 256 mod 17 = 1."
+        }
+      ]
+    },
+    {
+      "id": "coding",
+      "name": "Coding",
+      "duration": 90,
+      "questions": [
+        {
+          "id": "m10_cod_1",
+          "type": "coding",
+          "title": "Roman to Integer Converter",
+          "difficulty": "Ninja",
+          "topic": "Strings & Hashing",
+          "problemStatement": "Write a program to convert a given Roman numeral to an integer. Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M. The values are: I=1, V=5, X=10, L=50, C=100, D=500, M=1000.<br><br><b>Input Format:</b><br>- A single string representing a Roman numeral.<br><br><b>Output Format:</b><br>- Print the corresponding integer.<br><br><b>Constraints:</b><br>1 &le; length(S) &le; 15",
+          "sampleCases": [
+            {
+              "input": "III",
+              "output": "3",
+              "explanation": "III = 3."
+            }
+          ]
+        },
+        {
+          "id": "m10_cod_2",
+          "type": "coding",
+          "title": "Coin Change Problem",
+          "difficulty": "Digital / Prime",
+          "topic": "Greedy & Dynamic Programming",
+          "problemStatement": "Given a value V and an array of N coin denominations, write a program to find the minimum number of coins required to make change for V. If it's not possible to make change for V using the given denominations, print -1.<br><br>You have an infinite supply of each coin denomination.<br><br><b>Input Format:</b><br>- First line contains two integers, N (number of denominations) and V (target value).<br>- Second line contains N space-separated integers representing the coin values.<br><br><b>Output Format:</b><br>- Print the minimum number of coins. If impossible, print -1.<br><br><b>Constraints:</b><br>1 &le; N &le; 100",
+          "sampleCases": [
+            {
+              "input": "3 11\n1 2 5",
+              "output": "3",
+              "explanation": "We can make 11 using 5 + 5 + 1 (3 coins)."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

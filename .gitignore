@@ -1,3 +1,6 @@
 node_modules/
 .DS_Store
 *.log
+.env
+secure_data/config.json
+

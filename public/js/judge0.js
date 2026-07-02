@@ -104,7 +104,8 @@ const Judge0 = {
         totalCount: res.totalCount,
         results: results,
         time: res.time,
-        memory: res.memory
+        memory: res.memory,
+        aiReport: res.aiReport
       };
     } catch (e) {
       console.error("Local compiler API error", e);

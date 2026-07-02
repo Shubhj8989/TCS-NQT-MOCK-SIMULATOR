@@ -88,11 +88,12 @@ const Questions = {
   },
 
   // Actions
-  saveAnswer: function(questionId, value, type, lang = null) {
+  saveAnswer: function(questionId, value, type, lang = null, evaluation = null) {
     this.session.answers[questionId] = {
       value: value,
       type: type,
-      lang: lang
+      lang: lang,
+      evaluation: evaluation
     };
     this.saveSession();
   },
