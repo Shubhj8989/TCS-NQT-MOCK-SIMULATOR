@@ -161,10 +161,10 @@ const Navigation = {
 
     writingDiv.innerHTML = `
       <label style="display:block; font-size:0.85rem; color:var(--tcs-text-gray); margin-bottom:0.6rem; font-weight:500;">Type your answer inside the box (Recommended: ${question.wordLimit || "50-80"} words):</label>
-      <textarea class="writing-input" id="writing-ans" rows="12" style="width:100%; max-width:100%; min-height:220px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.15); border-radius: var(--radius-sm); color: white; padding: 1rem; font-family: inherit; font-size: 0.95rem; line-height: 1.6; outline: none; transition: border-color 0.2s; resize: vertical;" placeholder="Type your response here...">${savedVal}</textarea>
+      <textarea class="writing-input" id="writing-ans" rows="12" style="width:100%; max-width:100%; min-height:220px; background: #ffffff; border: 1px solid var(--tcs-border); border-radius: 4px; color: #000000; padding: 1rem; font-family: inherit; font-size: 0.95rem; line-height: 1.6; outline: none; transition: border-color 0.2s; resize: vertical;" placeholder="Type your response here...">${savedVal}</textarea>
       <div style="display:flex; justify-content:space-between; align-items:center; margin-top:0.5rem; font-size:0.8rem; color:var(--tcs-text-gray);">
         <span>Keep focus on correct formatting, grammar, and key terms.</span>
-        <span id="writing-word-count" style="font-weight:600; color:#a5c3f6;">Words: 0</span>
+        <span id="writing-word-count" style="font-weight:600; color:var(--tcs-blue);">Words: 0</span>
       </div>
     `;
 
